@@ -14,6 +14,47 @@
         {% endblock %}
     </head>
     <body>
+        <header class="header">
+            <nav class="navbar">
+                <section class="navbar__toggle">
+                    <input class="navbar__input" type="checkbox"/>
+                    <span class="navbar__span"></span>
+                    <span class="navbar__span"></span>
+                    <span class="navbar__span"></span>
+                    <ul class="navbar__menu">
+                        <section class="navbar__logo">
+                            <li class="navbar__element">
+                                <a class="navbar__link brand-name" href="#">Marco Valeri</a>
+                            </li>
+                        </section>
+                        <section class="navbar__items">
+                            <li class="navbar__element navbar__element--mark">
+                                <a class="navbar__link" href="#">Home</a>
+                            </li>
+                            <li class="navbar__element">
+                                <a class="navbar__link" href="#">Chi sono</a>
+                            </li>
+                            <li class="navbar__element">
+                                <a class="navbar__link" href="#">Blog</a>
+                            </li>
+                            <li class="navbar__element">
+                                <a class="navbar__link" href="#">Contatti</a>
+                            </li>
+                        </section>
+                    </ul>
+                </section>
+            </nav>
+            <section class="header__hero">
+                <section class="header__container">
+                    <h1 class="header__title">Marco Valeri</h1>
+                </section>
+            </section>
+        </header>
         {% block body %}{% endblock %}
+        <footer class="footer">
+            <section class="footer__content">
+                <p class="footer__content-main">Made with <span class="heart">&hearts;</span> in London by Marco Valeri - &copy; {{ "now"|date("Y") }} - All rights reserved</p>
+            </section>
+        </footer>
     </body>
 </html>

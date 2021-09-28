@@ -1,0 +1,19 @@
+.header {
+    height: 70vh;
+    border: 1px solid #ff0000;
+}
+
+.header__hero {
+    width: 30%;
+    margin: 5rem auto 0rem auto;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.header__container {
+    text-align: center;
+}
+
+.header__title {
+    font-size: 3rem;
+}
