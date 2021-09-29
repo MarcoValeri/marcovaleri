@@ -21,3 +21,19 @@
     font-size: 2.5rem;
     color: #ff0000;
 }
+
+/*
+* Media Queries
+* max-width: 767px
+*/
+@media (max-width: 767px) {
+
+    .footer__content {
+        top: 50%;
+    }
+
+    .footer__content-main {
+        line-height: 1.6;
+    }
+
+}
