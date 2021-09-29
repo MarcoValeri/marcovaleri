@@ -17,3 +17,15 @@
 .header__title {
     font-size: 3rem;
 }
+
+/*
+* Media Queries
+* max-width: 767px
+*/
+@media (max-width: 767px) {
+
+    .header__hero {
+        width: 80%;
+    }
+
+}
