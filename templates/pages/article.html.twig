@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Article
+{% endblock %}
+
+{% block body %}
+    <h1>Article for loop</h1>
+    {% for article in articles %}
+        {% if slug == article.url %}
+            <h1>{{ article.title }}</h1>
+            <h2>{{ article.description }}</h2>
+        {% else %}
+            <h2>404 error: page not found</h2>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
