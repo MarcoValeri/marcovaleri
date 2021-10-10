@@ -1,0 +1,27 @@
+.main {
+    width: 80%;
+    margin: 2rem auto 2rem auto;
+    display: grid;
+    grid-template-columns: 1fr 0.25fr;
+    grid-template-areas:
+    "content sidebar";
+}
+
+.content {
+    grid-area: content;
+    padding: 2rem;
+}
+
+.content__title {
+    font-size: 2rem;
+}
+
+.content__main {
+    line-height: 1.6;
+    font-size: 1.2rem;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    padding: 1rem;
+}
