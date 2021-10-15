@@ -27,7 +27,7 @@ class PageCrudController extends AbstractCrudController
             DateTimeField::new('date'),
             DateTimeField::new('update_at'),
             TextField::new('image'),
-            TextEditorField::new('content')
+            TextEditorField::new('content'),
         ];
     }
 }
