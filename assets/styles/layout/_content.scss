@@ -10,6 +10,7 @@
 .content {
     grid-area: content;
     padding: 2rem;
+    border: 1px solid #ff0000;
 }
 
 .content__title {
@@ -24,4 +25,37 @@
 .sidebar {
     grid-area: sidebar;
     padding: 1rem;
+    border: 1px solid #ff0000;
+}
+
+/*
+* Media Queries
+* max-width: 1024px
+*/
+@media (max-width: 1024px) {
+
+    .main {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "content"
+        "sidebar";
+    }
+
+}
+
+/*
+* Media Queries
+* max-width: 767px
+*/
+@media (max-width: 767px) {
+
+    .main {
+        width: 100%;
+        margin: 1rem auto 1rem auto;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+
 }
