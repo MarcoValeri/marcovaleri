@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController {
 
     /**
-     * @Route("/article/{slug}", name="app_article")
+     * @Route("/{slug}", name="app_article")
      */
     public function article(ArticleRepository $articleRepository, string $slug) {
 

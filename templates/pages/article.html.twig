@@ -1,15 +1,36 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-    Article
+    {% for article in articles %}
+        {% if slug == article.url %}
+            {{ article.title }}
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+
+{% block description %}
+    {% for article in articles %}
+        {% if slug == article.url %}
+            <meta name="Description" CONTENT="{{ article.description }}">
+        {% endif %}
+    {% endfor %}
 {% endblock %}
 
 {% block body %}
-    <h1>New Article</h1>
+    <main class="main">
+        <section class="content">
     {% for article in articles %}
         {% if slug == article.url %}
-            <h1>{{ article.title }}</h1>
-            <h2>{{ article.description }}</h2>
+            <section class="content__title">
+                <h1>{{ article.title }}</h1>
+            </section>
+            <section class="content__main">
+                    {{ article.content | raw }}
+            </section>
         {% endif %}
     {% endfor %}
+        </section>
+        <section class="sidebar">
+        </section>
+    </main>
 {% endblock %}
