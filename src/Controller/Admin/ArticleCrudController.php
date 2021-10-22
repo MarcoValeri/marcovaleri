@@ -21,6 +21,7 @@ class ArticleCrudController extends AbstractCrudController
             // IdField::new('id'),
             // TextField::new('title'),
             // TextEditorField::new('description'),
+            
             TextField::new('title'),
             TextField::new('description'),
             TextField::new('url'),
@@ -28,7 +29,6 @@ class ArticleCrudController extends AbstractCrudController
             DateTimeField::new('update_at'),
             TextField::new('image'),
             TextField::new('category'),
-            TextField::new('tag'),
             TextField::new('comments'),
             TextEditorField::new('content'),
         ];

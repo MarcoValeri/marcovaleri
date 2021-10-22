@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Article;
 use App\Entity\Page;
 use App\Entity\Category;
+use App\Entity\Tag;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -35,5 +36,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Articles', 'fas fa-newspaper', Article::class);
         yield MenuItem::linkToCrud('Pages', 'fas fa-file-alt', Page::class);
         yield MenuItem::linkToCrud('Categories', 'far fa-newspaper', Category::class);
+        yield MenuItem::linkToCrud('Tags', 'fas fa-tags', Tag::class);
     }
 }
