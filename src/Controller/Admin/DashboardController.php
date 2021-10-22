@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Article;
 use App\Entity\Page;
+use App\Entity\Category;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -28,10 +29,11 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
         yield MenuItem::linkToRoute('Back to the website', 'fas fa-home', 'app_page_home');
+        yield MenuItem::linktoDashboard('Dashboard', 'fas fa-solar-panel');
         yield MenuItem::linkToCrud('Articles', 'fas fa-newspaper', Article::class);
-        yield MenuItem::linkToCrud('Pages', 'fas fa-newspaper', Page::class);
+        yield MenuItem::linkToCrud('Pages', 'fas fa-file-alt', Page::class);
+        yield MenuItem::linkToCrud('Categories', 'far fa-newspaper', Category::class);
     }
 }
