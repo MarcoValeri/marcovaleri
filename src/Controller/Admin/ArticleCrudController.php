@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class ArticleCrudController extends AbstractCrudController
 {
@@ -28,9 +29,12 @@ class ArticleCrudController extends AbstractCrudController
             DateTimeField::new('date'),
             DateTimeField::new('update_at'),
             TextField::new('image'),
-            TextField::new('category'),
             TextField::new('comments'),
             TextEditorField::new('content'),
+            AssociationField::new('category')
+                ->setFormTypeOptions([
+                    'by_reference' => false,
+                ]),
         ];
     }
 
