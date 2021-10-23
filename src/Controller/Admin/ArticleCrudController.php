@@ -35,6 +35,10 @@ class ArticleCrudController extends AbstractCrudController
                 ->setFormTypeOptions([
                     'by_reference' => false,
                 ]),
+            AssociationField::new('tags')
+                ->setFormTypeOptions([
+                    'by_reference' => false,
+                ]),
         ];
     }
 
