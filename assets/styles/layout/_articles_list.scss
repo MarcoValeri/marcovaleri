@@ -1,0 +1,20 @@
+.articles-list__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid #ff0000;
+
+}
+
+.articles-list__title {
+    width: 100%;
+}
+
+.articles-list__article {
+    width: 20rem;
+    margin: 1rem;
+    padding: .5rem;
+    border: 1px solid #000;
+}

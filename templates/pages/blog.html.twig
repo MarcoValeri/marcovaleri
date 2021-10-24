@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Marco Valeri articoli
+{% endblock %}
+
+{% block description %}
+    <meta name="Description" CONTENT="Articoli del sito ufficiale di Marco Valeri, archivio di tutti gli articoli del suo blog scritti, ordinati a partire dal posto più nuovo al più vecchio">
+{% endblock %}
+
+{% block body %}
+    <main class="main">
+        <section class="content">
+            <section class="articles-list__container">
+                <section class="articles-list__title">
+                    <h1>Archivio degli articoli</h1>
+                </section>
+                {% for article in articles %}
+                    <section class="articles-list__article">
+                        <h1>{{ article.title }}</h1>
+                        <h2>{{ article.description }}</h2>
+                        {% set article_preview = article.content|slice(0, 200) ~ '...' %}
+                        <p>{{ article_preview|raw }}</p>
+                    </section>
+                {% endfor %}
+            </section>
+        </section>
+        <section class="sidebar">
+        </section>
+    </main>
+{% endblock %}
