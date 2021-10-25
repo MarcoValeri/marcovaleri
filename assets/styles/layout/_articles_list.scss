@@ -4,12 +4,13 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    border: 1px solid #ff0000;
 
 }
 
 .articles-list__title {
     width: 100%;
+    font-size: 2.5rem;
+    text-align: center;
 }
 
 .articles-list__article {
@@ -17,4 +18,28 @@
     margin: 1rem;
     padding: .5rem;
     border: 1px solid #000;
+}
+
+.articles-list__article-title {
+    font-size: 2.5rem;
+}
+
+.articles-list__article-description {
+    font-size: 1.5rem;
+}
+
+.articles-list__article-paragraph {
+    font-size: 1.2;
+}
+
+/*
+* Media Queries
+* max-width: 767px
+*/
+@media (max-width: 767px) {
+
+    .articles-list__article {
+        width: 100%;
+    }
+
 }

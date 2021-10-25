@@ -17,10 +17,10 @@
                 </section>
                 {% for article in articles %}
                     <section class="articles-list__article">
-                        <h1>{{ article.title }}</h1>
-                        <h2>{{ article.description }}</h2>
+                        <h1 class="articles-list__article-title">{{ article.title }}</h1>
+                        <h2 class="articles-list__article-description">{{ article.description }}</h2>
                         {% set article_preview = article.content|slice(0, 200) ~ '...' %}
-                        <p>{{ article_preview|raw }}</p>
+                        <p class="articles-list__article-paragraph">{{ article_preview|raw }}</p>
                     </section>
                 {% endfor %}
             </section>
