@@ -55,6 +55,11 @@
             </section>
         </header>
         {% block body %}{% endblock %}
+        
+        <!-- Bookie Banner -->
+        {% set cookie_message = cookie_banner.getMessage %}
+        <h1>{{ cookie_message }}</h1>
+
         <footer class="footer">
             <section class="footer__content">
                 <p class="footer__content-main">Made with <span class="heart">&hearts;</span> in London by Marco Valeri - &copy; {{ "now"|date("Y") }} - All rights reserved</p>
