@@ -1,0 +1,19 @@
+.cookie-banner {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    width: 90%;
+    height: auto;
+    min-height: 10rem;
+    z-index: 1;
+    padding: 1rem;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #ff0000;
+}
+
+.cookie-banner__content {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}

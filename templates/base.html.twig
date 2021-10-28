@@ -58,7 +58,14 @@
         
         <!-- Bookie Banner -->
         {% set cookie_message = cookie_banner.getMessage %}
-        <h1>{{ cookie_message }}</h1>
+        {% set cookie_form = cookie_banner.cookieForm %}
+        <section class="cookie-banner">
+            <p class="cookie-banner__content">{{ cookie_message }}</p>
+            <section>
+                {{ form_start(cookie_banner.cookieForm) }}
+                {{ form_end(cookie_banner.cookieForm) }}
+            </section>
+        </section>
 
         <footer class="footer">
             <section class="footer__content">
