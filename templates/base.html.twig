@@ -56,17 +56,20 @@
         </header>
         {% block body %}{% endblock %}
 
-        <!-- Cookie Banner -->
-        <section id="cookie_policy" class="cookie-banner">
-            <p class="cookie-banner__content">This website is using cookies</p>
-            <input id="accept" type="submit" value="Acconsento" />
-            <input id="reject" type="submit" value="Scopri di più" />
-        </section>
-
         <footer class="footer">
             <section class="footer__content">
                 <p class="footer__content-main">Made with <span class="heart">&hearts;</span> in London by Marco Valeri - &copy; {{ "now"|date("Y") }} - All rights reserved</p>
             </section>
         </footer>
+
+        <!-- Cookie Banner -->
+        <section id="cookie_policy" class="cookie-banner">
+            <p class="cookie-banner__content">This website is using cookies</p>
+            <p id="cookie-banner-policy" class="cookie-banner__content"></p>
+            <input id="accept" type="submit" value="Acconsento" />
+            <input id="cookie-info" type="submit" value="Scopri di più" />
+        </section>
+        <!-- Add Services after user acept the cookie policy -->
+        <div id="services"></div>
     </body>
 </html>
