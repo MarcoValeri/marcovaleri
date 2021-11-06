@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Marco Valeri Contatti
+{% endblock %}
+
+{% block description %}
+    <meta name"Description" CONTENT="Contatti del sito di Marco Valeri, form con email e messaggio per mettersi in contatto e scrivere all'autore tramite il seguente form dedicato ai contatti" >
+{% endblock %}
+
+{% block body %}
+    <h1>Contatti</h1>
+    {{ form(contactForm) }}
+{% endblock %}

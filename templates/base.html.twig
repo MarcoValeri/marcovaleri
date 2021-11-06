@@ -41,8 +41,8 @@
                             <li class="navbar__element {{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) == "/articoli/archivio" ? 'navbar__element--mark' : '' }}">
                                 <a class="navbar__link" href="{{ path('app_blog') }}">Articoli</a>
                             </li>
-                            <li class="navbar__element">
-                                <a class="navbar__link" href="#">Contatti</a>
+                            <li class="navbar__element {{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) == "/page/contatti" ? 'navbar__element--mark' : '' }}">
+                                <a class="navbar__link" href="{{ path('app_contact') }}">Contatti</a>
                             </li>
                         </section>
                     </ul>

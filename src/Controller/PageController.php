@@ -6,8 +6,10 @@ use App\Entity\Page;
 use App\Repository\PageRepository;
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
+use App\Form\Contact;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PageController extends AbstractController {
