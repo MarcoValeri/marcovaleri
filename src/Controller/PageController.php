@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * This class has been created to give
+ * routes and templates to the pages of 
+ * the web application, created manually or
+ * by the admin section
+ */
+
 namespace App\Controller;
 
 use App\Entity\Page;
@@ -13,13 +20,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PageController extends AbstractController {
-
-    /**
-     * @Route("/")
-     */
-    public function home() {
-        return $this->render("pages/home.html.twig");
-    }
 
     /**
      * @Route("/page/{slug}", name="app_page")
