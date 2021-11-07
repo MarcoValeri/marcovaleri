@@ -1,0 +1,13 @@
+{% block index %}
+    <meta name="robots" content="noindex" />
+{% endblock %}
+
+{% block body %}
+    <h1>Pagina non trovata</h1>
+    <h2>Errore {{ status_code }}</h2>
+    <h3>www.marcovaleri.net</h3>
+    <p>
+    Sembra che la pagina che stai cercando non esiste, sentiti libero di tornare alla <a href="{{ path('app_home') }}">HomePage</a> 
+    o di <a href="{{ path('app_contact') }}">contattare il nostro staff</a>
+    </p>
+{% endblock %}
