@@ -17,8 +17,17 @@
     text-align: center;
 }
 
+/* This doesn't respect BEM Methodology and
+doesn't render well the error message, need to improve it */
+.contact-grid__input ul li {
+    list-style: none;
+    color: #ff0000;
+    margin-bottom: .5rem;
+}
+
 .contact-grid__title-main {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 .contact-grid__title-sub {
