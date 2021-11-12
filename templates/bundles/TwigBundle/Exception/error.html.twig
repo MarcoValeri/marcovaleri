@@ -1,13 +1,58 @@
+{#
+# Because of Symfony bag, it is not possible to include the base template
+# in the error page.
+# I added style code in the page, I will remove it when we will be over
+# the bug
+#}
+<style>
+.error {
+    position: relative;
+    height: auto;
+    min-height: 50vh;
+}
+
+.error__section {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.error__title {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.error__code {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.error__title-sub {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.error__content {
+    font-size: 1.5rem;
+}
+
+</style>
+
 {% block index %}
     <meta name="robots" content="noindex" />
 {% endblock %}
 
 {% block body %}
-    <h1>Qualcosa è andato storto</h1>
-    <h2>Errore {{ status_code }}</h2>
-    <h3>www.marcovaleri.net</h3>
-    <p>
-    Sembra che qualcosa sia andato storto, sentiti libero di tornare alla <a href="{{ path('app_home') }}">HomePage</a> 
-    o di <a href="{{ path('app_contact') }}">contattare il nostro staff</a>
-    </p>
+    <main class="error">
+        <section class="error__section">
+            <h1 class="error__title">Si è verificato un errore</h1>
+            <h2 class="error__code">Errore {{ status_code }}</h2>
+            <h3 class="error__title-sub">www.marcovaleri.net</h3>
+            <p class="error__content">
+            Sembra che la pagina che stai abbia generato un errore, sentiti libero di tornare alla <a href="{{ path('app_home') }}">HomePage</a> 
+            o di <a href="{{ path('app_contact') }}">contattare il nostro staff</a>
+            </p>
+        </section>
+    </main>
 {% endblock %}
