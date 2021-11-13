@@ -1,6 +1,7 @@
 .cookie-banner {
     position: absolute;
-    top: 0%;
+    position: fixed;
+    bottom: 10%;
     left: 50%;
     transform: translate(-50%, 10%);
     width: 90%;
@@ -10,10 +11,30 @@
     padding: 1rem;
     background-color: #000;
     color: #fff;
-    border: 1px solid #ff0000;
+    border: 1px solid #fff;
 }
 
 .cookie-banner__content {
     font-size: 1.2rem;
     line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.cookie-btn {
+    font-size: 1.2rem;
+    padding: .5rem;
+    border-radius: 5px;
+    background-color: #fff;
+    margin: 1rem;
+    border: 1px solid #fff;
+}
+
+.cookie-btn:hover {
+    color: #fff;
+    background-color: #000;
+}
+
+.cookie-btn--link {
+    text-decoration: none;
+    color: #000;
 }

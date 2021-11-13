@@ -68,10 +68,13 @@
 
         <!-- Cookie Banner -->
         <section id="cookie_policy" class="cookie-banner">
-            <p class="cookie-banner__content">This website is using cookies</p>
-            <p id="cookie-banner-policy" class="cookie-banner__content"></p>
-            <input id="accept" type="submit" value="Acconsento" />
-            <input id="cookie-info" type="submit" value="Scopri di più" />
+            <p class="cookie-banner__content">
+                Utilizziamo cookie, anche di terze parti, per fini tecnici, statistici e di profilazione.<br>
+                Cliccando su “Accetto”, acconsenti all’uso dei cookie.<br>
+                Per ulteriori informazioni sui cookie e su come gestirli, consulta la nostra Cookie Policy<br>
+            </p>
+            <input id="accept" class="cookie-btn" type="submit" value="Accetto" />
+            <a class="cookie-btn cookie-btn--link" href="{{ path('app_cookie_policy') }}">Scopri di più</a>
         </section>
         <!-- Add Services after user acept the cookie policy -->
         <div id="services"></div>
