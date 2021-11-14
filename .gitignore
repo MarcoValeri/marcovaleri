@@ -1,3 +1,5 @@
+# db details #
+.env
 
 ###> symfony/framework-bundle ###
 /.env.local
