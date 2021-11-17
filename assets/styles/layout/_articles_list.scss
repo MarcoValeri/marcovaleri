@@ -13,6 +13,11 @@
     text-align: center;
 }
 
+.articles-list__article-link {
+    text-decoration: none;
+    color: #000;
+}
+
 .articles-list__article {
     width: 20rem;
     margin: 1rem;
@@ -26,10 +31,15 @@
 
 .articles-list__article-description {
     font-size: 1.5rem;
+    margin: 1rem auto;
 }
 
 .articles-list__article-paragraph {
-    font-size: 1.2;
+    font-size: 1.2rem;
+}
+
+.articles-list__article-paragraph div {
+    font-size: 1.2rem;
 }
 
 /*

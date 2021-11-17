@@ -32,9 +32,9 @@ class ContactController extends AbstractController {
 
             $email_message = "Contatti da MarcoValeri.net \n";
             $email_message .= "\n";
-            $email_message .= "Name: " . $name;
-            $email_message .= "Surname: " . $surname;
-            $email_message .= "Email: " . $email;
+            $email_message .= "Name: " . $name . "\n";
+            $email_message .= "Surname: " . $surname . "\n";
+            $email_message .= "Email: " . $email . "\n";
             $email_message .= "\n";
             $email_message .= "Message: \n";
             $email_message .= $message;

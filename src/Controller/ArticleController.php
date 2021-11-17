@@ -25,7 +25,7 @@ class ArticleController extends AbstractController {
     }
 
     /**
-     * @Route("/articoli-archivio", name="app_blog")
+     * @Route("/articoli", name="app_blog")
      */
     public function blog(ArticleRepository $articleRepository) {
 
