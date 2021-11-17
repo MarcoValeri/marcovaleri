@@ -33,7 +33,7 @@ class ArticleCrudController extends AbstractCrudController
             TextEditorField::new('content'),
             AssociationField::new('category')
                 ->setFormTypeOptions([
-                    'by_reference' => false,
+                    'by_reference' => true,
                 ]),
             AssociationField::new('tags')
                 ->setFormTypeOptions([
