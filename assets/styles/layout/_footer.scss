@@ -6,6 +6,7 @@
 
 .footer__content {
     position: absolute;
+    width: 80%;
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -34,6 +35,18 @@
 
     .footer__content-main {
         line-height: 1.6;
+    }
+
+}
+
+/*
+* Media Queries
+* max-width: 480px
+*/
+@media (max-width: 480px) {
+
+    .footer__content-main {
+        font-size: 1rem;
     }
 
 }

@@ -49,7 +49,20 @@
 @media (max-width: 767px) {
 
     .articles-list__article {
-        width: 100%;
+        width: 80%;
+        margin: 2rem auto;
+    }
+
+}
+
+/*
+* Media Queries
+* max-width: 480px
+*/
+@media (max-width: 480px) {
+
+    .articles-list__article {
+        width: 95%;
     }
 
 }

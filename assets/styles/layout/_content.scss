@@ -13,13 +13,13 @@
 }
 
 .content__title {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 1rem;
 }
 
 .content__main {
     line-height: 1.6;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 .sidebar {
@@ -49,12 +49,16 @@
 @media (max-width: 767px) {
 
     .main {
-        width: 100%;
+        width: 95%;
         margin: 1rem auto 1rem auto;
     }
 
     .content {
         padding: 1rem;
+    }
+
+    .content__title {
+        font-size: 2.2rem;
     }
 
 }

@@ -140,9 +140,14 @@
 
         transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
 
-        li {
+        .navbar__logo .navbar__element .brand-name {
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        .navbar__element {
+            font-size: 1.5rem;
             padding: 10px 0;
-            font-size: 22px;
             display: block;
         }
 
