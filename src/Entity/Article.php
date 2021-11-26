@@ -50,7 +50,7 @@ class Article
     private $update_at;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Image", inversedBy="article")
      */
     private $image;
 
@@ -151,12 +151,12 @@ class Article
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getImage(): ?Image
     {
         return $this->image;
     }
 
-    public function setImage(?string $image): self
+    public function setImage(?Image $image): self
     {
         $this->image = $image;
 

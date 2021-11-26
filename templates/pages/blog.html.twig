@@ -18,6 +18,7 @@
                 {% for article in articles %}
                     <a class="articles-list__article-link" href="articoli/{{ article.url }}">
                         <section class="articles-list__article">
+                            <img class="articles-list__article-image" src="images/{{ article.image }}">
                             <h1 class="articles-list__article-title">{{ article.title }}</h1>
                             <h2 class="articles-list__article-description">{{ article.description }}</h2>
                             {% set article_preview = article.content|slice(0, 200) ~ '...' %}

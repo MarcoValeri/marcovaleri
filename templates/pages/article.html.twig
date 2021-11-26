@@ -23,6 +23,9 @@
     {% set notFound = true %}
     {% for article in articles %}
         {% if slug == article.url and break == false %}
+            <section class="content__image">
+                <img class="content__image-picture" src="../images/{{ article.image }}">
+            </section>
             <section class="content__title">
                 <h1>{{ article.title }}</h1>
             </section>
