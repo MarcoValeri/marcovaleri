@@ -11,6 +11,7 @@
     width: 100%;
     font-size: 2.5rem;
     text-align: center;
+    margin: 2rem auto;
 }
 
 .articles-list__article-link {
@@ -19,7 +20,7 @@
 }
 
 .articles-list__article {
-    width: 20rem;
+    width: 30rem;
     margin: 1rem;
     padding: .5rem;
     border: 1px solid #000;
@@ -66,7 +67,7 @@
 @media (max-width: 480px) {
 
     .articles-list__article {
-        width: 95%;
+        width: 90%;
     }
 
 }
