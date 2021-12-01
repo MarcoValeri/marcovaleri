@@ -17,8 +17,6 @@
 {% endblock %}
 
 {% block body %}
-    <main class="main">
-        <section class="content">
     {% set break = false %}
     {% set notFound = true %}
     {% for article in articles %}
@@ -47,8 +45,4 @@
         </section>
         {% set notFound = false %}
     {% endif %}
-        </section>
-        <section class="sidebar">
-        </section>
-    </main>
 {% endblock %}

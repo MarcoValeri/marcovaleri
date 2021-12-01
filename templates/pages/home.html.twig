@@ -1,44 +1,38 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <main class="main">
-        <section class="content">
-            <section class="content__title">
-                <h2>Lascia che mi presenti</h2>
-            </section>
-            <section class="content__main">
-                <p>
-                    Mi chiamo Marco Valeri e ti do il benvenuto nel mio sito, che raccoglie tutti i miei pensieri e le mie idee, quelle che mi hanno fatto arrivare a raggiungere alcuni dei miei sogni pur essendo partito dal basso.
-                    <br><br>
-                    Sono nato a Roma nel 1984, una città che ho amato e odiato allo stesso tempo, un luogo che racchiude tante emozioni e persone che hanno fatto e che fanno ancora parte della mia vita.
-                    <br><br>
-                    A trent’anni mi sono trasferito a vivere a Londra, città che mi ha cambiato letteralmente la vita. Se i nostri nonni partivano con la valigia di cartone verso il nord Italia, Europa o verso l’America, io sono partito con un volo low cost, pochi soldi e con una valigia piena di voglia di riscatto.
-                    <br><br>
-                    Andare via dall’Italia, nonostante avessi più di trent’anni, mi ha fatto mettere un punto sul passato e ripartire da zero, e Londra è stato il luogo giusto in cui farlo.
-                    <br><br>
-                    Credimi che azzerare tutto a più di trent’anni fa paura ma allo stesso tempo ti mette in una grande posizione di vantaggio: puoi ricominciare da zero, decidere di essere quello che avresti sempre voluto essere.
-                    Non hai più nulla da perdere quando ricominci realmente da zero.
-                    Sì, ricominciare da zero mi ha dato il coraggio di fare quello che non avevo mai avuto il coraggio di fare, rincorrere i miei sogni, le mie passioni, la mia vita...<a href="{{ path('app_page', {slug: 'chi-sono'}) }}">[Continua a leggere...]</a>
-                </p>
-            </section>
-            <section class="articles-list__container home__articles">
-                <section class="articles-list__title">
-                    <h1>Ultimi articoli</h1>
-                </section>
-                {% for article in articles %}
-                    <a class="articles-list__article-link" href="articoli/{{ article.url }}">
-                        <section class="articles-list__article">
-                            <img class="articles-list__article-image" src="images/{{ article.image }}">
-                            <h1 class="articles-list__article-title">{{ article.title }}</h1>
-                            <h2 class="articles-list__article-description">{{ article.description }}</h2>
-                            {% set article_preview = article.content|slice(0, 200) ~ '...' %}
-                            <p class="articles-list__article-paragraph">{{ article_preview|raw }}</p>
-                        </section>
-                    </a>
-                {% endfor %}
-            </section>
-        </section> 
-        <section class="sidebar">
+    <section class="content__title">
+        <h2>Lascia che mi presenti</h2>
+    </section>
+    <section class="content__main">
+        <p>
+            Mi chiamo Marco Valeri e ti do il benvenuto nel mio sito, che raccoglie tutti i miei pensieri e le mie idee, quelle che mi hanno fatto arrivare a raggiungere alcuni dei miei sogni pur essendo partito dal basso.
+            <br><br>
+            Sono nato a Roma nel 1984, una città che ho amato e odiato allo stesso tempo, un luogo che racchiude tante emozioni e persone che hanno fatto e che fanno ancora parte della mia vita.
+            <br><br>
+            A trent’anni mi sono trasferito a vivere a Londra, città che mi ha cambiato letteralmente la vita. Se i nostri nonni partivano con la valigia di cartone verso il nord Italia, Europa o verso l’America, io sono partito con un volo low cost, pochi soldi e con una valigia piena di voglia di riscatto.
+            <br><br>
+            Andare via dall’Italia, nonostante avessi più di trent’anni, mi ha fatto mettere un punto sul passato e ripartire da zero, e Londra è stato il luogo giusto in cui farlo.
+            <br><br>
+            Credimi che azzerare tutto a più di trent’anni fa paura ma allo stesso tempo ti mette in una grande posizione di vantaggio: puoi ricominciare da zero, decidere di essere quello che avresti sempre voluto essere.
+            Non hai più nulla da perdere quando ricominci realmente da zero.
+            Sì, ricominciare da zero mi ha dato il coraggio di fare quello che non avevo mai avuto il coraggio di fare, rincorrere i miei sogni, le mie passioni, la mia vita...<a href="{{ path('app_page', {slug: 'chi-sono'}) }}">[Continua a leggere...]</a>
+        </p>
+    </section>
+    <section class="articles-list__container home__articles">
+        <section class="articles-list__title">
+            <h1>Ultimi articoli</h1>
         </section>
-    </main>
+        {% for article in articles %}
+            <a class="articles-list__article-link" href="articoli/{{ article.url }}">
+                <section class="articles-list__article">
+                    <img class="articles-list__article-image" src="images/{{ article.image }}">
+                    <h1 class="articles-list__article-title">{{ article.title }}</h1>
+                    <h2 class="articles-list__article-description">{{ article.description }}</h2>
+                    {% set article_preview = article.content|slice(0, 200) ~ '...' %}
+                    <p class="articles-list__article-paragraph">{{ article_preview|raw }}</p>
+                </section>
+            </a>
+        {% endfor %}
+    </section>
 {% endblock %}

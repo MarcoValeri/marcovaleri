@@ -2,7 +2,7 @@
     width: 80%;
     margin: 2rem auto 2rem auto;
     display: grid;
-    grid-template-columns: 1fr 0.25fr;
+    grid-template-columns: 1fr .40fr;
     grid-template-areas:
     "content sidebar";
 }
@@ -32,9 +32,14 @@
     font-size: 1.5rem;
 }
 
+.content__main li {
+    margin-left: 5rem;
+}
+
 .sidebar {
     grid-area: sidebar;
     padding: 1rem;
+    text-align: center;
 }
 
 /*
@@ -69,6 +74,10 @@
 
     .content__title {
         font-size: 2.2rem;
+    }
+
+    .content__main li {
+        margin-left: 3rem;
     }
 
 }

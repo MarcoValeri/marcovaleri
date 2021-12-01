@@ -17,8 +17,6 @@
 {% endblock %}
 
 {% block body %}
-    <main class="main">
-        <section class="content">
     {% for page in pages %}
         {% if slug == page.url %}
             <section class="content__title">
@@ -29,8 +27,4 @@
             </section>
         {% endif %}
     {% endfor %}
-        </section>
-        <section class="sidebar">
-        </section>
-    </main>
 {% endblock %}

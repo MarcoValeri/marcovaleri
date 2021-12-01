@@ -9,26 +9,20 @@
 {% endblock %}
 
 {% block body %}
-    <main class="main">
-        <section class="content">
-            <section class="articles-list__container">
-                <section class="articles-list__title">
-                    <h1>Tutti gli Articoli</h1>
+    <section class="articles-list__container">
+        <section class="articles-list__title">
+            <h1>Tutti gli Articoli</h1>
+        </section>
+        {% for article in articles %}
+            <a class="articles-list__article-link" href="articoli/{{ article.url }}">
+                <section class="articles-list__article">
+                    <img class="articles-list__article-image" src="images/{{ article.image }}">
+                    <h1 class="articles-list__article-title">{{ article.title }}</h1>
+                    <h2 class="articles-list__article-description">{{ article.description }}</h2>
+                    {% set article_preview = article.content|slice(0, 200) ~ '...' %}
+                    <p class="articles-list__article-paragraph">{{ article_preview|raw }}</p>
                 </section>
-                {% for article in articles %}
-                    <a class="articles-list__article-link" href="articoli/{{ article.url }}">
-                        <section class="articles-list__article">
-                            <img class="articles-list__article-image" src="images/{{ article.image }}">
-                            <h1 class="articles-list__article-title">{{ article.title }}</h1>
-                            <h2 class="articles-list__article-description">{{ article.description }}</h2>
-                            {% set article_preview = article.content|slice(0, 200) ~ '...' %}
-                            <p class="articles-list__article-paragraph">{{ article_preview|raw }}</p>
-                        </section>
-                    </a>
-                {% endfor %}
-            </section>
-        </section>
-        <section class="sidebar">
-        </section>
-    </main>
+            </a>
+        {% endfor %}
+    </section>
 {% endblock %}
