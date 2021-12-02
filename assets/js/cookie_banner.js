@@ -32,8 +32,7 @@ let allCookies = document.cookie.split(";");
 
 allCookies.forEach(cookie => {
 
-    if (cookie == "consent=true") {
-        console.log(`I set up the cookies`);
+    if (cookie == "consent=true" || " consent=true") {
         services.innerHTML = service_adsense;
         cookie_policy.style.display = "none";
     }
