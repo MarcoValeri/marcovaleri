@@ -20,7 +20,7 @@
 }
 
 .articles-list__article {
-    width: 30rem;
+    width: 20rem;
     margin: 1rem;
     padding: .5rem;
     border: 1px solid #000;
@@ -31,16 +31,12 @@
 }
 
 .articles-list__article-title {
-    font-size: 2.5rem;
-}
-
-.articles-list__article-description {
-    font-size: 1.5rem;
-    margin: 1rem auto;
+    font-size: 2rem;
 }
 
 .articles-list__article-paragraph {
     font-size: 1.2rem;
+    margin: 1rem auto;
 }
 
 .articles-list__article-paragraph div {
