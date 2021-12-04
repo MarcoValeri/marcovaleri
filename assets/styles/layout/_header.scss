@@ -1,11 +1,18 @@
 .header {
-    height: 70vh;
+    height: 80vh;
+    border: 1px solid #000;
+
+    background-image: url('https://marcovaleri.net/images/parco-nazionale-valle-della-morte-usa.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .header__hero {
     width: 30%;
     margin: 5rem auto 0rem auto;
-    border: 1px solid #000;
+    color: #fff;
+    border: 1px solid #fff;
     border-radius: 5px;
 }
 
@@ -38,7 +45,7 @@
 @media (max-width: 480px) {
 
     .header {
-        height: 100vh;
+        height: 80vh;
     }
 
 }
