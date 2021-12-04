@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=decive-width, initial-scale=1.0">
@@ -25,11 +25,11 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37621147-6"></script>
         <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-        gtag('config', 'UA-37621147-6');
+            gtag('config', 'UA-37621147-6');
         </script>
 
     </head>
@@ -54,7 +54,7 @@
                             <li class="navbar__element {{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) == "/page/chi-sono" ? 'navbar__element--mark' : '' }}" >
                                 <a class="navbar__link" href="{{ path('app_page', {slug: 'chi-sono'}) }}">Chi sono</a>
                             </li>
-                            <li class="navbar__element {{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) == "/articoli-archivio" ? 'navbar__element--mark' : '' }}">
+                            <li class="navbar__element {{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) == "/articoli" ? 'navbar__element--mark' : '' }}">
                                 <a class="navbar__link" href="{{ path('app_blog') }}">Articoli</a>
                             </li>
                             <li class="navbar__element {{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) == "/page/contatti" ? 'navbar__element--mark' : '' }}">
