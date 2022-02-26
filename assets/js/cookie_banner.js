@@ -1,40 +1,24 @@
-/**
- * Set variables that get element by id
- * in the DOM
- */
-const cookie_policy = document.getElementById('cookie_policy');
-const accept = document.getElementById('accept');
+document.addEventListener('DOMContentLoaded', () => {
 
-/**
- * Set up services variable that store the DOM where 
- * display the scripts.
- * The following variables are related to the services need cookies
- * like Google AdSense ec..
- */
-const services = document.getElementById('services');
-const service_adsense = ``; // This is just an example, at the moment I don't have any service needs to add
+    /**
+     * Set the variables that interacts with the DOM
+     */
+    const cookie_banner = document.getElementById('cookie_policy');
+    const cookie_btn_accept = document.getElementById('accept');
 
-/**
- * Set Envets.
- * Fire and set the cookies
- */
-accept.addEventListener('click', () => {
-    cookie_policy.style.display = "none";
-    document.cookie = "consent=true;";
-})
-
-/**
- * Save cookies into a variable
- * Loops through the variables to understand 
- * if it is possible to run some services or no
- */
-let allCookies = document.cookie.split(";");
-
-allCookies.forEach(cookie => {
-
-    if (cookie == "consent=true" || " consent=true") {
-        services.innerHTML = service_adsense;
-        cookie_policy.style.display = "none";
+    /**
+     * Display cookie banner if localStorage "cookie_consent" does not exist
+     * otherwise does not display the cookie banner.
+     * If the localStorage "cookie_consent" does not exist, fire event click,
+     * if the user click on 'accept' hide cookie banner.
+     */
+    if (localStorage.getItem("cookie_consent")) {
+        cookie_banner.style.display = "none";
+    } else {
+        cookie_btn_accept.addEventListener('click', function() {
+            localStorage.setItem("cookie_consent", "accept");
+            cookie_banner.style.display = "none";
+        })
     }
-
-});
+    
+})
