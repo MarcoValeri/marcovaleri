@@ -20,10 +20,15 @@
 }
 
 .articles-list__article {
-    width: 20rem;
+    width: 25rem;
     margin: 1rem;
     padding: .5rem;
     border: 1px solid #000;
+    transition: all .5s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 .articles-list__article-image {
@@ -31,7 +36,7 @@
 }
 
 .articles-list__article-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .articles-list__article-paragraph {
