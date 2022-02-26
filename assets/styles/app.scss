@@ -3,6 +3,9 @@
     padding: 0;
 }
 
+// Import base files
+@import './base/typography';
+
 // Import components files
 @import './components/navbar';
 @import './components/cookie_banner';
