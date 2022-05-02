@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     const cookie_banner = document.getElementById('cookie_policy');
     const cookie_btn_accept = document.getElementById('accept');
+    const cookie_btn_more = document.getElementById('more');
 
     /**
      * Display cookie banner if localStorage "cookie_consent" does not exist
@@ -18,7 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
         cookie_btn_accept.addEventListener('click', function() {
             localStorage.setItem("cookie_consent", "accept");
             cookie_banner.style.display = "none";
-        })
+        });
+
+        cookie_btn_more.addEventListener('click', function() {
+            localStorage.setItem("cookie_consent", "accept");
+            cookie_banner.style.display = "none";
+        });
     }
     
 })
