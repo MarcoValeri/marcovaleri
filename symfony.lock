@@ -287,15 +287,15 @@
         "version": "v5.3.4"
     },
     "symfony/security-bundle": {
-        "version": "5.3",
+        "version": "5.4",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "5.3",
-            "ref": "9c4fcf79873f7400c885b90935f7163233615d6f"
+            "ref": "98f1f2b0d635908c2b40f3675da2d23b1a069d30"
         },
         "files": [
-            "./config/packages/security.yaml"
+            "config/packages/security.yaml"
         ]
     },
     "symfony/security-core": {
