@@ -81,10 +81,10 @@
         "version": "1.1.1"
     },
     "easycorp/easyadmin-bundle": {
-        "version": "3.0",
+        "version": "4.1",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "3.0",
             "ref": "b131e6cbfe1b898a508987851963fff485986285"
         }
@@ -186,7 +186,7 @@
         ]
     },
     "symfony/form": {
-        "version": "v5.3.8"
+        "version": "v6.0.8"
     },
     "symfony/framework-bundle": {
         "version": "5.4",
@@ -214,7 +214,7 @@
         "version": "v5.3.9"
     },
     "symfony/intl": {
-        "version": "v5.3.8"
+        "version": "v6.0.8"
     },
     "symfony/maker-bundle": {
         "version": "1.0",
@@ -229,7 +229,7 @@
         "version": "v5.3.11"
     },
     "symfony/options-resolver": {
-        "version": "v5.3.7"
+        "version": "v6.0.3"
     },
     "symfony/password-hasher": {
         "version": "v5.3.8"
@@ -238,7 +238,7 @@
         "version": "v1.23.1"
     },
     "symfony/polyfill-intl-icu": {
-        "version": "v1.23.0"
+        "version": "v1.25.0"
     },
     "symfony/polyfill-intl-idn": {
         "version": "v1.23.0"
@@ -256,7 +256,7 @@
         "version": "v1.23.0"
     },
     "symfony/polyfill-uuid": {
-        "version": "v1.23.0"
+        "version": "v1.25.0"
     },
     "symfony/property-access": {
         "version": "v5.3.8"
@@ -314,10 +314,10 @@
         "version": "v5.3.7"
     },
     "symfony/translation": {
-        "version": "5.3",
+        "version": "6.0",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
+            "branch": "main",
             "version": "5.3",
             "ref": "da64f5a2b6d96f5dc24914517c0350a5f91dee43"
         },
@@ -346,7 +346,7 @@
         ]
     },
     "symfony/uid": {
-        "version": "v5.3.3"
+        "version": "v6.0.3"
     },
     "symfony/validator": {
         "version": "5.4",
