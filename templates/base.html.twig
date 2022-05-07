@@ -36,18 +36,18 @@
     <body>
         <header class="header">
             <nav class="navbar">
-                <section class="navbar__toggle">
+                <div class="navbar__toggle">
                     <input class="navbar__input" type="checkbox"/>
                     <span class="navbar__span"></span>
                     <span class="navbar__span"></span>
                     <span class="navbar__span"></span>
                     <ul class="navbar__menu">
-                        <section class="navbar__logo">
+                        <div class="navbar__logo">
                             <li class="navbar__element">
                                 <a class="brand-name no-link" href="{{ path('app_home') }}">Marco Valeri</a>
                             </li>
-                        </section>
-                        <section class="navbar__items">
+                        </div>
+                        <div class="navbar__items">
                             <li class="navbar__element {{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) == "/" ? 'navbar__element--mark' : '' }}">
                                 <a class="navbar__link" href="{{ path('app_home') }}">Home</a>
                             </li>
@@ -60,31 +60,31 @@
                             <li class="navbar__element {{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) == "/page/contatti" ? 'navbar__element--mark' : '' }}">
                                 <a class="navbar__link" href="{{ path('app_contact') }}">Contatti</a>
                             </li>
-                        </section>
+                        </div>
                     </ul>
-                </section>
+                </div>
             </nav>
-            <section class="header__hero">
-                <section class="header__container">
+            <div class="header__hero">
+                <div class="header__container">
                     <h1 class="header__title">Marco Valeri</h1>
-                </section>
-            </section>
+                </div>
+            </div>
         </header>
         <main class="main">
-            <section class="content">
+            <div class="content">
                 {% block body %}{% endblock %}
-            </section>
-            <section class="sidebar">
+            </div>
+            <div class="sidebar">
                 <div class="sidebar__item">
                     <div class="fb-page" data-href="https://www.facebook.com/marcovaleri.net" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/marcovaleri.net" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/marcovaleri.net">Marco Valeri</a></blockquote></div>
                 </div>
-            </section>
+            </div>
         </main>
 
         <footer class="footer">
-            <section class="footer__content">
+            <div class="footer__content">
                 <p class="footer__content-main">Made with <span class="heart">&hearts;</span> in London by Marco Valeri - &copy; {{ "now"|date("Y") }} - All rights reserved</p>
-            </section>
+            </div>
         </footer>
 
         <!-- Add Facebook SDK that allows to include its plugin -->

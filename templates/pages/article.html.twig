@@ -21,28 +21,28 @@
     {% set notFound = true %}
     {% for article in articles %}
         {% if slug == article.url and break == false %}
-            <section class="content__image">
-                <img class="content__image-picture" src="../images/{{ article.image }}" alt="{{ article.image }}">
-            </section>
-            <section class="content__title">
+            <div class="content__title">
                 <h1>{{ article.title }}</h1>
-            </section>
-            <section class="content__main">
+            </div>
+            <div class="content__main">
                     {{ article.content | raw }}
-            </section>
+            </div>
+            <div class="content__image">
+                <img class="content__image-picture" src="../images/{{ article.image }}" alt="{{ article.image }}">
+            </div>
             {% set break = true %}
             {% set notFound = false %}
         {% endif %}
     {% endfor %}
     {% if break == false and notFound == true %}
-        <section class="content__title">
+        <div class="content__title">
             <h1>Articolo non trovato</h1>
-        </section>
-        <section class="content__main">
+        </div>
+        <div class="content__main">
                 Sembra che l'articolo che stai cercando non esista.<br>
                 <a href="{{ path('app_home') }}">Torna alla home</a><br>
                 <a href="{{ path('app_contact') }}">Contatta lo staff di MarcoValeri.net</a>
-        </section>
+        </div>
         {% set notFound = false %}
     {% endif %}
 {% endblock %}
