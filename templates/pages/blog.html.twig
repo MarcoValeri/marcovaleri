@@ -16,12 +16,12 @@
         {% set article_num = articles|length - 1 %}
         {% for item in article_num..0 %}
             <a class="articles-list__article-link" href="articoli/{{ articles[item].url }}">
-                <div class="articles-list__article">
+                <section class="articles-list__article">
                     <img class="articles-list__article-image" src="images/{{ articles[item].image }}" alt="{{ articles[item].image }}">
                     <h1 class="articles-list__article-title">{{ articles[item].title }}</h1>
                     {% set article_preview = articles[item].content|slice(0, 200) ~ '...' %}
-                    <p class="articles-list__article-paragraph">{{ article_preview|raw }}</p>
-                </div>
+                    <div class="articles-list__article-paragraph">{{ article_preview|raw }}</div>
+                </section>
             </a>
         {% endfor %}
     </section>

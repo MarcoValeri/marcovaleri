@@ -1,6 +1,6 @@
 .main {
     width: 80%;
-    margin: 2rem auto 2rem auto;
+    margin: 3rem auto 3rem auto;
     display: grid;
     grid-template-columns: 1fr .40fr;
     grid-template-areas:
@@ -9,12 +9,12 @@
 
 .content {
     grid-area: content;
-    padding: 2rem;
+    padding: 3rem;
 }
 
 .content__image {
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 .content__image-picture {
     width: 80%;
@@ -23,13 +23,26 @@
 }
 
 .content__title {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
 }
 
-.content__main {
+.content__main h2 {
+    font-size: 3.2rem;
+}
+
+.content__main h3 {
+    font-size: 2.8rem;
+}
+
+.content__main p {
+    font-size: 2.2rem;
     line-height: 1.6;
-    font-size: 1.5rem;
+}
+
+.content__main li {
+    font-size: 2.2rem;
+    line-height: 1.6;
 }
 
 .content__main li {
@@ -38,11 +51,11 @@
 
 .sidebar {
     grid-area: sidebar;
-    padding: 1rem;
+    padding: 1.5rem;
     text-align: center;
 
     &__item {
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
     }
 }
 
@@ -69,19 +82,19 @@
 
     .main {
         width: 95%;
-        margin: 1rem auto 1rem auto;
+        margin: 1.5rem auto 1.5rem auto;
     }
 
     .content {
-        padding: 1rem;
+        padding: 1.5rem;
     }
 
     .content__title {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
     .content__main li {
-        margin-left: 3rem;
+        margin-left: 3.5rem;
     }
 
 }

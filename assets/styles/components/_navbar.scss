@@ -1,6 +1,6 @@
 .navbar {
     position: relative;
-    padding: 2rem;
+    padding: 3rem;
     background-color: #000;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .navbar__logo .navbar__element .brand-name {
-    font-size: 2.5rem;
+    font-size: 4rem;
     color: #fff;
 }
 
@@ -30,8 +30,8 @@
 
 .navbar__element {
     display: inline;
-    font-size: 1.2rem;
-    padding: 1rem;
+    font-size: 2rem;
+    padding: 1.5rem;
 }
 
 .navbar__link {
@@ -61,7 +61,7 @@
     .navbar__toggle {
         display: block;
         position: relative;
-        top: 0rem;
+        top: 0;
 
         z-index: 1;
 
@@ -141,12 +141,12 @@
         transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
 
         .navbar__logo .navbar__element .brand-name {
-            font-size: 2.5rem;
+            font-size: 4rem;
             color: #fff;
         }
 
         .navbar__element {
-            font-size: 1.5rem;
+            font-size: 2rem;
             padding: 10px 0;
             display: block;
         }
@@ -178,7 +178,7 @@
     }
 
     .navbar__items .navbar__element {
-        margin: .5rem auto;
+        margin: .8rem auto;
     }
 
 }
@@ -190,7 +190,7 @@
 @media (max-width: 480px) {
 
     .navbar__logo .brand-name {
-        font-size: 2rem;
+        font-size: 3rem;
     }
 
 }
