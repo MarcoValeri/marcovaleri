@@ -1,0 +1,33 @@
+/**
+* Create a mixin that works for
+* media queries in the following breakpoints:
+*           xs
+*           s
+*           m
+*           l
+*           xl
+*           xxl
+*           3xl
+*
+* This project follow the logic of responsive-design
+*/ 
+@mixin respond($breakpoint) {
+    @if $breakpoint == xs {
+        @media only screen and (max-width: 380px) { @content };
+    }
+    @if $breakpoint == sm {
+        @media only screen and (max-width: 575px) { @content };
+    }
+    @if $breakpoint == m {
+        @media only screen and (max-width: 767pxpx) { @content };
+    }
+    @if $breakpoint == l {
+        @media only screen and (max-width: 991px) { @content };
+    }
+    @if $breakpoint == xl {
+        @media only screen and (max-width: 1199px) { @content };
+    }
+    @if $breakpoint == xxl {
+        @media only screen and (max-width: 1920px) { @content };
+    }
+}

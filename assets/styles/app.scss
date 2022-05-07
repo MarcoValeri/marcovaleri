@@ -1,9 +1,9 @@
-* {
-    margin: 0;
-    padding: 0;
-}
+// Import abstract files
+@import './abstract/mixins';
+@import './abstract/variables';
 
 // Import base files
+@import './base/base';
 @import './base/typography';
 
 // Import components files
