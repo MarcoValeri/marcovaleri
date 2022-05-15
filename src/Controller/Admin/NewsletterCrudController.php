@@ -4,7 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Newsletter;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class NewsletterCrudController extends AbstractCrudController {
@@ -18,7 +18,8 @@ class NewsletterCrudController extends AbstractCrudController {
         return [
             TextField::new('name'),
             TextField::new('email'),
-            DateField::new('date'),
+            BooleanField::new('privacy'),
+            TextField::new('date'),
         ];
     }
 

@@ -28,9 +28,14 @@ class Newsletter
     private $email;
 
     /**
-     * @ORM\Column(type="date_immutable")
+     * @ORM\Column(type="string", length=10)
      */
     private $date;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $privacy;
 
     public function getId(): ?int
     {
@@ -61,14 +66,26 @@ class Newsletter
         return $this;
     }
 
-    public function getDate(): ?\DateTimeImmutable
+    public function getDate(): ?string
     {
         return $this->date;
     }
 
-    public function setDate(\DateTimeImmutable $date): self
+    public function setDate(string $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getPrivacy(): ?bool
+    {
+        return $this->privacy;
+    }
+
+    public function setPrivacy(bool $privacy): self
+    {
+        $this->privacy = $privacy;
 
         return $this;
     }

@@ -2,7 +2,6 @@
 
 namespace App\Form;
 
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -28,7 +27,7 @@ class Contact extends AbstractType {
                                 'min' => 2,
                                 'max' => 20,
                                 'minMessage' => 'Nome è troppo corto, dovrebbe essere almeno di 2 caratteri',
-                                'minMessage' => 'Nome è troppo lungo, dovrebbe essere di massimo 20 caratteri'
+                                'maxMessage' => 'Nome è troppo lungo, dovrebbe essere di massimo 20 caratteri'
                             ]),
                             new Regex([
                                 'pattern' => '/[a-zA-Z]/',
