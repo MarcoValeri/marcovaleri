@@ -7,6 +7,7 @@ use App\Entity\Page;
 use App\Entity\Category;
 use App\Entity\Tag;
 use App\Entity\Image;
+use App\Entity\Newsletter;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -39,5 +40,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Categories', 'far fa-newspaper', Category::class);
         yield MenuItem::linkToCrud('Tags', 'fas fa-tags', Tag::class);
         yield MenuItem::linkToCrud('Images', 'fas fa-images', Image::class);
+        yield MenuItem::linkToCrud('Newsletter', 'fas fa-envelope', Newsletter::class);
     }
 }
