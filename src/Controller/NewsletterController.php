@@ -29,10 +29,21 @@ class NewsletterController extends AbstractController {
         $form_newsletter->handleRequest($request);
 
         if ($form_newsletter->isSubmitted() && $form_newsletter->isValid()) {
+
             // EntityManager
             $em = $doctrine->getManager();
             $em->persist($newsletter);
             $em->flush();
+
+            // Send email if new user has subscribed to the newsletter list
+            $newUserName = $form_newsletter->getData()->getName();
+            $newUserEmail = $form_newsletter->getData()->getEmail();
+            $emailObj = "Grazie per esserti iscritto alla newsletter di MarcoValeri.net";
+            $emailMsg = "Ciao " . $newUserName;
+            $emailMsg .= "Grazie per esserti iscritto alla mia newsletter";
+            $wrapEmailMsg = wordwrap($emailMsg, 70);
+            
+            mail($newUserEmail, $emailObj, $wrapEmailMsg);
 
             return $this->redirect('app_contact_confirm');
         }
