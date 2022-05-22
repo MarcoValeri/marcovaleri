@@ -5,13 +5,13 @@ namespace App\Controller;
 use App\Entity\Newsletter;
 
 use App\Form\NewsletterForm;
+use App\Form\NewsletterSenderForm;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 use Doctrine\Persistence\ManagerRegistry as PersistenceManagerRegistry;
-use Symfony\Bridge\Doctrine\ManagerRegistry;
 
 class NewsletterController extends AbstractController {
 
@@ -75,6 +75,56 @@ class NewsletterController extends AbstractController {
         return $this->render("pages/newsletter-unsubscribe.html.twig", [
             'unsubscribeEmail'  => $unsubscribeEmail,
             'email'             => $email,
+        ]);
+
+    }
+
+    /**
+     * @Route("/admin/newsletter-sender", name="app_admin_newsletter_sender")
+     */
+    public function admineNewsletterSender(Request $request, PersistenceManagerRegistry $doctrine) {
+
+        $emailSenderConfirm = "Email not send";
+
+        /**
+         * Save the form into the $form_newsletterSender and
+         * validate it
+         */
+        $form_newsletterSender = $this->createForm(NewsletterSenderForm::class);
+        $form_newsletterSender->handleRequest($request);
+
+        if ($form_newsletterSender->isSubmitted() && $form_newsletterSender->isValid()) {
+
+            // EntityManager
+            $em = $doctrine->getManager();
+            $emails = $em->getRepository(Newsletter::class)->findAll();
+
+            // Get form data
+            $formData = $form_newsletterSender->getData();
+            $sendTestOrReal = $formData['emails'];
+            $formSubject = $formData['subject'];
+            $formContent = $formData['content'];
+
+            if ($sendTestOrReal) {
+                // Send email to reale users
+                echo "Real users";
+                foreach ($emails as $email) {
+                    $userEmail = $email->getEmail();
+                    mail($userEmail, $formSubject, $formContent);
+                }
+                $emailSenderConfirm = "Email sent to real users";
+            } else {
+                // Send email to test users
+                echo "Test users";
+                mail("info@marcovaleri.net, marcovaleri@hotmail.it", $formSubject, $formContent);
+                $emailSenderConfirm = "Email sent to test users";
+            }
+
+        }
+
+        return $this->render("admin/newsletter-sender.html.twig", [
+            'newsletterSendeForm'   => $form_newsletterSender->createView(),
+            'emailSenderConfirm'    => $emailSenderConfirm
         ]);
 
     }

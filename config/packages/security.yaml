@@ -38,4 +38,5 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/user-registration, roles: ROLE_ADMIN}
+        - { path: ^/user-registration, roles: ROLE_ADMIN }
+        - { path: ^/admin/newsletter-sender, roles: ROLE_ADMIN }

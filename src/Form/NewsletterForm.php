@@ -2,8 +2,6 @@
 
 namespace App\Form;
 
-use App\Entity\Newsletter;
-use DateTimeImmutable;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
