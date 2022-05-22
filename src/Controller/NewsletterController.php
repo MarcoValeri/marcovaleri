@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 use Doctrine\Persistence\ManagerRegistry as PersistenceManagerRegistry;
+use Symfony\Bridge\Doctrine\ManagerRegistry;
 
 class NewsletterController extends AbstractController {
 
@@ -50,6 +51,30 @@ class NewsletterController extends AbstractController {
 
         return $this->render("pages/newsletter.html.twig", [
             'newsletterForm' => $form_newsletter->createView()
+        ]);
+
+    }
+
+    /**
+     * @Route("/page/newsletter-unsubscribe/{email}/{checkId}", name="app_newsletter_unsubscribe")
+     */
+    public function unsubscribeNewsletter(PersistenceManagerRegistry $doctrine, string $email, string $checkId) {
+
+        // Security check id
+        $securityCheckId = "123456789";
+
+        // EntityManager
+        $em = $doctrine->getManager();
+        $unsubscribeEmail = $em->getRepository(Newsletter::class)->findOneBy(['email' => $email]);
+
+        if ($unsubscribeEmail && $checkId === $securityCheckId) {
+            $em->remove($unsubscribeEmail);
+            $em->flush();
+        }
+
+        return $this->render("pages/newsletter-unsubscribe.html.twig", [
+            'unsubscribeEmail'  => $unsubscribeEmail,
+            'email'             => $email,
         ]);
 
     }
