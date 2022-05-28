@@ -1,3 +1,28 @@
-<h1>Newsletter Sender</h1>
-{{ form(newsletterSendeForm) }}
-{{ emailSenderConfirm }}
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="content__title">
+        Newsletter Sender
+    </div>
+    <div class="content__main">
+        {{ form_start(newsletterSendeForm) }}
+            <div class="newsletter-sender__grid">
+                <div class="newsletter-sender__grid-status">
+                    Status: {{ emailSenderConfirm }}
+                </div>
+                <div class="newsletter-sender__grid-emails">
+                    {{ form_row(newsletterSendeForm.emails) }}
+                </div>
+                <div class="newsletter-sender__grid-subject">
+                    {{ form_row(newsletterSendeForm.subject) }}
+                </div>
+                <div class="newsletter-sender__grid-content">
+                    {{ form_row(newsletterSendeForm.content) }}
+                </div>
+                <div class="newsletter-sender__grid-btn">
+                    {{ form_row(newsletterSendeForm.submit, {'attr': {'class': 'button'}}) }}
+                </div>
+            </div>
+        {{ form_end(newsletterSendeForm) }}
+    </div>
+{% endblock %}

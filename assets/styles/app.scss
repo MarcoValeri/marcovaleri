@@ -2,6 +2,9 @@
 @import './abstract/mixins';
 @import './abstract/variables';
 
+// Import admin files
+@import './admin/newsletter-sender';
+
 // Import base files
 @import './base/base';
 @import './base/typography';

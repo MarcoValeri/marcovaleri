@@ -123,30 +123,11 @@
 
     &__grid-input-submit {
         grid-area: newsletter__grid-input-submit;
-    }
-
-    &__input-btn {
-        color: #fff;
-        background-color: #000;
-
-        &:hover {
-            color: #000;
-            background-color: #fff;
-            transform: translate(0, -2px);
-            box-shadow: 2px 5px #ccc;
-        }
+        margin-bottom: 2rem;
     }
 
     &__grid-empty-element {
         grid-area: newsletter__grid-empty-element;
     }
-
-    &__input-btn {
-        font-size: 1.6rem;
-        padding: 1rem 2rem;
-        margin-bottom: 2rem;
-        border-radius: 5px;
-    }
-
 
 }
