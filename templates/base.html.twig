@@ -60,6 +60,9 @@
                             <li class="navbar__element {{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) == "/page/contatti" ? 'navbar__element--mark' : '' }}">
                                 <a class="navbar__link" href="{{ path('app_contact') }}">Contatti</a>
                             </li>
+                            <li class="navbar__element {{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) == "/page/newsletter" ? 'navbar__element--mark' : '' }}">
+                                <a class="navbar__link" href="{{ path('app_newsletter') }}">Newsletter</a>
+                            </li>
                         </div>
                     </ul>
                 </div>
@@ -77,6 +80,17 @@
             <div class="sidebar">
                 <div class="sidebar__item">
                     <div class="fb-page" data-href="https://www.facebook.com/marcovaleri.net" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/marcovaleri.net" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/marcovaleri.net">Marco Valeri</a></blockquote></div>
+                </div>
+                <div class="sidebar__item">
+                    <h4 class="sidebar__item-title">
+                        Rimaniamo in contatto
+                    </h4>
+                    <p class="sidebar__item-content">
+                        Rimaniamo in contatto tramite email.
+                        <br>
+                        Iscriviti alla mia newsletter dove sono solito a condividere i miei ultimi articoli e alcune novità con i lettori più intimi.
+                    </p>
+                    <button class="button">Newsletter</button>
                 </div>
             </div>
         </main>

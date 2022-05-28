@@ -57,6 +57,21 @@
     &__item {
         margin-bottom: 2.5rem;
     }
+
+    &__item-title {
+        padding: 2rem 0;
+        font-size: 2rem;
+        color: #fff;
+        background-color: #000;
+    }
+
+    &__item-content {
+        padding: 1rem;
+        font-size: 1.8rem;
+        text-align: left;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
 }
 
 /*
