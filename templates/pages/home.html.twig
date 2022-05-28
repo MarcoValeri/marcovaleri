@@ -1,10 +1,10 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <section class="content__title">
+    <div class="content__title">
         <h2>Lascia che mi presenti</h2>
-    </section>
-    <section class="content__main">
+    </div>
+    <div class="content__main">
         <p>
             Mi chiamo Marco Valeri e ti do il benvenuto nel mio sito, che raccoglie tutti i miei pensieri e le mie idee, quelle che mi hanno fatto arrivare a raggiungere alcuni dei miei sogni pur essendo partito dal basso.
             <br><br>
@@ -18,21 +18,21 @@
             Non hai più nulla da perdere quando ricominci realmente da zero.
             Sì, ricominciare da zero mi ha dato il coraggio di fare quello che non avevo mai avuto il coraggio di fare, rincorrere i miei sogni, le mie passioni, la mia vita...<a href="{{ path('app_page', {slug: 'chi-sono'}) }}">[Continua a leggere...]</a>
         </p>
-    </section>
-    <section class="articles-list__container home__articles">
-        <section class="articles-list__title">
+    </div>
+    <div class="articles-list__container home__articles">
+        <div class="articles-list__title">
             <h1>Ultimi articoli</h1>
-        </section>
+        </div>
         {% set article_num = articles|length - 1 %}
         {% for item in article_num..0 %}
             <a class="articles-list__article-link" href="articoli/{{ articles[item].url }}">
-                <section class="articles-list__article">
+                <div class="articles-list__article">
                     <img class="articles-list__article-image" src="images/{{ articles[item].image }}" alt="{{ articles[item].image }}">
                     <h1 class="articles-list__article-title">{{ articles[item].title }}</h1>
                     {% set article_preview = articles[item].content|slice(0, 200) ~ '...' %}
                     <div class="articles-list__article-paragraph">{{ article_preview|raw }}</div>
-                </section>
+                </div>
             </a>
         {% endfor %}
-    </section>
+    </div>
 {% endblock %}

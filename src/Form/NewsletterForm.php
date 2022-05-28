@@ -20,7 +20,8 @@ class NewsletterForm extends AbstractType {
         $builder
             ->add('name', TextType::class,
             [
-                'label'         => 'Nome *',
+                'label'         => false,
+                'attr'          => ['placeholder'   => 'Nome *'],
                 'required'      => true,
                 'constraints'   =>
                 [
@@ -38,7 +39,8 @@ class NewsletterForm extends AbstractType {
             ])
             ->add('email', EmailType::class,
             [
-                'label'             => 'Email *',
+                'label'             => false,
+                'attr'              => ['placeholder'   => 'Email *'],
                 'required'          => true,
                 'invalid_message'   => 'Errore: indirizzo email non valido'
             ])

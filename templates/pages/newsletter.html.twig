@@ -1,2 +1,39 @@
-<h1>News Letter Form</h1>
-{{ form(newsletterForm) }}
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="content__title">
+        <h2>Iscriviti alla mia newletter</h2>
+    </div>
+    <div class="newsletter__content content__main">
+        <p>
+            Rimaniamo in contatto tramite email.
+            <br>
+            Iscriviti alla mia newsletter dove sono solito a condividere i miei ultimi articoli e alcune novità con i lettori più intimi.
+            <br>
+            Le newsletter è mensile ma può capitare di inviare una email extra quando ho qualche novità da condividere con i miei lettori.
+            <br>
+            Se hai piacere di far parte dei lettori iscritti alla newsletter, compila semplicemente il form che segue.
+        </p>
+    </div>
+    {{ form_start(newsletterForm) }}
+        <div class="newsletter__grid">
+            <div class="newsletter__grid-input-name">
+                {{ form_widget(newsletterForm.name, {'attr': {'class': 'newsletter__input-name' }}) }}
+            </div>
+            <div class="newsletter__grid-input-email">
+                {{ form_widget(newsletterForm.email, {'attr': {'class': 'newsletter__input-email'}}) }}
+            </div>
+            <div class="newsletter__grid-input-submit">
+                {{ form_widget(newsletterForm.submit, {'attr': {'class': 'newsletter__input-btn'}}) }}
+            </div>
+            <div class="newsletter__grid-input-privacy">
+                <label for="newsletter_form_privacy" class="required">
+                    {{ form_widget(newsletterForm.privacy) }}
+                    Accetto la privacy policy
+                    <span class="newsletter__checkmark"></span>
+                </label>
+            </div>
+            <div class="newsletter__grid-empty-element"></div>
+        </div>
+    {{ form_end(newsletterForm) }}
+{% endblock %}
