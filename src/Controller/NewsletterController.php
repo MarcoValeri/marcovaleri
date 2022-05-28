@@ -46,12 +46,21 @@ class NewsletterController extends AbstractController {
             
             mail($newUserEmail, $emailObj, $wrapEmailMsg);
 
-            return $this->redirect('app_contact_confirm');
+            return $this->redirect('app_newsletter_confirm');
         }
 
         return $this->render("pages/newsletter.html.twig", [
             'newsletterForm' => $form_newsletter->createView()
         ]);
+
+    }
+
+    /**
+     * @Route("/page/newsletter-confirm", name="app_newsletter_confirm")
+     */
+    public function newsletterConfirm(Request $request) {
+
+        return $this->render("pages/newsletter-confirm.html.twig");
 
     }
 
