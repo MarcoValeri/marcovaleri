@@ -40,13 +40,16 @@ class NewsletterController extends AbstractController {
             $newUserName = $form_newsletter->getData()->getName();
             $newUserEmail = $form_newsletter->getData()->getEmail();
             $emailObj = "Grazie per esserti iscritto alla newsletter di MarcoValeri.net";
-            $emailMsg = "Ciao " . $newUserName;
-            $emailMsg .= "Grazie per esserti iscritto alla mia newsletter";
+            $emailMsg = "Ciao " . $newUserName . ",\n\n";
+            $emailMsg .= "Grazie per esserti iscritto alla mia newsletter.\n";
+            $emailMsg .= "A presto.\n\n";
+            $emailMsg .= "Marco Valeri";
             $wrapEmailMsg = wordwrap($emailMsg, 70);
+            $emailHeaders = "From: Marco Valeri < info@marcovaleri.net >\n";
             
-            mail($newUserEmail, $emailObj, $wrapEmailMsg);
+            mail($newUserEmail, $emailObj, $wrapEmailMsg. $emailHeaders);
 
-            return $this->redirect('app_newsletter_confirm');
+            return $this->redirectToRoute('app_newsletter_confirm');
         }
 
         return $this->render("pages/newsletter.html.twig", [
