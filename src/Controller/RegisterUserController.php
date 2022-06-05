@@ -4,40 +4,39 @@ namespace App\Controller;
 
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
-
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class RegisterUserController extends AbstractController {
-
+class RegisterUserController extends AbstractController
+{
     /**
      * @Route("/user-registration", name="app_user_registration")
      */
-    public function registration(Request $request, UserPasswordEncoderInterface $passEncoder) {
-
+    public function registration(Request $request, UserPasswordEncoderInterface $passEncoder): Response
+    {
         // Create form
         $regForm = $this->createFormBuilder()
         ->add('email', EmailType::class, [
-            'label' => 'Email'
+            'label' => 'Email',
         ])
         ->add('role', ChoiceType::class, [
             'label' => 'Role',
             'choices' => [
-                'ROLE_ADMIN' => 'ROLE_ADMIN'
-            ]
+                'ROLE_ADMIN' => 'ROLE_ADMIN',
+            ],
         ])
         ->add('password', RepeatedType::class, [
             'type' => PasswordType::class,
             'required' => true,
             'first_options' => ['label' => 'Password'],
-            'second_options' => ['label' => 'Password Repeat']
+            'second_options' => ['label' => 'Password Repeat'],
         ])
         ->add('register', SubmitType::class)
         ->getForm();
@@ -63,13 +62,10 @@ class RegisterUserController extends AbstractController {
 
             // redirect to the homepage after the login
             return $this->redirect($this->generateUrl('app_page_home'));
-
         }
 
         return $this->render('register_user/index.html.twig', [
-            'regform' => $regForm->createView()
+            'regform' => $regForm->createView(),
         ]);
-
     }
-    
 }

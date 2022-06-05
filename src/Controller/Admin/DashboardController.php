@@ -3,10 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Article;
-use App\Entity\Page;
 use App\Entity\Category;
-use App\Entity\Tag;
 use App\Entity\Image;
+use App\Entity\Page;
+use App\Entity\Tag;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;

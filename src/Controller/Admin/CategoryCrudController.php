@@ -24,5 +24,4 @@ class CategoryCrudController extends AbstractCrudController
             TextField::new('url'),
         ];
     }
-    
 }

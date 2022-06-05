@@ -98,6 +98,9 @@
     "nikic/php-parser": {
         "version": "v4.13.0"
     },
+    "phpstan/phpstan": {
+        "version": "1.7.10"
+    },
     "psr/cache": {
         "version": "2.0.0"
     },
@@ -109,6 +112,9 @@
     },
     "psr/log": {
         "version": "2.0.0"
+    },
+    "rector/rector": {
+        "version": "0.13.4"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",

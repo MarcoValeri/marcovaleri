@@ -24,5 +24,4 @@ class TagCrudController extends AbstractCrudController
             TextField::new('url'),
         ];
     }
-
 }

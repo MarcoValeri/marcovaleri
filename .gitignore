@@ -19,3 +19,7 @@ yarn-error.log
 
 # db set up
 .env
+
+# Tools
+/tools/php-cs-fixer/vendor/
+/.php-cs-fixer.cache
