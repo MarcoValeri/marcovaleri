@@ -63,6 +63,11 @@
                             <li class="navbar__element {{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) == "/page/newsletter" ? 'navbar__element--mark' : '' }}">
                                 <a class="navbar__link" href="{{ path('app_newsletter') }}">Newsletter</a>
                             </li>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <li class="navbar__element">
+                                    <a class="navbar__link" href="{{ path('app_admin') }}">Admin</a>
+                                </li>
+                            {% endif %}
                         </div>
                     </ul>
                 </div>
