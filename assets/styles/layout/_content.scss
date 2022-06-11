@@ -76,6 +76,15 @@
         line-height: 1.6;
         margin-bottom: 1rem;
     }
+
+    &__item-content--icons {
+        padding: 2rem;
+        text-align: left;
+    }
+
+    &__item-icon {
+        padding: 1rem;
+    }
 }
 
 /*
