@@ -9,11 +9,11 @@ use App\Entity\Category;
 use App\Entity\Tag;
 use App\Entity\Image;
 use App\Entity\Newsletter;
+use App\Repository\ArticleRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
-use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,15 +21,24 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractDashboardController
 {
+
+    private ArticleRepository $articleRepository;
+
+    public function __construct(ArticleRepository $articleRepository) {
+        $this->articleRepository = $articleRepository;
+    }
+
     /**
      * @Route("/admin", name="app_admin")
      */
     public function index(): Response
     {
-        $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(ArticleCrudController::class)->generateUrl();
 
-        return $this->redirect($url);
+        $articles = $this->articleRepository->findAll();
+
+        return $this->render('admin/index.html.twig', [
+            'articles' => $articles
+        ]);
     }
 
     public function configureDashboard(): Dashboard
