@@ -16,6 +16,28 @@
     {% endfor %}
 {% endblock %}
 
+{% block data_structure %}
+    {% for article in articles %}
+        {% if slug == article.url %}
+            <script type="application/ld+json">
+                {
+                    "@context": "https://schema.org/",
+                    "@type": "Article",
+                    "headline": "{{ article.title|raw }}"
+                },
+                {
+                    "datePublished": "{{ article.getDate|date('Y-m-d') }}",
+                    "dateModified": "{{ article.getUpdateAt|date('Y-m-d') }}",
+                    "author" {
+                        "@type": "Person",
+                        "name": "Marco Valeri",
+                    },
+                }
+            </script>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+
 {% block body %}
     {% set break = false %}
     {% set notFound = true %}

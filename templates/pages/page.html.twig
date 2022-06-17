@@ -16,6 +16,24 @@
     {% endfor %}
 {% endblock %}
 
+{% block data_structure %}
+    {% for page in pages %}
+        {% if slug == page.url %}
+            <script type="application/ld+json">
+                {
+                    "@context": "https://schema.org/",
+                    "@type": "Page",
+                    "headline": "{{ page.title|raw }}"
+                },
+                {
+                    "datePublished": "{{ page.getDate|date('Y-m-d') }}",
+                    "dateModified": "{{ page.getUpdateAt|date('Y-m-d') }}",
+                }
+            </script>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+
 {% block body %}
     {% for page in pages %}
         {% if slug == page.url %}

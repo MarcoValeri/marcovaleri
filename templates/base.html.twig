@@ -9,6 +9,15 @@
         {% block description %}
             <meta name="Description" CONTENT="Sito Ufficiale di Marco Valeri, Software Engineer, Blogger e Autore che raccoglie i principali articoli, racconti e la biografia dello stesso Marco Valeri">
         {% endblock %}
+
+        {% block data_structure %}
+            <script type="application/ld+json">
+            {
+                "@context": "https://schema.org/"
+                "name": "Marco Valeri"
+            }
+            </script>
+        {% endblock %}
     
         {% block index %}
             <meta name="robots" content="index, follow">
