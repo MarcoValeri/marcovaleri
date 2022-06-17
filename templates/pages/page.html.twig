@@ -11,7 +11,7 @@
 {% block description %}
     {% for page in pages %}
         {% if slug == page.url %}
-            <meta name="Description" CONTENT="{{ page.description }}">
+            <meta name="Description" CONTENT="{{ page.description|raw }}">
         {% endif %}
     {% endfor %}
 {% endblock %}

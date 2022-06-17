@@ -11,7 +11,7 @@
 {% block description %}
     {% for article in articles %}
         {% if slug == article.url %}
-            <meta name="Description" CONTENT="{{ article.description }}">
+            <meta name="Description" CONTENT="{{ article.description|raw }}">
         {% endif %}
     {% endfor %}
 {% endblock %}
