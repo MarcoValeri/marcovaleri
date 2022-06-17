@@ -24,7 +24,31 @@
 
 .content__title {
     font-size: 3rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.content__data {
+    margin-bottom: 2rem;
+}
+
+.content__data-ul {
+    list-style-type: none;
+}
+
+.content__data-item {
+    font-size: 1.6rem;
+    margin-bottom: .5rem;
+    color: #a39a9a;
+}
+
+.content__index {
+    padding: 3rem;
+    margin-bottom: 2rem;
+}
+
+.content__index-item {
+    padding: .5rem;
+    font-size: 1.8rem !important;
 }
 
 .content__main {

@@ -3,7 +3,7 @@
 {% block title %}
     {% for article in articles %}
         {% if slug == article.url %}
-            {{ article.title }}
+            <title>{{ article.title|raw }}</title>
         {% endif %}
     {% endfor %}
 {% endblock %}
@@ -45,6 +45,13 @@
         {% if slug == article.url and break == false %}
             <div class="content__title">
                 <h1>{{ article.title }}</h1>
+            </div>
+            <div class="content__data">
+                <ul class="content__data-ul">
+                    <li class="content__data-item">Autore: Marco Valeri</li>
+                    <li class="content__data-item">Pubblicato il: {{ article.getDate|date('d-m-Y') }}</li>
+                    <li class="content__data-item">Ultima modifica: {{ article.getUpdateAt|date('d-m-Y') }}</li>
+                </ul>
             </div>
             <div class="content__main">
                     {{ article.content | raw }}

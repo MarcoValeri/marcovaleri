@@ -7,6 +7,15 @@
     }
 }
 
+.link {
+    color: #296eb4;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 // Button
 .button {
     font-size: 1.6rem;

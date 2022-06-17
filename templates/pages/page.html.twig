@@ -3,7 +3,7 @@
 {% block title %}
     {% for page in pages %}
         {% if slug == page.url %}
-            {{ page.title }}
+            <title>{{ page.title|raw }}</title>
         {% endif %}
     {% endfor %}
 {% endblock %}
