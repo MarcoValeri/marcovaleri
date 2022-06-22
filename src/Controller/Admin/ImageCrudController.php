@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Image;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -17,7 +18,7 @@ class ImageCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            ImageField::new('file_name')->setUploadDir('/public_html/images')->setBasePath('/public_html/images'),
+            ImageField::new('file_name')->setUploadDir('/public_html/images')->setBasePath('images'),
             TextField::new('alternative_text'),
             TextField::new('title'),
             TextField::new('caption'),
@@ -25,4 +26,10 @@ class ImageCrudController extends AbstractCrudController
         ];
     }
     
+    public function configureFilters(Filters $filters): Filters
+    {
+        return parent::configureFilters($filters)
+            ->add('title')
+            ->add('description');
+    }
 }
