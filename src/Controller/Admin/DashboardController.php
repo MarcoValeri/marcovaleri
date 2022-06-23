@@ -51,13 +51,16 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToUrl('Back to the website', 'fas fa-home', $this->generateUrl('app_home'));
         yield MenuItem::linktoDashboard('Dashboard', 'fas fa-solar-panel');
-        yield MenuItem::linkToCrud('Users', 'fas fa-newspaper', User::class);
+        yield MenuItem::section('Content');
         yield MenuItem::linkToCrud('Articles', 'fas fa-newspaper', Article::class);
         yield MenuItem::linkToCrud('Pages', 'fas fa-file-alt', Page::class);
         yield MenuItem::linkToCrud('Categories', 'far fa-newspaper', Category::class);
         yield MenuItem::linkToCrud('Tags', 'fas fa-tags', Tag::class);
         yield MenuItem::linkToCrud('Images', 'fas fa-images', Image::class);
+        yield MenuItem::section('Newsletter');
         yield MenuItem::linkToCrud('Newsletter', 'fas fa-envelope', Newsletter::class);
+        yield MenuItem::section('Users');
+        yield MenuItem::linkToCrud('Users', 'fas fa-newspaper', User::class);
     }
 
     public function configureActions(): Actions
