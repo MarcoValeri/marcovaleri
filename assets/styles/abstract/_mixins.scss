@@ -28,6 +28,6 @@
         @media only screen and (max-width: 1199px) { @content };
     }
     @if $breakpoint == xxl {
-        @media only screen and (max-width: 1920px) { @content };
+        @media only screen and (max-width: 1499px) { @content };
     }
 }
