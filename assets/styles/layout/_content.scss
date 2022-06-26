@@ -43,12 +43,17 @@
 
 .content__index {
     padding: 3rem;
-    margin-bottom: 2rem;
+    margin: 4rem 0;
+    border-radius: 5px;
+    border: 1px solid $grey-light;
+
+    &:hover {
+        border: 1px solid $blue-link;
+    }
 }
 
 .content__index-item {
     padding: .5rem;
-    font-size: 1.8rem !important;
 }
 
 .content__main {
