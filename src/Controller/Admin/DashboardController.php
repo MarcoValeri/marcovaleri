@@ -59,8 +59,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Images', 'fas fa-images', Image::class);
         yield MenuItem::section('Newsletter');
         yield MenuItem::linkToCrud('Newsletter', 'fas fa-envelope', Newsletter::class);
+        yield MenuItem::linkToUrl('Newsletter Sender', 'fa-solid fa-at', $this->generateUrl('app_admin_newsletter_sender'));
         yield MenuItem::section('Users');
-        yield MenuItem::linkToCrud('Users', 'fas fa-newspaper', User::class);
+        yield MenuItem::linkToCrud('Users', 'fa-solid fa-face-smile', User::class);
     }
 
     public function configureActions(): Actions
@@ -68,6 +69,5 @@ class DashboardController extends AbstractDashboardController
         return parent::configureActions()
             ->add(Crud::PAGE_INDEX, Action::DETAIL);
     }
-
     
 }
