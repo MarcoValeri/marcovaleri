@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CodeEditorField;
 
 class ArticleCrudController extends AbstractCrudController
@@ -25,7 +26,6 @@ class ArticleCrudController extends AbstractCrudController
             TextField::new('url'),
             DateTimeField::new('date'),
             DateTimeField::new('update_at'),
-            TextField::new('comments'),
             CodeEditorField::new('content'),
             AssociationField::new('image')
                 ->setFormTypeOptions([
@@ -39,6 +39,7 @@ class ArticleCrudController extends AbstractCrudController
                 ->setFormTypeOptions([
                     'by_reference' => false,
                 ]),
+            BooleanField::new('genderOption'),
         ];
     }
 

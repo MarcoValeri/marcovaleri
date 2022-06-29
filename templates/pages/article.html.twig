@@ -53,8 +53,15 @@
                     <li class="content__data-item">Ultima modifica: {{ article.getUpdateAt|date('d-m-Y') }}</li>
                 </ul>
             </div>
+            {% if article.genderOption %}
+                <div>
+                    <!--
+                    Create gender option banner that works with gender_option.js
+                    -->
+                </div>
+            {% endif %}
             <div class="content__main">
-                    {{ article.content | raw }}
+                {{ article.content | raw }}
             </div>
             <div class="content__image">
                 <img class="content__image-picture" src="../images/{{ article.image }}" alt="{{ article.image }}">

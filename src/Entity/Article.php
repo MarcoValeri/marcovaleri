@@ -55,11 +55,6 @@ class Article
     private $image;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $comments;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="article")
      */
     private $category;
@@ -68,6 +63,11 @@ class Article
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="article")
      */
     private $tags;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $genderOption;
 
     public function __construct()
     {
@@ -163,18 +163,6 @@ class Article
         return $this;
     }
 
-    public function getComments(): ?string
-    {
-        return $this->comments;
-    }
-
-    public function setComments(?string $comments): self
-    {
-        $this->comments = $comments;
-
-        return $this;
-    }
-
     public function getCategory(): ?Category
     {
         return $this->category;
@@ -207,6 +195,18 @@ class Article
     public function removeTag(Tag $tag): self
     {
         $this->tags->removeElement($tag);
+
+        return $this;
+    }
+
+    public function getGenderOption(): bool
+    {
+        return $this->genderOption;
+    }
+
+    public function setGenderOption(bool $genderOption): self
+    {
+        $this->genderOption = $genderOption;
 
         return $this;
     }
