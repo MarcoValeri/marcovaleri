@@ -5,19 +5,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const genderMale = document.getElementById('gender-male');
     const genderFemale = document.getElementById('gender-female');
     const genderNonBinary = document.getElementById('gender-non-binary');
+    const contentMainMale = document.getElementById('content-main-male');
+    const contentMainFemale = document.getElementById('content-main-female');
+    const contentMainNonBinary = document.getElementById('content-main-non-binary');
 
-    // Event Click
-    genderMale.addEventListener('click', () => {
-        genderLegend.innerHTML = 'Sentiti libero...';
-    })
+    if (genderMale && genderFemale && genderNonBinary) {
 
-    genderFemale.addEventListener('click', () => {
-        genderLegend.innerHTML = "Sentiti libera...";
-    })
+        genderMale.addEventListener('click', () => {
+            genderFemale.classList.remove('content__gender-icon--active');
+            genderNonBinary.classList.remove('content__gender-icon--active');
+            genderMale.classList.add('content__gender-icon--active');
+            contentMainFemale.style.display = 'none';
+            contentMainNonBinary.style.display = 'none';
+            contentMainMale.style.display = 'block';
+            genderLegend.innerHTML = 'Sentiti libero...';
+        })
+    
+        genderFemale.addEventListener('click', () => {
+            genderMale.classList.remove('content__gender-icon--active');
+            genderNonBinary.classList.remove('content__gender-icon--active');
+            genderFemale.classList.add('content__gender-icon--active');
+            contentMainMale.style.display = 'none';
+            contentMainNonBinary.style.display = 'none';
+            contentMainFemale.style.display = 'block';
+            genderLegend.innerHTML = "Sentiti libera...";
+        })
+    
+        genderNonBinary.addEventListener('click', () => {
+            genderMale.classList.remove('content__gender-icon--active');
+            genderFemale.classList.remove('content__gender-icon--active');
+            genderNonBinary.classList.add('content__gender-icon--active');
+            contentMainMale.style.display = 'none';
+            contentMainFemale.style.display = 'none';
+            contentMainNonBinary.style.display = 'block';
+            genderLegend.innerHTML = "Sentiti liberə...";
+        })
+    }
 
-    genderNonBinary.addEventListener('click', () => {
-        genderLegend.innerHTML = "Sentiti liberə...";
-    })
 
 })
 
