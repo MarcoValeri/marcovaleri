@@ -7,20 +7,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Persistence\ManagerRegistry;
 
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+// use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class RegisterUserController extends AbstractController {
 
     /**
      * @Route("/user-registration", name="app_user_registration")
      */
-    public function registration(Request $request, UserPasswordEncoderInterface $passEncoder) {
+    public function registration(Request $request, UserPasswordHasherInterface $passwordHasher, ManagerRegistry $doctrine) {
 
         // Create form
         $regForm = $this->createFormBuilder()
@@ -54,15 +56,15 @@ class RegisterUserController extends AbstractController {
             $user->setRoles([$input['role']]);
 
             $user->setPassword(
-                $passEncoder->encodePassword($user, $input['password'])
+                $passwordHasher->hashPassword($user, $input['password'])
             );
 
-            $em = $this->getDoctrine()->getManager();
+            $em = $doctrine->getManager();
             $em->persist($user);
             $em->flush();
 
             // redirect to the homepage after the login
-            return $this->redirect($this->generateUrl('app_page_home'));
+            return $this->redirect($this->generateUrl('app_home'));
 
         }
 
