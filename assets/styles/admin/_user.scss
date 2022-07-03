@@ -1,0 +1,19 @@
+.user {
+
+    &__table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    &__table-head {
+        text-align: left;
+        padding: 1rem;
+        background-color: $grey-light;
+        border: 1px solid #000;
+    }
+
+    &__table-item {
+        padding: 1rem;
+        border: 1px solid #000;
+    }
+}

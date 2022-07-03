@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block page_title %}
+    Admin User Data Menu
+{% endblock %}
+
+{% block body %}
+    <div class="content__title">
+        User
+    </div>
+    <div class="user content__main">
+        {% if (user) %}
+            <p>{{ user.id }}</p>
+            <p>{{ user.email }}</p>
+        {% endif %}
+    </div>
+{% endblock %}
