@@ -13,5 +13,7 @@
             <p>{{ user.id }}</p>
             <p>{{ user.email }}</p>
         {% endif %}
+        <h4>Modifica i dati di questo user</h4>
+        {{ form(userDataForm) }}
     </div>
 {% endblock %}

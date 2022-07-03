@@ -2,9 +2,16 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Repository\UserRepository;
+
+use App\Form\UserDataForm;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserController extends AbstractController
 {
@@ -23,12 +30,32 @@ class UserController extends AbstractController
     /**
      * @Route("admin/user/{id}", name="app_admin_user")
      */
-    public function singleUser(UserRepository $userRepository, string $id)
+    public function singleUser(Request $request, UserPasswordHasherInterface $passwordHasher, UserRepository $userRepository, string $id, ManagerRegistry $doctrine)
     {
+        $userDataForm = $this->createForm(UserDataForm::class);
+        $userDataForm->handleRequest($request);
+
+        if ($userDataForm->isSubmitted() && $userDataForm->isValid()) {
+
+            $inputUserDataForm = $userDataForm->getData();
+
+            $em = $doctrine->getManager();
+            $user = $em->getRepository(User::class)->find($id);
+            $user->setPassword(
+                $passwordHasher->hashPassword($user, $inputUserDataForm['password'])
+            );
+            $em->persist($user);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('app_login'));
+
+        }
+
         $user = $userRepository->find($id);
 
         return $this->render("admin/user-data.html.twig", [
             'user' => $user,
+            'userDataForm' => $userDataForm->createView()
         ]);
     }
 

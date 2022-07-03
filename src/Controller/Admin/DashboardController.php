@@ -62,6 +62,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToUrl('Newsletter Sender', 'fa-solid fa-at', $this->generateUrl('app_admin_newsletter_sender'));
         yield MenuItem::section('Users');
         yield MenuItem::linkToCrud('Users', 'fa-solid fa-face-smile', User::class);
+        yield MenuItem::linkToUrl('Edit Users', 'fa-solid fa-users', $this->generateUrl('app_admin_users'));
     }
 
     public function configureActions(): Actions
