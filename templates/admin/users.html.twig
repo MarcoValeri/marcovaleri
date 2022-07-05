@@ -13,6 +13,7 @@
             <tr>
                 <th class="user__table-head p">Id</th>
                 <th class="user__table-head p">Email</th>
+                <th class="user__table-head p">Roles</th>
                 <th class="user__table-head p">Edit</th>
             </tr>
             {% if (users) %}
@@ -20,6 +21,11 @@
                     <tr>
                         <td class="user__table-item p">{{ user.id }}</td>
                         <td class="user__table-item p">{{ user.email }}</td>
+                        <td class="user__table-item p">
+                            {% for role in user.getRoles %}
+                                {{ role }}<br>
+                            {% endfor %}
+                        </td>
                         <td class="user__table-item p">
                             <a href="{{ path('app_admin_user', {id: user.id }) }}">
                                 <button class="button">Edit</button>

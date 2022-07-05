@@ -22,7 +22,7 @@ class UserController extends AbstractController
     {
         $users = $userRepository->findAll();
 
-        return $this->render("admin/user.html.twig", [
+        return $this->render("admin/users.html.twig", [
             'users' => $users,
         ]);
     }
@@ -39,11 +39,15 @@ class UserController extends AbstractController
 
             $inputUserDataForm = $userDataForm->getData();
 
+            // dd($inputUserDataForm);
+
             $em = $doctrine->getManager();
             $user = $em->getRepository(User::class)->find($id);
+            $user->setEmail($inputUserDataForm['email']);
             $user->setPassword(
                 $passwordHasher->hashPassword($user, $inputUserDataForm['password'])
             );
+            $user->setRoles($inputUserDataForm['roles']);
             $em->persist($user);
             $em->flush();
 
