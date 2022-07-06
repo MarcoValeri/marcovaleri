@@ -39,8 +39,8 @@ class UserDataForm extends AbstractType
                 'label'             => false,
                 'options'           => ['attr' => ['class' => 'newsletter__input-email']],
                 'required'          => true,
-                'first_options' => ['label' => false, 'attr' => ['class' => 'newsletter__input-email', 'placeholder'   => 'Password *']],
-                'second_options' => ['label' => false, 'attr' => ['class' => 'newsletter__input-email', 'placeholder'   => 'Repeat Password *']],
+                'first_options' => ['label' => false, 'attr' => ['class' => 'newsletter__input-email user-data__grid-password', 'placeholder'   => 'Password *']],
+                'second_options' => ['label' => false, 'attr' => ['class' => 'newsletter__input-email user-data__grid-repeat-password', 'placeholder'   => 'Repeat Password *']],
             ])
             ->add('submit', SubmitType::class,
             [
