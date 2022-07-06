@@ -23,37 +23,50 @@ class NewsletterController extends AbstractController {
         $newsletter = new Newsletter();
 
         /**
+         * Create a flag variable that allow to show
+         * error on the template if the email
+         * is already registered
+         */
+        $newsletterAlreadyRegistered = false;
+
+        /**
          * Save the form into the $form_newsletter and
          * validate it
          */
         $form_newsletter = $this->createForm(NewsletterForm::class, $newsletter);
         $form_newsletter->handleRequest($request);
 
-        if ($form_newsletter->isSubmitted() && $form_newsletter->isValid()) {
+        if ($form_newsletter->isSubmitted()) {
 
-            // EntityManager
-            $em = $doctrine->getManager();
-            $em->persist($newsletter);
-            $em->flush();
+            if ($form_newsletter->isValid()) {
 
-            // Send email if new user has subscribed to the newsletter list
-            $newUserName = $form_newsletter->getData()->getName();
-            $newUserEmail = $form_newsletter->getData()->getEmail();
-            $emailObj = "Grazie per esserti iscritto alla newsletter di MarcoValeri.net";
-            $emailMsg = "Ciao " . $newUserName . ",\n\n";
-            $emailMsg .= "Grazie per esserti iscritto alla mia newsletter.\n";
-            $emailMsg .= "A presto.\n\n";
-            $emailMsg .= "Marco Valeri";
-            $wrapEmailMsg = wordwrap($emailMsg, 70);
-            $emailHeaders = "From: Marco Valeri < info@marcovaleri.net >\n";
-            
-            mail($newUserEmail, $emailObj, $wrapEmailMsg. $emailHeaders);
+                // EntityManager
+                $em = $doctrine->getManager();
+                $em->persist($newsletter);
+                $em->flush();
 
-            return $this->redirectToRoute('app_newsletter_confirm');
+                // Send email if new user has subscribed to the newsletter list
+                $newUserName = $form_newsletter->getData()->getName();
+                $newUserEmail = $form_newsletter->getData()->getEmail();
+                $emailObj = "Grazie per esserti iscritto alla newsletter di MarcoValeri.net";
+                $emailMsg = "Ciao " . $newUserName . ",\n\n";
+                $emailMsg .= "Grazie per esserti iscritto alla mia newsletter.\n";
+                $emailMsg .= "A presto.\n\n";
+                $emailMsg .= "Marco Valeri";
+                $wrapEmailMsg = wordwrap($emailMsg, 70);
+                $emailHeaders = "From: Marco Valeri < info@marcovaleri.net >\n";
+                
+                mail($newUserEmail, $emailObj, $wrapEmailMsg. $emailHeaders);
+
+                return $this->redirectToRoute('app_newsletter_confirm');
+            } else if (!$form_newsletter->isValid()) {
+                $newsletterAlreadyRegistered = true;
+            }
         }
 
         return $this->render("pages/newsletter.html.twig", [
-            'newsletterForm' => $form_newsletter->createView()
+            'newsletterForm' => $form_newsletter->createView(),
+            'newsletterAlreadyRegistered' => $newsletterAlreadyRegistered
         ]);
 
     }

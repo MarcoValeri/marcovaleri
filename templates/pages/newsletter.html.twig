@@ -33,7 +33,11 @@
                     <span class="newsletter__checkmark"></span>
                 </label>
             </div>
-            <div class="newsletter__grid-empty-element"></div>
+            <div class="newsletter__grid-error">
+                {% if (newsletterAlreadyRegistered) %}
+                    <p class="error">Questo indirizzo email è già registrato.</p>
+                {% endif %}
+            </div>
         </div>
     {{ form_end(newsletterForm) }}
 {% endblock %}

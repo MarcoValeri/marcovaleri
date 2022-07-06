@@ -8,14 +8,14 @@
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas:
         "newsletter__grid-input-name newsletter__grid-input-email newsletter__grid-input-submit"
-        "newsletter__grid-empty-element newsletter__grid-empty-element newsletter__grid-input-privacy";
+        "newsletter__grid-error newsletter__grid-error newsletter__grid-input-privacy";
 
         @include respond('l') {
             grid-template-columns: 1fr 1fr;
             grid-template-areas:
             "newsletter__grid-input-name newsletter__grid-input-email"
             "newsletter__grid-input-privacy newsletter__grid-input-submit"
-            "newsletter__grid-empty-element newsletter__grid-empty-element";
+            "newsletter__grid-error newsletter__grid-error";
         }
 
         @include respond('sm') {
@@ -26,7 +26,7 @@
             "newsletter__grid-input-email"
             "newsletter__grid-input-privacy"
             "newsletter__grid-input-submit"
-            "newsletter__grid-empty-element";
+            "newsletter__grid-error";
         }
     }
 
