@@ -1,51 +1,47 @@
 .header {
-    height: 70vh;
-    border: 1px solid #000;
+    height: 50vh;
+    min-height: 40rem;
+    background-color: #000;
 
-    background-image: url('https://marcovaleri.net/images/parco-nazionale-valle-della-morte-usa.webp');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+    &__hero {
+        width: 30%;
+        margin: 6rem auto 0rem auto;
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 5px;
 
-.header__hero {
-    width: 30%;
-    margin: 8rem auto 0rem auto;
-    color: #fff;
-    border: 1px solid #fff;
-    border-radius: 5px;
-}
+        @include respond('xxl') {
+            width: 40%;
+        }
 
-.header__container {
-    text-align: center;
-}
+        @include respond('xl') {
+            width: 50%;
+        }
 
-.header__title {
-    font-size: 5rem;
-    margin: 3rem;
-    padding: 3rem;
-}
+        @include respond('l') {
+            width: 60%;
+        }
 
-/*
-* Media Queries
-* max-width: 767px
-*/
-@media (max-width: 767px) {
+        @include respond('m') {
+            width: 90%;
+        }
 
-    .header__hero {
-        width: 80%;
+        @include respond('xs') {
+            margin: 3rem auto 0rem auto;
+        }
     }
 
-}
+    &__container {
+        padding: 3rem;
+        text-align: center;
+    }
 
-/*
-* Media Queries
-* max-width: 480px
-*/
-@media (max-width: 480px) {
+    &__title {
+        font-size: 8rem;
 
-    .header {
-        height: 80vh;
+        @include respond('sm') {
+            font-size: 6rem;
+        }
     }
 
 }

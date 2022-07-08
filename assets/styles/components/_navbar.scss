@@ -1,7 +1,11 @@
 .navbar {
     position: relative;
     padding: 3rem;
-    background-color: #000;
+    border-bottom: 1px solid #fff;
+    
+    @include respond('l') {
+        border-bottom: none;
+    }
 }
 
 .navbar__input,
