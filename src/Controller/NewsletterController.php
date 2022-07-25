@@ -129,19 +129,20 @@ class NewsletterController extends AbstractController {
             $sendTestOrReal = $formData['emails'];
             $formSubject = $formData['subject'];
             $formContent = $formData['content'];
+            $emailHeaders = "From: Marco Valeri < info@marcovaleri.net >\n";
 
             if ($sendTestOrReal) {
                 // Send email to reale users
                 echo "Real users";
                 foreach ($emails as $email) {
                     $userEmail = $email->getEmail();
-                    mail($userEmail, $formSubject, $formContent);
+                    mail($userEmail, $formSubject, $formContent, $emailHeaders);
                 }
                 $emailSenderConfirm = "Email sent to real users";
             } else {
                 // Send email to test users
                 echo "Test users";
-                mail("info@marcovaleri.net, marcovaleri@hotmail.it", $formSubject, $formContent);
+                mail("info@marcovaleri.net, marcovaleri@hotmail.it", $formSubject, $formContent, $emailHeaders);
                 $emailSenderConfirm = "Email sent to test users";
             }
 
