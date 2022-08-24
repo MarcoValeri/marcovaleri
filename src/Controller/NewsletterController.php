@@ -129,7 +129,9 @@ class NewsletterController extends AbstractController {
             $sendTestOrReal = $formData['emails'];
             $formSubject = $formData['subject'];
             $formContent = $formData['content'];
-            $emailHeaders = "From: Marco Valeri < info@marcovaleri.net >\n";
+            $emailHeaders = "MIME-Version: 1.0\r\n";
+            $emailHeaders .= "Content-type: text/html; charset=utf-8\r\n";
+            $emailHeaders .= "From: Marco Valeri < info@marcovaleri.net >\n";
 
             if ($sendTestOrReal) {
                 // Send email to reale users
