@@ -49,14 +49,15 @@ class NewsletterController extends AbstractController {
                 $newUserName = $form_newsletter->getData()->getName();
                 $newUserEmail = $form_newsletter->getData()->getEmail();
                 $emailObj = "Grazie per esserti iscritto alla newsletter di MarcoValeri.net";
-                $emailMsg = "Ciao " . $newUserName . ",\n\n";
-                $emailMsg .= "Grazie per esserti iscritto alla mia newsletter.\n";
-                $emailMsg .= "A presto.\n\n";
+                $emailMsg = "<p>Ciao " . $newUserName . "</p><p>&nbsp;</p>";
+                $emailMsg .= "<p>Grazie per esserti iscritto alla mia newsletter</p><p>&nbsp;</p>";
+                $emailMsg .= "<p>A presto,</p>";
                 $emailMsg .= "Marco Valeri";
-                $wrapEmailMsg = wordwrap($emailMsg, 70);
-                $emailHeaders = "From: Marco Valeri < info@marcovaleri.net >\n";
+                $emailHeaders = "MIME-Version: 1.0\r\n";
+                $emailHeaders .= "Content-type: text/html; charset=utf-8\r\n";
+                $emailHeaders .= "From: Marco Valeri < info@marcovaleri.net >\n";
                 
-                mail($newUserEmail, $emailObj, $wrapEmailMsg. $emailHeaders);
+                mail($newUserEmail, $emailObj, $emailMsg, $emailHeaders);
 
                 return $this->redirectToRoute('app_newsletter_confirm');
             } else if (!$form_newsletter->isValid()) {
@@ -133,18 +134,39 @@ class NewsletterController extends AbstractController {
             $emailHeaders .= "Content-type: text/html; charset=utf-8\r\n";
             $emailHeaders .= "From: Marco Valeri < info@marcovaleri.net >\n";
 
+            // Create test data
+            $testEmails = [
+                'info@marcovaleri.net',
+                'marcovaleri@hotmail.it'
+            ];
+
             if ($sendTestOrReal) {
                 // Send email to reale users
                 echo "Real users";
                 foreach ($emails as $email) {
                     $userEmail = $email->getEmail();
-                    mail($userEmail, $formSubject, $formContent, $emailHeaders);
+                    $userName = $email->getName();
+                    $newsletterContent = '<p>Ciao ' . $userName . '</p>';
+                    $newsletterContent .= $formContent;
+                    $newsletterContent .= '<p>&nbsp;</p><p><hr></p>';
+                    $newsletterContent .= '<p>Messaggio inviato a: ' . $userEmail . '</p>';
+                    $newsletterContent .= '<p>Non vuoi più ricevere nessuna email da Marco Valeri? Clicca qui: ' . '<a href="https://www.marcovaleri.net/page/newsletter-unsubscribe/' . $userEmail . '/123456789">cancellami</a>' . '</p>';
+                    $newsletterContent .= '<p>Per ulteriori informazioni consulta la <a href="https://www.marcovaleri.net/privacy/cookie-policy">Privacy Policy</a></p>';
+                    mail($userEmail, $formSubject, $newsletterContent, $emailHeaders);
                 }
                 $emailSenderConfirm = "Email sent to real users";
             } else {
                 // Send email to test users
                 echo "Test users";
-                mail("info@marcovaleri.net, marcovaleri@hotmail.it", $formSubject, $formContent, $emailHeaders);
+                foreach ($testEmails as $email) {
+                    $newsletterContent = '<p>Ciao ' . $email . '</p>';
+                    $newsletterContent .= $formContent;
+                    $newsletterContent .= '<p>&nbsp;</p><p><hr></p>';
+                    $newsletterContent .= '<p>Messaggio inviato a: ' . $email . '</p>';
+                    $newsletterContent .= '<p>Non vuoi più ricevere nessuna email da Marco Valeri? Clicca qui: ' . '<a href="https://www.marcovaleri.net/page/newsletter-unsubscribe/' . $email . '/123456789">cancellami</a>' . '</p>';
+                    $newsletterContent .= '<p>Per ulteriori informazioni consulta la <a href="https://www.marcovaleri.net/privacy/cookie-policy">Privacy Policy</a></p>';
+                    mail($email, $formSubject, $newsletterContent, $emailHeaders);
+                }
                 $emailSenderConfirm = "Email sent to test users";
             }
 
