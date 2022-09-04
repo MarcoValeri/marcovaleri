@@ -13,16 +13,15 @@
         <div class="articles-list__title">
             <h1>Tutti gli Articoli</h1>
         </div>
-        {% set article_num = articles|length - 1 %}
-        {% for item in article_num..0 %}
-            <a class="articles-list__container no-link" href="articoli/{{ articles[item].url }}">
+        {% for article in articles|reverse %}
+            <a class="articles-list__container no-link" href="articoli/{{ article.getUrl }}">
                 <article class="articles-list__article">
                     <div class="articles-list__container-image">
-                        <img class="articles-list__article-image" src="images/{{ articles[item].image }}" alt="{{ articles[item].image }}">
+                        <img class="articles-list__article-image" src="images/{{ article.getImage }}" alt="{{ article.getImage.title }}">
                     </div>
                     <div class="articles-list__content-container">
-                        <h1 class="articles-list__article-title">{{ articles[item].title }}</h1>
-                        {% set article_preview = articles[item].content|slice(0, 200) ~ '...' %}
+                        <h1 class="articles-list__article-title">{{ article.getTitle }}</h1>
+                        {% set article_preview = article.getContent|slice(0, 200) ~ '...' %}
                         <div class="articles-list__article-paragraph">{{ article_preview|raw }}</div>
                     </div>
                 </article>

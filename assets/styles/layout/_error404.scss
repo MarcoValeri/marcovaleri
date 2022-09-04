@@ -1,0 +1,18 @@
+.error404 {
+    
+    &__content-container {
+        margin-bottom: 2rem;
+    }
+
+    &__container-btns {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    &__btn {
+        margin: 2rem;
+    }
+
+}

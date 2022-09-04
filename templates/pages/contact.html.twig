@@ -10,28 +10,28 @@
 
 {% block body %}
     {{ form_start(contactForm) }}
-        <section class="contact-grid">
-            <section class="contact-grid__title">
+        <div class="contact-grid">
+            <div class="contact-grid__title">
                 <h2 class="contact-grid__title-main">Marco Valeri contatti</h2>
                 <p class="contact-grid__title-sub">
                     Sentiti libero di scrivermi tramite il seguente form per qualsiasi questione o esigenza
                 </p>
-            </section>
-            <section class="contact-grid__name contact-grid__input">
+            </div>
+            <div class="contact-grid__name contact-grid__input">
                 {{ form_row(contactForm.name) }}
-            </section>
-            <section class="contact-grid__surname contact-grid__input">
+            </div>
+            <div class="contact-grid__surname contact-grid__input">
                 {{ form_row(contactForm.surname) }}
-            </section>
-            <section class="contact-grid__email contact-grid__input">
+            </div>
+            <div class="contact-grid__email contact-grid__input">
                 {{ form_row(contactForm.email) }}
-            </section>
-            <section class="contact-grid__message contact-grid__input">
+            </div>
+            <div class="contact-grid__message contact-grid__input">
                 {{ form_row(contactForm.message) }}
-            </section>
-            <section class="contact-grid__submit contact-grid__input">
+            </div>
+            <div class="contact-grid__submit contact-grid__input">
                 {{ form_row(contactForm.submit) }}
-            </section>
-        </section>
+            </div>
+        </div>
     {{ form_end(contactForm) }}
 {% endblock %}
