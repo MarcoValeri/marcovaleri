@@ -21,10 +21,13 @@
     <url>
         <loc>https://www.marcovaleri.net/page/newsletter-confirm</loc>
     </url>
+    {% set getDateToday = "now"|date('U') %}
     {% for article in articles %}
-        <url>
-            <loc>https://www.marcovaleri.net/articoli/{{ article.url }}</loc>
-            <lastmod>{{ article.getUpdateAt|date('Y-m-d') }}</lastmod>
-        </url>
+        {% if (getDateToday > article.getDate|date('U')) %}
+            <url>
+                <loc>https://www.marcovaleri.net/articoli/{{ article.url }}</loc>
+                <lastmod>{{ article.getUpdateAt|date('Y-m-d') }}</lastmod>
+            </url>
+        {% endif %}
     {% endfor %}
 </urlset>
