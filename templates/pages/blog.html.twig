@@ -14,18 +14,20 @@
             <h1>Tutti gli Articoli</h1>
         </div>
         {% for article in articles|reverse %}
-            <a class="articles-list__container no-link" href="articoli/{{ article.getUrl }}">
-                <article class="articles-list__article">
-                    <div class="articles-list__container-image">
-                        <img class="articles-list__article-image" src="images/{{ article.getImage }}" alt="{{ article.getImage.title }}">
-                    </div>
-                    <div class="articles-list__content-container">
-                        <h1 class="articles-list__article-title">{{ article.getTitle }}</h1>
-                        {% set article_preview = article.getContent|slice(0, 200) ~ '...' %}
-                        <div class="articles-list__article-paragraph">{{ article_preview|raw }}</div>
-                    </div>
-                </article>
-            </a>
+            {% if ("now"|date('U') > article.getDate|date('U')) %}
+                <a class="articles-list__container no-link" href="articoli/{{ article.getUrl }}">
+                    <article class="articles-list__article">
+                        <div class="articles-list__container-image">
+                            <img class="articles-list__article-image" src="images/{{ article.getImage }}" alt="{{ article.getImage.title }}">
+                        </div>
+                        <div class="articles-list__content-container">
+                            <h1 class="articles-list__article-title">{{ article.getTitle }}</h1>
+                            {% set article_preview = article.getContent|slice(0, 200) ~ '...' %}
+                            <div class="articles-list__article-paragraph">{{ article_preview|raw }}</div>
+                        </div>
+                    </article>
+                </a>
+            {% endif %}
         {% endfor %}
     </section>
 {% endblock %}

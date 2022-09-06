@@ -23,8 +23,9 @@
         <div class="articles-list__title">
             <h1>Ultimi articoli</h1>
         </div>
-        {% for key, article in articles|reverse %}
-            {% if key < 10 %}
+        {% set key = 0 %}
+        {% for article in articles|reverse %}
+            {% if ((key < 10) and ("now"|date('U') > article.getDate|date('U'))) %}
                 <a class="articles-list__container no-link" href="articoli/{{ article.getUrl }}">
                     <article class="articles-list__article">
                         <div class="articles-list__container-image">
@@ -37,6 +38,7 @@
                         </div>
                     </article>
                 </a>
+                {% set key = key + 1 %}
             {% endif %}
         {% endfor %}
     </section>
