@@ -49,10 +49,10 @@ class NewsletterController extends AbstractController {
                 $newUserName = $form_newsletter->getData()->getName();
                 $newUserEmail = $form_newsletter->getData()->getEmail();
                 $emailObj = "Grazie per esserti iscritto alla newsletter di MarcoValeri.net";
-                $emailMsg = "<p>Ciao " . $newUserName . "</p><p>&nbsp;</p>";
-                $emailMsg .= "<p>Grazie per esserti iscritto alla mia newsletter</p><p>&nbsp;</p>";
-                $emailMsg .= "<p>A presto,</p>";
-                $emailMsg .= "Marco Valeri";
+                $emailMsg = "<p style='font-size: 16px'>Ciao " . $newUserName . "</p><p>&nbsp;</p>";
+                $emailMsg .= "<p style='font-size: 16px'>Grazie per esserti iscritto alla mia newsletter</p><p>&nbsp;</p>";
+                $emailMsg .= "<p style='font-size: 16px'>A presto,</p>";
+                $emailMsg .= "<p  style='font-size: 16px'>Marco Valeri</p>";
                 $emailHeaders = "MIME-Version: 1.0\r\n";
                 $emailHeaders .= "Content-type: text/html; charset=utf-8\r\n";
                 $emailHeaders .= "From: Marco Valeri < info@marcovaleri.net >\n";
@@ -146,7 +146,7 @@ class NewsletterController extends AbstractController {
                 foreach ($emails as $email) {
                     $userEmail = $email->getEmail();
                     $userName = $email->getName();
-                    $newsletterContent = '<p>Ciao ' . $userName . '</p>';
+                    $newsletterContent = '<p style="font-size: 16px">Ciao ' . $userName . '</p>';
                     $newsletterContent .= $formContent;
                     $newsletterContent .= '<p>&nbsp;</p><p><hr></p>';
                     $newsletterContent .= '<p>Messaggio inviato a: ' . $userEmail . '</p>';
@@ -159,7 +159,7 @@ class NewsletterController extends AbstractController {
                 // Send email to test users
                 echo "Test users";
                 foreach ($testEmails as $email) {
-                    $newsletterContent = '<p>Ciao ' . $email . '</p>';
+                    $newsletterContent = '<p style="font-size: 16px">Ciao ' . $email . '</p>';
                     $newsletterContent .= $formContent;
                     $newsletterContent .= '<p>&nbsp;</p><p><hr></p>';
                     $newsletterContent .= '<p>Messaggio inviato a: ' . $email . '</p>';
