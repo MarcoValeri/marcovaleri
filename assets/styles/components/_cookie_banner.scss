@@ -1,6 +1,5 @@
 .cookie-banner {
     display: block;
-    position: absolute;
     position: fixed;
     bottom: 10%;
     left: 50%;
@@ -10,32 +9,24 @@
     min-height: 20rem;
     z-index: 1;
     padding: 2rem;
-    background-color: #000;
-    color: #fff;
-    border: 1px solid #fff;
-}
+    background-color: $black;
+    color: $white;
+    border: 1px solid $white;
 
-.cookie-banner__content {
-    font-size: 2.4rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-}
+    &__content {
+        font-size: 2.4rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
 
-.cookie-btn {
-    font-size: 2.4rem;
-    padding: 1rem;
-    border-radius: 5px;
-    background-color: #fff;
-    margin: 2rem;
-    border: 1px solid #fff;
-}
+    &__container-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
 
-.cookie-btn:hover {
-    color: #fff;
-    background-color: #000;
-}
-
-.cookie-btn--link {
-    text-decoration: none;
-    color: #000;
+    &__button {
+        margin: 2rem;
+    }
 }

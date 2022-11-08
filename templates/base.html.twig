@@ -109,7 +109,7 @@
                         Iscriviti alla mia newsletter dove sono solito a condividere i miei ultimi articoli e alcune novità con i lettori più intimi.
                     </p>
                     <a href="/page/newsletter">
-                        <button class="button no-link">Newsletter</button>
+                        <button class="button button__black">Newsletter</button>
                     </a>
                 </div>
             </div>
@@ -128,8 +128,10 @@
                 Cliccando su “Accetto”, acconsenti all’uso dei cookie.<br>
                 Per ulteriori informazioni sui cookie e su come gestirli, consulta la nostra Cookie Policy<br>
             </p>
-            <input id="accept" class="cookie-btn" type="submit" value="Accetto" />
-            <a id="more" class="cookie-btn cookie-btn--link" href="{{ path('app_cookie_policy') }}">Scopri di più</a>
+            <div class="cookie-banner__container-buttons">
+                <input id="accept" class="cookie-banner__button button button__white" type="submit" value="Accetto" />
+                <a id="more" class="cookie-banner__button button button__white" href="{{ path('app_cookie_policy') }}">Scopri di più</a>
+            </div>
         </section>
     </body>
 </html>
