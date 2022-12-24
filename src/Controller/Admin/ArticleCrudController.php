@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Article;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -48,6 +49,18 @@ class ArticleCrudController extends AbstractCrudController
         return parent::configureFilters($filters)
             ->add('title')
             ->add('date');
+    }
+
+    /**
+     * Set all the content in DESC
+     * order by their date
+     */
+    public function configureCrud(Crud $crud): Crud
+    {
+        return parent::configureCrud($crud)
+            ->setDefaultSort([
+                'date'  => 'DESC'
+            ]);
     }
 
 }

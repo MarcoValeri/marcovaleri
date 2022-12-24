@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Image;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -31,5 +32,17 @@ class ImageCrudController extends AbstractCrudController
         return parent::configureFilters($filters)
             ->add('title')
             ->add('description');
+    }
+
+    /**
+     * Set all the content in DESC
+     * order by their ID
+     */
+    public function configureCrud(Crud $crud): Crud
+    {
+        return parent::configureCrud($crud)
+            ->setDefaultSort([
+                'id' => 'DESC'
+            ]);
     }
 }
