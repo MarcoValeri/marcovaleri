@@ -136,5 +136,30 @@
         <div class="content__image">
             <img class="content__image-picture" src="../images/{{ articleImage }}" alt="{{ articleImageAlt }}">
         </div>
+        <div class="content__container-comment-form">
+            {{ form_start(formComment) }}
+                <div class="content__comment-form-grid">
+                    <div class="content__form-grid-name">
+                        {{ form_row(formComment.name, {'attr': {'class': 'content__form-input-name'}}) }}
+                    </div>
+                    <div class="content__form-grid-email">
+                        {{ form_row(formComment.email, {'attr': {'class': 'content__form-input-email'}}) }}
+                    </div>
+                    <div class="content__form-grid-comment">
+                        {{ form_row(formComment.content, {'attr': {'class': 'content__form-input-comment'}}) }}
+                    </div>
+                    <div class="content__form-comments-privacy">
+                        {{ form_widget(formComment.approved) }}
+                        {{ form_label(formComment.approved, 'Accetto la privacy policy', { 
+                            'label_attr': {'class': 'contact__privacy-label' } 
+                            }) }}
+                    </div>
+                    <div class="content__form-comments-submit">
+                        {{ form_row(formComment.submit) }}
+                        <p class="body-3">Per maggiori informazioni consulta la <a href="#">Privacy Policy</a></p>
+                    </div>
+                </div>
+            {{ form_end(formComment) }}
+        </div>
     {% endif %}
 {% endblock %}

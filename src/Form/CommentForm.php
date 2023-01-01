@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use Symfony\Component\Validator\Constraints\Length;
@@ -18,11 +19,15 @@ class CommentForm extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
+            ->add('date', HiddenType::class, [
+                'data' => date('d/m/Y')
+            ])
             ->add('name', TextType::class,
             [
                 'label'         => false,
                 'attr'          => ['placeholder'   => 'Nome *'],
-                'required'      =>
+                'required'      => true,
+                'constraints'   =>
                 [
                     new Length([
                         'min'           => 2,
@@ -43,10 +48,22 @@ class CommentForm extends AbstractType {
                 'required'          => true,
                 'invalid_message'   => 'Errore: indirizzo email non valido'
             ])
-            ->add('date', HiddenType::class, [
-                'data' => date('d/m/Y')
+            ->add('content', TextareaType::class,
+            [
+                'label'             => false,
+                'attr'              => ['placeholder' => 'Commento *'],
+                'required'          => true,
+                'constraints'       =>
+                    [
+                        new Length([
+                            'min' => 10,
+                            'max' => 1000,
+                            'minMessage' => 'Commento è troppo corto, dovrebbe essere di almeno 10 caratteri',
+                            'maxMessage' => 'Messaggio è troppo lungo, dovrebbe essere di massimo 1000 caratteri'
+                        ])
+                    ]
             ])
-            ->add('privacy', CheckboxType::class, [
+            ->add('approved', CheckboxType::class, [
                 'label'     => 'Accetto la privacy policy',
                 'required'  => true,
             ])

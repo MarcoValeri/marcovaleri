@@ -59,6 +59,9 @@ class Article
      */
     private $category;
 
+    #[ORM\ManyToMany(targetEntity: Comment::class, inversedBy: 'article')]
+    private $comments;
+
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="article")
      */
@@ -71,6 +74,7 @@ class Article
 
     public function __construct()
     {
+        $this->comments = new ArrayCollection();
         $this->tags = new ArrayCollection();
     }
 
@@ -171,6 +175,37 @@ class Article
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function setComments(?Comment $comments): self
+    {
+        $this->comments = $comments;
+
+        return $this;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        $this->comments->removeElement($comment);
 
         return $this;
     }
