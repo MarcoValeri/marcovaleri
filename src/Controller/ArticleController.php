@@ -8,9 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ArticleController extends AbstractController {
 
-    /**
-     * @Route("articoli/{slug}", name="app_article")
-     */
+    #[Route('articoli/{slug}', name: 'app_article')]
     public function article(ArticleRepository $articleRepository, string $slug) {
 
         $articles = $articleRepository->findAll();
@@ -22,9 +20,7 @@ class ArticleController extends AbstractController {
 
     }
 
-    /**
-     * @Route("/articoli", name="app_blog")
-     */
+    #[Route('/articoli', name: 'app_blog')]
     public function blog(ArticleRepository $articleRepository) {
 
         $articles = $articleRepository->findAll();

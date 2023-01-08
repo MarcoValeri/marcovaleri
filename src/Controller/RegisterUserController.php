@@ -19,9 +19,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class RegisterUserController extends AbstractController {
 
-    /**
-     * @Route("/user-registration", name="app_user_registration")
-     */
+    #[Route('/user-registration', name: 'app_user_registration')]
     public function registration(Request $request, UserPasswordHasherInterface $passwordHasher, ManagerRegistry $doctrine) {
 
         // Create form

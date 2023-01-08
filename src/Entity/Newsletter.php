@@ -8,39 +8,28 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
-/**
- * @ORM\Entity(repositoryClass=NewsletterRepository::class)
- * @UniqueEntity("email", message="Attenzione: questo indirizzo email risulta essere già registrato")
- */
+#[ORM\Entity(repositoryClass: NewsletterRepository::class)]
+#[UniqueEntity('email', message: 'Attenzione: questo indirizzo email risulta essere già registrato')]
 class Newsletter
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
 
-    /**
-     * @ORM\Column(type="string", length=70)
-     */
-    private $name;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private int $id;
 
-    /**
-     * @ORM\Column(name="email", type="string", length=255, unique=true)
-     * @Assert\Email
-     */
+    #[ORM\Column(length: 70)]
+    private string $name;
+
+    #[ORM\Column(name: 'email', type: 'string', length: 255, unique: true)]
+    #[Assert\Email]
     private $email;
 
-    /**
-     * @ORM\Column(type="string", length=10)
-     */
-    private $date;
+    #[ORM\Column(length: 10)]
+    private string $date;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $privacy;
+    #[ORM\Column]
+    private bool $privacy;
 
     public function getId(): ?int
     {

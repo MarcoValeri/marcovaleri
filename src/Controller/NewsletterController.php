@@ -15,9 +15,7 @@ use Doctrine\Persistence\ManagerRegistry as PersistenceManagerRegistry;
 
 class NewsletterController extends AbstractController {
 
-    /**
-     * @Route("/page/newsletter", name="app_newsletter")
-     */
+    #[Route('/page/newsletter', name: 'app_newsletter')]
     public function registerNewsletter(Request $request, PersistenceManagerRegistry $doctrine) {
 
         $newsletter = new Newsletter();
@@ -72,18 +70,14 @@ class NewsletterController extends AbstractController {
 
     }
 
-    /**
-     * @Route("/page/newsletter-confirm", name="app_newsletter_confirm")
-     */
+    #[Route('/page/newsletter-confirm', name: 'app_newsletter_confirm')]
     public function newsletterConfirm(Request $request) {
 
         return $this->render("pages/newsletter-confirm.html.twig");
 
     }
 
-    /**
-     * @Route("/page/newsletter-unsubscribe/{email}/{checkId}", name="app_newsletter_unsubscribe")
-     */
+    #[Route('/page/newsletter-unsubscribe/{email}/{checkId}', name: 'app_newsletter_unsubscribe')]
     public function unsubscribeNewsletter(PersistenceManagerRegistry $doctrine, string $email, string $checkId) {
 
         // Security check id
@@ -105,9 +99,7 @@ class NewsletterController extends AbstractController {
 
     }
 
-    /**
-     * @Route("/admin/newsletter-sender", name="app_admin_newsletter_sender")
-     */
+    #[Route('/admin/newsletter-sender', name: 'app_admin_newsletter_sender')]
     public function admineNewsletterSender(Request $request, PersistenceManagerRegistry $doctrine) {
 
         $emailSenderConfirm = "Email not send";

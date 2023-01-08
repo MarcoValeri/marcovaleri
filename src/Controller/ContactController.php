@@ -9,9 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ContactController extends AbstractController {
 
-    /**
-     * @Route("/page/contatti", name="app_contact")
-     */
+    #[Route('/page/contatti', name: 'app_contact')]
     public function contact(Request $request) {
 
         /**
@@ -52,9 +50,7 @@ class ContactController extends AbstractController {
 
     }
 
-    /**
-     * @Route("/page/contatti-conferma", name="app_contact_confirm")
-     */
+    #[Route('/page/contatti-conferma', name: 'app_contact_confirm')]
     public function contactConfirm() {
 
         return $this->render("pages/contact-confirm.html.twig");

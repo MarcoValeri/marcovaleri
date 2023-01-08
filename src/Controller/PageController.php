@@ -15,9 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PageController extends AbstractController {
 
-    /**
-     * @Route("/page/{slug}", name="app_page")
-     */
+    #[Route('/page/{slug}', name: 'app_page')]
     public function page(PageRepository $pageRepository, string $slug) {
 
         $pages = $pageRepository->findAll();

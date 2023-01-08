@@ -15,9 +15,8 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserController extends AbstractController
 {
-    /**
-     * @Route("admin/users", name="app_admin_users")
-     */
+
+    #[Route('admin/users', name: 'app_admin_users')]
     public function showUsers(UserRepository $userRepository)
     {
         $users = $userRepository->findAll();
@@ -27,9 +26,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("admin/user/{id}", name="app_admin_user")
-     */
+    #[Route('admin/user/{id}', name: 'app_admin_user')]
     public function singleUser(Request $request, UserPasswordHasherInterface $passwordHasher, UserRepository $userRepository, string $id, ManagerRegistry $doctrine)
     {
         $userDataForm = $this->createForm(UserDataForm::class);

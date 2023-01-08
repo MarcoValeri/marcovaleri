@@ -7,36 +7,25 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=TagRepository::class)
- */
+#[ORM\Entity(repositoryClass: TagRepository::class)]
 class Tag
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
 
-    /**
-     * @ORM\Column(type="string", length=60)
-     */
-    private $name;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private int $id;
 
-    /**
-     * @ORM\Column(type="string", length=155)
-     */
-    private $description;
+    #[ORM\Column(length: 60)]
+    private string $name;
 
-    /**
-     * @ORM\Column(type="string", length=160)
-     */
-    private $url;
+    #[ORM\Column(length: 155)]
+    private string $description;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="tag")
-     */
+    #[ORM\Column(length: 160)]
+    private string $url;
+
+    #[ORM\OneToMany(targetEntity: Article::class, mappedBy: 'tag')]
     private $tag;
 
     public function __construct()

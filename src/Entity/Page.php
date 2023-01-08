@@ -5,52 +5,35 @@ namespace App\Entity;
 use App\Repository\PageRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=PageRepository::class)
- */
+#[ORM\Entity(repositoryClass: PageRepository::class)]
 class Page
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
 
-    /**
-     * @ORM\Column(type="string", length=60)
-     */
-    private $title;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private int $id;
 
-    /**
-     * @ORM\Column(type="string", length=155)
-     */
-    private $description;
+    #[ORM\Column(length: 60)]
+    private string $title;
 
-    /**
-     * @ORM\Column(type="text")
-     */
+    #[ORM\Column(length: 155)]
+    private string $description;
+
+    #[ORM\Column(type: 'text')]
     private $content;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $url;
+    #[ORM\Column(length: 255)]
+    private string $url;
 
-    /**
-     * @ORM\Column(type="datetimetz")
-     */
+    #[ORM\Column(type: 'datetimetz')]
     private $date;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
+    #[ORM\Column(type: 'datetime')]
     private $update_at;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $image;
+    #[ORM\Column(length: 255)]
+    private string $image;
 
     public function getId(): ?int
     {

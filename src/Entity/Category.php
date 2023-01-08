@@ -7,36 +7,25 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=CategoryRepository::class)
- */
+#[ORM\Entity(repositoryClass: CategoryRepository::class)]
 class Category
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
 
-    /**
-     * @ORM\Column(type="string", length=60)
-     */
-    private $name;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private int $id;
 
-    /**
-     * @ORM\Column(type="string", length=155)
-     */
-    private $description;
+    #[ORM\Column(length: 60)]
+    private string $name;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $url;
+    #[ORM\Column(length: 155)]
+    private string $description;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="category")
-     */
+    #[ORM\Column(length: 255)]
+    private string $url;
+
+    #[ORM\OneToMany(targetEntity: Article::class, mappedBy: 'category')]
     private $article;
 
     public function __construct()

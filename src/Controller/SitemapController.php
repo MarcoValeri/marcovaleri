@@ -8,9 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SitemapController extends AbstractController {
 
-    /**
-     * @Route("/sitemap.xml", name="app_sitemap", defaults={"_format"="xml"})
-     */
+    #[Route('/sitemap.xml', name: 'app_sitemap', defaults: ['_format' => 'xml'])]
     public function sitemap(ArticleRepository $articleRepository) {
 
         $articles = $articleRepository->findAll();

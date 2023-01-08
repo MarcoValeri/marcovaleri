@@ -28,9 +28,7 @@ class DashboardController extends AbstractDashboardController
         $this->articleRepository = $articleRepository;
     }
 
-    /**
-     * @Route("/admin", name="app_admin")
-     */
+    #[Route('/admin', name: 'app_admin')]
     public function index(): Response
     {
 
