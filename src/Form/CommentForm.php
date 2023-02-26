@@ -10,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\Regex;
 
@@ -42,6 +42,21 @@ class CommentForm extends AbstractType {
                 'attr'              => ['placeholder'   => 'Email *'],
                 'required'          => true,
                 'invalid_message'   => 'Errore: indirizzo email non valido'
+            ])
+            ->add('content', TextareaType::class,
+            [
+                'label' => false,
+                'required' => true,
+                'constraints' =>
+                    [
+                        new Length([
+                            'min' => 10,
+                            'max' => 1000,
+                            'minMessage' => 'Commento è troppo corto, dovrebbe essere di almeno 10 caratteri',
+                            'maxMessage' => 'Messaggio è troppo lungo, dovrebbe essere di massimo 1000 caratteri'
+                        ])
+                    ],
+                'attr' => ['placeholder' => 'Commento *']
             ])
             ->add('date', HiddenType::class, [
                 'data' => date('d/m/Y')
