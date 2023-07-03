@@ -11,14 +11,21 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController {
 
     #[Route('articoli/{slug}', name: 'app_article')]
-    public function article(ArticleRepository $articleRepository, string $slug) {
+    public function article(ArticleRepository $articleRepository, string $slug)
+    {
+        $article = $articleRepository->findOneBy(['url' => $slug]);
+        // $articleDate = $article.getDate();
+        // $dateNow = "now"|date('U');
+        // $dateNow = date("Y-m-d H:i:s");
 
-        $articles = $articleRepository->findAll();
-
-        return $this->render("articles/article.html.twig", [
-            'articles' => $articles,
-            'slug' => $slug
-        ]);
+        if ($article) {
+            return $this->render("articles/article.html.twig", [
+                'article'   => $article,
+                'slug'      => $slug
+            ]);
+        } else {
+            return $this->redirectToRoute('app_error404');
+        }
 
     }
 

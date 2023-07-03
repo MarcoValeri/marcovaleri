@@ -1,5 +1,18 @@
 {% extends "base.html.twig" %}
 
+{# Set Article's variables #}
+{% if article %}
+    {% set articleTitle = article.title %}
+    {% set articleDescription = article.description %}
+    {% set articleUrl = article.url %}
+    {% set articleContent = article.content %}
+    {% set articleImage = article.getImage %}
+    {% set articleImageAlt = article.getImage.title %}
+    {% set articleDate = article.date %}
+    {% set articleUpdate = article.getUpdateAt %}
+    {% set genderOption = article.getGenderOption %}
+{% endif %}
+
 {# 
 # Set up date variables.
 # Use seconds to compare date.
@@ -8,134 +21,62 @@
 #}
 {% set getDateToday = "now"|date('U') %}
 
-{# Set up empty variable for article content #}
-{% set articleTitle = '' %}
-{% set articleDescription = '' %}
-{% set articleUrl = '' %}
-{% set articleContent = '' %}
-{% set articleImage = '' %}
-{% set articleImageAlt = '' %}
-{% set articleDate = '' %}
-{% set articleUpdate = '' %}
-{% set genderOption = '' %}
-
-{# Flags variable that helps with 404 template #}
-{% set break = false %}
-{% set notFound = true %}
-{% for article in articles %}
-    {% if slug == article.url %}
-        {# Set up article variavles #}
-        {% set articleTitle = article.title %}
-        {% set articleDescription = article.description %}
-        {% set articleUrl = article.url %}
-        {% set articleContent = article.content %}
-        {% set articleImage = article.getImage %}
-        {% set articleImageAlt = article.getImage.title %}
-        {% set articleDate = article.getDate %}
-        {% set articleUpdate = article.getUpdateAt %}
-        {% set genderOption = article.genderOption %}
-        {% set break = true %}
-        {% set notFound = false %}
-    {% endif %}
-{% endfor %}
-
 {% block title %}
-    {% if break == false and notFound == true %}
-        <title>Marco Valeri: error 404, pagina non trovata</title>
-    {% else %}
-        <title>{{ articleTitle|raw }}</title>
-    {% endif %}
+    <title>{{ articleTitle|raw }}</title>
 {% endblock %}
 
 {% block description %}
-    {% if break == false and notFound == true %}
-        <meta name="Description" CONTENT="Marco Valeri: Error 404, page not found">
-    {% else %}
-        <meta name="Description" CONTENT="{{ articleDescription|raw }}">
-    {% endif %}
+    <meta name="Description" CONTENT="{{ articleDescription|raw }}">
 {% endblock %}
 
 {% block data_structure %}
-    {% if break == false and notFound == true %}
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org/",
-                "@type": "Page",
-                "headline": "Marco Valeri: error 404, pagina non trovata"
-            }
-        </script>
-    {% else %}
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org/",
-                "@type": "Article",
-                "headline": "{{ articleTitle|raw }}"
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org/",
+            "@type": "Article",
+            "headline": "{{ articleTitle|raw }}"
+        },
+        {
+            "datePublished": "{{ articleDate|date('Y-m-d') }}",
+            "dateModified": "{{ articleUpdate|date('Y-m-d') }}",
+            "author" {
+                "@type": "Person",
+                "name": "Marco Valeri",
             },
-            {
-                "datePublished": "{{ articleDate|date('Y-m-d') }}",
-                "dateModified": "{{ articleUpdate|date('Y-m-d') }}",
-                "author" {
-                    "@type": "Person",
-                    "name": "Marco Valeri",
-                },
-            }
-        </script>
-    {% endif %}
+        }
+    </script>
+{% endblock %}
+
+{% block canonical %}
+    <link rel="canonical" href="https://www.marcovaleri.net/articoli/{{ articleUrl }}">
 {% endblock %}
 
 {% block body %}
-    {# 
-    # If the article url exist
-    # and
-    # if current date is less than article data
-    # public it
-    # otherwise show 404 template
-    #}
-    {% if (break == false and notFound == true) or (getDateToday < articleDate|date('U')) %}
-        <div class="content__title">
-            <h1>Articolo non trovato</h1>
-        </div>
-        <div class="content__main">
-            <div class="error404">
-                <div class="error404__content-container">
-                    <p class="body-1">Sembra che l'articolo che stai cercando non esista.</p>
-                    <p class="body-1">Cosa vuoi fare?</p>
-                </div>
-                <div class="error404__container-btns">
-                    <a class="error404__btn button no-link--white" href="{{ path('app_home') }}">Home</a>
-                    <a class="error404__btn button no-link--white" href="{{ path('app_home') }}">Articoli</a>
-                    <a class="error404__btn button no-link--white" href="{{ path('app_contact') }}">Contatti</a>
-                </div>
-            </div>
-        </div>
-    {% else %}
-        <div class="content__title">
-            <h1>{{ articleTitle }}</h1>
-        </div>
-        <div class="content__data">
+    <div class="content__title">
+        <h1>{{ articleTitle }}</h1>
+    </div>
+    <div class="content__data">
+        <ul class="list-no-style">
+            <li class="content__data-item">Autore: Marco Valeri</li>
+            <li class="content__data-item">Pubblicato il: {{ articleDate|date('d-m-Y') }}</li>
+            <li class="content__data-item">Ultima modifica: {{ articleUpdate|date('d-m-Y') }}</li>
+        </ul>
+    </div>
+    {% if genderOption %}
+        <div class="content__gender-banner">
+        <p id="gender-legend" class="p rainbow">Sentiti libero...</p>
             <ul class="list-no-style">
-                <li class="content__data-item">Autore: Marco Valeri</li>
-                <li class="content__data-item">Pubblicato il: {{ articleDate|date('d-m-Y') }}</li>
-                <li class="content__data-item">Ultima modifica: {{ articleUpdate|date('d-m-Y') }}</li>
+                <li class="content__gender-item"><img id="gender-male" class="content__gender-icon content__gender-icon--active" src="../images/male-icon.png" alt="Male Simbol Icon"></li>
+                <li class="content__gender-item"><img id="gender-female" class="content__gender-icon" src="../images/female-icon.png" alt="Male Simbol Icon"></li>
+                <li class="content__gender-item"><img id="gender-non-binary" class="content__gender-icon" src="../images/non-binary-icon.png" alt="Male Simbol Icon"></li>
             </ul>
-        </div>
-        {% if genderOption %}
-            <div class="content__gender-banner">
-            <p id="gender-legend" class="p rainbow">Sentiti libero...</p>
-                <ul class="list-no-style">
-                    <li class="content__gender-item"><img id="gender-male" class="content__gender-icon content__gender-icon--active" src="../images/male-icon.png" alt="Male Simbol Icon"></li>
-                    <li class="content__gender-item"><img id="gender-female" class="content__gender-icon" src="../images/female-icon.png" alt="Male Simbol Icon"></li>
-                    <li class="content__gender-item"><img id="gender-non-binary" class="content__gender-icon" src="../images/non-binary-icon.png" alt="Male Simbol Icon"></li>
-                </ul>
-                <p class="p rainbow">...di scegliere il linguaggio che preferisci</p>
-            </div>
-        {% endif %}
-        <div class="content__main">
-            {{ articleContent | raw }}
-        </div>
-        <div class="content__image">
-            <img class="content__image-picture" src="../images/{{ articleImage }}" alt="{{ articleImageAlt }}">
-        </div>
+            <p class="p rainbow">...di scegliere il linguaggio che preferisci</p>
         </div>
     {% endif %}
+    <div class="content__main">
+        {{ articleContent | raw }}
+    </div>
+    <div class="content__image">
+        <img class="content__image-picture" src="../images/{{ articleImage }}" alt="{{ articleImageAlt }}">
+    </div>
 {% endblock %}

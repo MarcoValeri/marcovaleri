@@ -8,6 +8,10 @@
     <meta name="Description" CONTENT="Archivio articoli del sito ufficiale di Marco Valeri, archivio di tutti gli articoli del suo blog scritti, ordinati a partire dal posto più nuovo al più vecchio">
 {% endblock %}
 
+{% block canonical %}
+    <link rel="canonical" href="https://www.marcovaleri.net/articoli-archivio/pagina_{{ pageNumber }}">
+{% endblock %}
+
 {% block body %}
     <section class="articles-list">
         <div class="articles-list__title">

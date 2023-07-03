@@ -8,6 +8,10 @@
     <meta name"Description" CONTENT="Contatti del sito di Marco Valeri, form con email e messaggio per mettersi in contatto e scrivere all'autore tramite il seguente form dedicato ai contatti" >
 {% endblock %}
 
+{% block canonical %}
+    <link rel="canonical" href="https://www.marcovaleri.net/page/contatti">
+{% endblock %}
+
 {% block body %}
     {{ form_start(contactForm) }}
         <div class="contact-grid">

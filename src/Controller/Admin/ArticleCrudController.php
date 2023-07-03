@@ -27,20 +27,20 @@ class ArticleCrudController extends AbstractCrudController
             TextField::new('url'),
             DateTimeField::new('date'),
             DateTimeField::new('update_at'),
-            CodeEditorField::new('content'),
             AssociationField::new('image')
-                ->setFormTypeOptions([
-                    'by_reference' => true,
-                ]),
+            ->setFormTypeOptions([
+                'by_reference' => true,
+            ]),
             AssociationField::new('category')
-                ->setFormTypeOptions([
-                    'by_reference' => true,
-                ]),
+            ->setFormTypeOptions([
+                'by_reference' => true,
+            ]),
             AssociationField::new('tags')
-                ->setFormTypeOptions([
-                    'by_reference' => false,
-                ]),
+            ->setFormTypeOptions([
+                'by_reference' => false,
+            ]),
             BooleanField::new('genderOption'),
+            CodeEditorField::new('content'),
         ];
     }
 

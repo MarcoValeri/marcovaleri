@@ -16,14 +16,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class PageController extends AbstractController {
 
     #[Route('/page/{slug}', name: 'app_page')]
-    public function page(PageRepository $pageRepository, string $slug) {
+    public function page(PageRepository $pageRepository, string $slug)
+    {
 
-        $pages = $pageRepository->findAll();
+        $page = $pageRepository->findOneBy(['url' => $slug]);
 
-        return $this->render("pages/page.html.twig", [
-            'pages' => $pages,
-            'slug' => $slug,
-        ]);
+        if ($page) {
+            return $this->render("pages/page.html.twig", [
+                'page' => $page,
+                'slug' => $slug,
+            ]);
+        } else {
+            return $this->redirectToRoute('app_error404');
+        }
 
     }
 

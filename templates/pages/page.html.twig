@@ -1,48 +1,46 @@
 {% extends "base.html.twig" %}
 
+{# Set Page's variables #}
+{% if page %}
+    {% set pageTitle = page.title %}
+    {% set pageDescription = page.description %}
+    {% set pageUrl = page.url %}
+    {% set pageContent = page.content %}
+    {% set pageDate = page.date %}
+    {% set pageUpdated = page.getUpdateAt %}
+{% endif %}
+
 {% block title %}
-    {% for page in pages %}
-        {% if slug == page.url %}
-            <title>{{ page.title|raw }}</title>
-        {% endif %}
-    {% endfor %}
+    <title>{{ pageTitle|raw }}</title>
 {% endblock %}
 
 {% block description %}
-    {% for page in pages %}
-        {% if slug == page.url %}
-            <meta name="Description" CONTENT="{{ page.description|raw }}">
-        {% endif %}
-    {% endfor %}
+    <meta name="Description" CONTENT="{{ pageDescription|raw }}">
 {% endblock %}
 
 {% block data_structure %}
-    {% for page in pages %}
-        {% if slug == page.url %}
-            <script type="application/ld+json">
-                {
-                    "@context": "https://schema.org/",
-                    "@type": "Page",
-                    "headline": "{{ page.title|raw }}"
-                },
-                {
-                    "datePublished": "{{ page.getDate|date('Y-m-d') }}",
-                    "dateModified": "{{ page.getUpdateAt|date('Y-m-d') }}",
-                }
-            </script>
-        {% endif %}
-    {% endfor %}
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org/",
+            "@type": "Page",
+            "headline": "{{ pageTitle|raw }}"
+        },
+        {
+            "datePublished": "{{ pageDate|date('Y-m-d') }}",
+            "dateModified": "{{ pageUpdated|date('Y-m-d') }}",
+        }
+    </script>
+{% endblock %}
+
+{% block canonical %}
+    <link rel="canonical" href="https://www.marcovaleri.net/page/{{ pageUrl }}">
 {% endblock %}
 
 {% block body %}
-    {% for page in pages %}
-        {% if slug == page.url %}
-            <section class="content__title">
-                <h1>{{ page.title }}</h1>
-            </section>
-            <section class="content__main">
-                    {{ page.content | raw }}
-            </section>
-        {% endif %}
-    {% endfor %}
+    <section class="content__title">
+        <h1>{{ pageTitle }}</h1>
+    </section>
+    <section class="content__main">
+            {{ pageContent | raw }}
+    </section>
 {% endblock %}
