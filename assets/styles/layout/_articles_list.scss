@@ -82,4 +82,19 @@
         line-height: 1.6;
     }
 
+    &__container-btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        @include respond(sm) {
+            flex-direction: column;
+        }
+    }
+
+    &__container-btn-prev {
+        margin-bottom: 2rem;
+    }
+
 }

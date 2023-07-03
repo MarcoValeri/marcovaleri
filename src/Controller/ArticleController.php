@@ -22,10 +22,11 @@ class ArticleController extends AbstractController {
 
     }
 
-    #[Route('/articoli', name: 'app_articles')]
-    public function blog(ArticleRepository $articleRepository, ManagerRegistry $doctrine)
+    #[Route('/articoli-archivio/pagina_{pageNumber}', name: 'app_articles_archive')]
+    public function articoliArchivio(ArticleRepository $articleRepository, ManagerRegistry $doctrine, string $pageNumber)
     {
-        $sqlQuery = '
+        $fromArticleNumber = $pageNumber * 10;
+        $sqlQuery = "
             SELECT
                 article.url,
                 article.title,
@@ -39,16 +40,21 @@ class ArticleController extends AbstractController {
                 image ON article.image_id = image.id
             WHERE article.date < NOW()
             ORDER BY date DESC
-            LIMIT 10
-        ';
+            LIMIT {$fromArticleNumber}, 10
+        ";
         $conn = $doctrine->getConnection();
         $stmt = $conn->prepare($sqlQuery);
         $result = $stmt->executeQuery();
         $articles = $result->fetchAllAssociative();
         
-        return $this->render("articles/articles.html.twig", [
-            'articles' => $articles,
-        ]);
+        if (count($articles) > 0) {
+            return $this->render("articles/articles-archive.html.twig", [
+                'articles'      => $articles,
+                'pageNumber'    => $pageNumber
+            ]);
+        } else {
+            return $this->redirectToRoute('app_error404');
+        }
     }
 
 }

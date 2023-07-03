@@ -60,8 +60,8 @@
                         <li class="navbar__element {{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) == "/page/chi-sono" ? 'navbar__element--mark' : '' }}" >
                             <a class="navbar__link" href="{{ path('app_page', {slug: 'chi-sono'}) }}">Chi sono</a>
                         </li>
-                        <li class="navbar__element {{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) == "/articoli" ? 'navbar__element--mark' : '' }}">
-                            <a class="navbar__link" href="{{ path('app_articles') }}">Articoli</a>
+                        <li class="navbar__element {{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) == "/articoli-archivio" ? 'navbar__element--mark' : '' }}">
+                            <a class="navbar__link" href="{{ path('app_articles_archive', {pageNumber: '0'}) }}">Articoli</a>
                         </li>
                         <li class="navbar__element {{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) == "/page/contatti" ? 'navbar__element--mark' : '' }}">
                             <a class="navbar__link" href="{{ path('app_contact') }}">Contatti</a>
