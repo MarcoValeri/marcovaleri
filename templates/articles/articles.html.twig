@@ -13,8 +13,23 @@
         <div class="articles-list__title">
             <h1>Tutti gli Articoli</h1>
         </div>
+        {% for article in articles %}
+            <a class="articles-list__container no-link" href="articoli/{{ article.url }}">
+                <article class="articles-list__article">
+                    <div class="articles-list__container-image">
+                        <img class="articles-list__article-image" src="images/{{ article.file_name }}" alt="{{ article.alternative_text }}">
+                    </div>
+                    <div class="articles-list__content-container">
+                        <h1 class="articles-list__article-title">{{ article.title }}</h1>
+                        {% set article_preview = article.content|slice(0, 200) ~ '...' %}
+                        <div class="articles-list__article-paragraph">{{ article_preview|raw }}</div>
+                    </div>
+                </article>
+            </a>
+        {% endfor %}
+        {# {% set counter = 0 %}
         {% for article in articles|reverse %}
-            {% if ("now"|date('U') > article.getDate|date('U')) %}
+            {% if ("now"|date('U') > article.getDate|date('U')) and counter < 10 %}
                 <a class="articles-list__container no-link" href="articoli/{{ article.getUrl }}">
                     <article class="articles-list__article">
                         <div class="articles-list__container-image">
@@ -28,6 +43,7 @@
                     </article>
                 </a>
             {% endif %}
-        {% endfor %}
+            {% set counter = counter + 1 %}
+        {% endfor %} #}
     </section>
 {% endblock %}
