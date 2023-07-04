@@ -14,11 +14,10 @@ class ArticleController extends AbstractController {
     public function article(ArticleRepository $articleRepository, string $slug)
     {
         $article = $articleRepository->findOneBy(['url' => $slug]);
-        // $articleDate = $article.getDate();
-        // $dateNow = "now"|date('U');
-        // $dateNow = date("Y-m-d H:i:s");
+        $articleDate = $article->getDate()->format('Y-m-d h:i:s');
+        $dateNow = date('Y-m-d h:i:s');
 
-        if ($article) {
+        if ($article && $articleDate < $dateNow) {
             return $this->render("articles/article.html.twig", [
                 'article'   => $article,
                 'slug'      => $slug
