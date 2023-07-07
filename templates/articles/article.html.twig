@@ -11,6 +11,7 @@
     {% set articleDate = article.date %}
     {% set articleUpdate = article.getUpdateAt %}
     {% set genderOption = article.getGenderOption %}
+    {% set articleComments = article.getComments %}
 {% endif %}
 
 {# 
@@ -79,4 +80,66 @@
     <div class="content__image">
         <img class="content__image-picture" src="../images/{{ articleImage }}" alt="{{ articleImageAlt }}">
     </div>
+    <section id="article-container-comments" class="content__section-form">
+        <!-- Success message if form has been submitted -->
+        {% for message in app.flashes('success') %}
+            <div class="content__container-comments-success">
+                <p class="content__success-message body-2">{{ message }}</p>
+            </div>
+        {% endfor %}
+        <div class="content__form-header">
+            <h3 class="h2">Lascia un commento</h3>
+        </div>
+        {{ form_start(formComment, {'action': '#article-container-comments'}) }}
+            <div class="content__form-grid">
+                <div class="content__container-form-name">
+                    {{ form_widget(formComment.name, {'attr': {'class': 'content__input-text input-text'}}) }}
+                </div>
+                <div class="content__container-form-email">
+                    {{ form_widget(formComment.email, {'attr': {'class': 'content__input-text content__input-email input-text'}}) }}
+                    <p class="body-3">La tua email non verrà pubblicata</p>
+                </div>
+                <div class="content__container-form-content">
+                    {{ form_widget(formComment.content, {'attr': {'class': 'content__input-textarea input-textarea'}}) }}
+                </div>
+                <div class="content__container-form-privacy">
+                    {{ form_widget(formComment.privacy, {'attr': {'class': 'input-checkbox'}}) }}
+                    {{ form_label(formComment.privacy, 'Accetto la privacy policy', { 
+                        'label_attr': {'class': 'content__label-privacy body-2' } 
+                        }) }}
+                </div>
+                <div class="content__container-form-submit">
+                    {{ form_widget(formComment.submit, {'attr': {'class': 'content__form-btn button button__black'}}) }}
+                    <p class="body-3">Per maggiori informazioni consulta la <a class="link" href="{{ path('app_cookie_policy') }}">Privacy Policy</a></p>
+                </div>
+            </div>
+        {{ form_end(formComment) }}
+    </section>
+    <section class="content__container-comments">
+        <div class="content__comments-header">
+            <h3 class="h2">{{ articleComments|length }} {{ articleComments|length == 1 ? 'commento' : 'commenti' }}</h3>
+        </div>
+        {% for comment in articleComments %}
+            {% if comment.approved %}
+                <div class="comment-card">
+                    <div class="comment-card__wrapper">
+                        <div class="comment-card__container-name">
+                            <h4 class="h3">{{ comment.name }}</h4>
+                        </div>
+                        <div class="comment-card__container-date">
+                            <h5 class="body-4">Pubblicato il {{ comment.getDate }} da {{ comment.name }}</h5>
+                        </div>
+                        <div class="comment-card__container-comment">
+                            <p class="p">
+                                {{ comment.getContent }}
+                            </p>
+                        </div>
+                        <div class="comment-card__container-reply">
+                            <button class="button button__black">Rispondi</button>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </section>
 {% endblock %}

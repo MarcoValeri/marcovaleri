@@ -10,107 +10,198 @@
 .content {
     grid-area: content;
     padding: 3rem;
-}
 
-.content__image {
-    width: 100%;
-    margin-bottom: 1.5rem;
-}
-.content__image-picture {
-    width: 80%;
-    display: block;
-    margin: auto;
-}
-
-.content__title {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-}
-
-.content__data {
-    margin-bottom: 2rem;
-}
-
-.content__data-item {
-    font-size: 1.6rem;
-    margin-bottom: .5rem;
-    color: $grey-font;
-}
-
-.content__index {
-    padding: 3rem;
-    margin: 4rem 0;
-    border-radius: 5px;
-    border: 1px solid $grey-light;
-
-    &:hover {
-        border: 1px solid $blue-link;
+    &__image {
+        width: 100%;
+        margin-bottom: 1.5rem;
     }
-}
+    &__image-picture {
+        width: 80%;
+        display: block;
+        margin: auto;
+    }
+    
+    &__title {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+    
+    &__data {
+        margin-bottom: 2rem;
+    }
+    
+    &__data-item {
+        font-size: 1.6rem;
+        margin-bottom: .5rem;
+        color: $grey-font;
+    }
+    
+    &__index {
+        padding: 3rem;
+        margin: 4rem 0;
+        border-radius: 5px;
+        border: 1px solid $grey-light;
+    
+        &:hover {
+            border: 1px solid $blue-link;
+        }
+    }
+    
+    &__index-item {
+        padding: .5rem;
+    }
+    
+    // Gender
+    &__gender-banner {
+        text-align: center;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border: 1px solid $grey-light;
+    }
+    
+    &__gender-item {
+        display: inline-block;
+        padding: 1rem;
+    }
+    
+    &__gender-icon {
+        width: 5rem;
+        cursor: pointer;
+    }
+    
+    &__gender-icon--active {
+        background-color: $green-active;
+        border-radius: 50px;
+    }
+    
+    &__main {
+        margin-bottom: 5rem;
+    }
+    
+    &__main--female {
+        display: none;
+    }
+    
+    &__main--non-binary {
+        display: none;
+    }
+    
+    // Content
+    &__main h2 {
+        font-size: 3.2rem;
+    }
+    
+    &__main h3 {
+        font-size: 2.8rem;
+    }
+    
+    &__main p {
+        font-size: 2.2rem;
+        line-height: 1.6;
+    }
+    
+    &__main li {
+        font-size: 2.2rem;
+        line-height: 1.6;
+    }
+    
+    &__main li {
+        margin-left: 5rem;
+    }
 
-.content__index-item {
-    padding: .5rem;
-}
+    // Form
+    &__section-form {
+        padding: 1rem;
+        margin: 5rem auto;
+        border: 1px solid $black;
+        border-radius: 4px;
+    }
 
-// Gender
-.content__gender-banner {
-    text-align: center;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    border: 1px solid $grey-light;
-}
+    &__container-comments-success {
+        margin: 2rem auto;
+        border-top: 1px solid $green-form;
+        border-bottom: 1px solid $green-form;
+    }
 
-.content__gender-item {
-    display: inline-block;
-    padding: 1rem;
-}
+    &__success-message {
+        padding: 2rem 0;
+        color: $green-form;
+        font-weight: 900;
+    }
 
-.content__gender-icon {
-    width: 5rem;
-    cursor: pointer;
-}
+    &__form-header {
+        margin-bottom: 2rem;
+    }
 
-.content__gender-icon--active {
-    background-color: $green-active;
-    border-radius: 50px;
-}
+    &__form-grid {
+        display: grid;
+        row-gap: 2rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        "content__container-form-name content__container-form-email"
+        "content__container-form-content content__container-form-content"
+        "content__container-form-privacy content__container-form-privacy"
+        "content__container-form-submit content__container-form-submit";
 
-.content__main {
-    margin-bottom: 5rem;
-}
+        @include respond("sm") {
+            grid-template-columns: 1fr;
+            grid-template-areas:
+            "content__container-form-name"
+            "content__container-form-email"
+            "content__container-form-content"
+            "content__container-form-privacy"
+            "content__container-form-submit";
+        }
+    }
 
-.content__main--female {
-    display: none;
-}
+    &__container-form-name {
+        grid-area: content__container-form-name;
+    }
 
-.content__main--non-binary {
-    display: none;
-}
+    &__input-text {
+        width: 80%;
 
-.content__main h2 {
-    font-size: 3.2rem;
-}
+        @include respond("sm") {
+            width: 90%;
+        }
+    }
 
-.content__main h3 {
-    font-size: 2.8rem;
-}
+    &__input-email {
+        margin-bottom: 1rem;
+    }
 
-.content__main p {
-    font-size: 2.2rem;
-    line-height: 1.6;
-}
+    &__container-form-email {
+        grid-area: content__container-form-email;
+    }
 
-.content__main li {
-    font-size: 2.2rem;
-    line-height: 1.6;
-}
+    &__container-form-content {
+        grid-area: content__container-form-content;
+    }
 
-.content__main li {
-    margin-left: 5rem;
-}
+    &__input-textarea {
+        width: 90%;
+    }
 
-.content__container-content {
-    border: 1px solid #f00;
+    &__container-form-privacy {
+        grid-area: content__container-form-privacy;
+    }
+
+    &__label-privacy {
+        cursor: pointer;
+    }
+
+    &__container-form-submit {
+        grid-area: content__container-form-submit;
+    }
+
+    &__form-btn {
+        margin-bottom: 2rem;
+    }
+
+    // Comments Section
+    &__comments-header {
+        margin-bottom: 2rem;
+    }
 }
 
 // Sidebar

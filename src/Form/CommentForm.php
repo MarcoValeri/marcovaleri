@@ -18,11 +18,16 @@ class CommentForm extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
+            ->add('articleUrl', HiddenType::class)
+            ->add('date', HiddenType::class, [
+                'data' => date('d/m/Y')
+            ])
             ->add('name', TextType::class,
             [
                 'label'         => false,
                 'attr'          => ['placeholder'   => 'Nome *'],
-                'required'      =>
+                'required'      => true,
+                'constraints'      =>
                 [
                     new Length([
                         'min'           => 2,
@@ -57,9 +62,6 @@ class CommentForm extends AbstractType {
                         ])
                     ],
                 'attr' => ['placeholder' => 'Commento *']
-            ])
-            ->add('date', HiddenType::class, [
-                'data' => date('d/m/Y')
             ])
             ->add('privacy', CheckboxType::class, [
                 'label'     => 'Accetto la privacy policy',
