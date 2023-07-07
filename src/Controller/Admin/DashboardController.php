@@ -56,7 +56,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Categories', 'far fa-newspaper', Category::class);
         yield MenuItem::linkToCrud('Tags', 'fas fa-tags', Tag::class);
         yield MenuItem::linkToCrud('Images', 'fas fa-images', Image::class);
-        yield MenuItem::linkToCrud('Comments', 'fas fa-images', Comment::class);
+        yield MenuItem::linkToCrud('Comments', 'fas fa-comments', Comment::class);
         yield MenuItem::section('Newsletter');
         yield MenuItem::linkToCrud('Newsletter', 'fas fa-envelope', Newsletter::class);
         yield MenuItem::linkToUrl('Newsletter Sender', 'fa-solid fa-at', $this->generateUrl('app_admin_newsletter_sender'));
