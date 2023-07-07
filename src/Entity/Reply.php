@@ -2,14 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\CommentRepository;
+use App\Repository\ReplyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: CommentRepository::class)]
-class Comment
+#[ORM\Entity(repositoryClass: ReplyRepository::class)]
+class Reply
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -34,16 +34,12 @@ class Comment
     #[ORM\Column(type: 'boolean')]
     private $approved = false;
 
-    #[ORM\OneToMany(targetEntity: Article::class, mappedBy: 'comment')]
-    private $comment;
-
-    #[ORM\ManyToOne(targetEntity: Reply::class, inversedBy: 'comment')]
-    private $replies;
+    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'reply')]
+    private $reply;
 
     public function __construct()
     {
-        $this->comment = new ArrayCollection();
-        $this->replies = new ArrayCollection();
+        $this->reply = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -128,14 +124,14 @@ class Comment
     }
 
     /**
-     * @return Collection|Article[]
+     * @return Collection|Comment[]
      */
-    public function getComment(): Collection
+    public function getReply(): Collection
     {
-        return $this->comment;
+        return $this->reply;
     }
 
-    public function addComment(Article $comment): self
+    public function addReply(Comment $comment): self
     {
         if (!$this->comment->contains($comment)) {
             $this->comment[] = $comment;
@@ -145,7 +141,7 @@ class Comment
         return $this;
     }
 
-    public function removeComment(Article $comment): self
+    public function removeComment(Comment $comment): self
     {
         if ($this->comment->removeElement($comment)) {
             if ($comment->getComments() === $this) {
@@ -155,36 +151,4 @@ class Comment
 
         return $this;
     }
-
-    /**
-     * @return Collection|Reply[]
-     */
-    public function getReplies(): Collection
-    {
-        return $this->replies;
-    }
-
-    public function setreplies(?Reply $replies): self
-    {
-        $this->replies = $replies;
-
-        return $this;
-    }
-
-    public function addReply(Reply $reply): self
-    {
-        if (!$this->replies->contains($reply)) {
-            $this->replies[] = $reply;
-        }
-
-        return $this;
-    }
-
-    public function removeReply(Reply $reply): self
-    {
-        $this->replies->removeElement($reply);
-
-        return $this;
-    }
-
 }

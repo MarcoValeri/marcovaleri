@@ -9,6 +9,7 @@ use App\Entity\Category;
 use App\Entity\Tag;
 use App\Entity\Image;
 use App\Entity\Comment;
+use App\Entity\Reply;
 use App\Entity\Newsletter;
 use App\Repository\ArticleRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -56,7 +57,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Categories', 'far fa-newspaper', Category::class);
         yield MenuItem::linkToCrud('Tags', 'fas fa-tags', Tag::class);
         yield MenuItem::linkToCrud('Images', 'fas fa-images', Image::class);
-        yield MenuItem::linkToCrud('Comments', 'fas fa-images', Comment::class);
+        yield MenuItem::linkToCrud('Comments', 'fas fa-comments', Comment::class);
+        yield MenuItem::linkToCrud('Replies', 'fas fa-reply', Reply::class);
         yield MenuItem::section('Newsletter');
         yield MenuItem::linkToCrud('Newsletter', 'fas fa-envelope', Newsletter::class);
         yield MenuItem::linkToUrl('Newsletter Sender', 'fa-solid fa-at', $this->generateUrl('app_admin_newsletter_sender'));

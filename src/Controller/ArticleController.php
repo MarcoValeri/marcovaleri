@@ -61,6 +61,8 @@ class ArticleController extends AbstractController {
         $articleDate = $article->getDate()->format('Y-m-d h:i:s');
         $dateNow = date('Y-m-d h:i:s');
 
+        dd($article);
+
         if ($article && $articleDate < $dateNow) {
             return $this->render("articles/article.html.twig", [
                 'article'       => $article,
