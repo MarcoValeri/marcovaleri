@@ -94,13 +94,16 @@
             <div class="content__form-grid">
                 <div class="content__container-form-name">
                     {{ form_widget(formComment.name, {'attr': {'class': 'content__input-text input-text'}}) }}
+                    <div class="body-3 content__form-error">{{ form_errors(formComment.name) }}</div>
                 </div>
                 <div class="content__container-form-email">
                     {{ form_widget(formComment.email, {'attr': {'class': 'content__input-text content__input-email input-text'}}) }}
                     <p class="body-3">La tua email non verrà pubblicata</p>
+                    <div class="body-3 content__form-error">{{ form_errors(formComment.email) }}</div>
                 </div>
                 <div class="content__container-form-content">
                     {{ form_widget(formComment.content, {'attr': {'class': 'content__input-textarea input-textarea'}}) }}
+                    <div class="body-3 content__form-error">{{ form_errors(formComment.content) }}</div>
                 </div>
                 <div class="content__container-form-privacy">
                     {{ form_widget(formComment.privacy, {'attr': {'class': 'input-checkbox'}}) }}

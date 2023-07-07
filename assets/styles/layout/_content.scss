@@ -198,6 +198,18 @@
         margin-bottom: 2rem;
     }
 
+    &__form-error {
+        margin-top: 2rem;
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            color: $red-error;
+        }
+    }
+
     // Comments Section
     &__comments-header {
         margin-bottom: 2rem;
