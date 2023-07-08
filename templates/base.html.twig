@@ -68,10 +68,10 @@
                             <a class="navbar__link" href="{{ path('app_articles_archive', {pageNumber: '0'}) }}">Articoli</a>
                         </li>
                         <li class="navbar__element {{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) == "/categoria/esperienze/pagina_0" ? 'navbar__element--mark' : '' }}">
-                            <a class="navbar__link" href="{{ path('app_category', {slug: 'esperienze', pageNumber: '0'}) }}">Esperienze</a>
+                            <a class="navbar__link" href="{{ path('app_category', {slugCategory: 'esperienze', pageNumber: '0'}) }}">Esperienze</a>
                         </li>
                         <li class="navbar__element {{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) == "/categoria/vivere-all-estero/pagina_0" ? 'navbar__element--mark' : '' }}">
-                            <a class="navbar__link" href="{{ path('app_category', {slug: 'vivere-all-estero', pageNumber: '0'}) }}">Vivere All'Estero</a>
+                            <a class="navbar__link" href="{{ path('app_category', {slugCategory: 'vivere-all-estero', pageNumber: '0'}) }}">Vivere All'Estero</a>
                         </li>
                         <li class="navbar__element {{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) == "/page/contatti" ? 'navbar__element--mark' : '' }}">
                             <a class="navbar__link" href="{{ path('app_contact') }}">Contatti</a>
@@ -104,10 +104,10 @@
                     </h2>
                     <p class="sidebar__item-content--icons">
                         <a class="sidebar__item-icon no-link" href="https://www.facebook.com/marcovaleri.net" target="_blank">
-                            <img src="../images/facebook-icon.svg" alt="facebook icon">
+                            <img src="https://marcovaleri.net//images/facebook-icon.svg" alt="facebook icon">
                         </a>
                         <a class="sidebar__item-icon no-link" href="https://www.linkedin.com/in/valeri-marco/" target="_blank">
-                            <img src="../images/linkedin-icon.svg" alt="facebook icon">
+                            <img src="https://marcovaleri.net//images/linkedin-icon.svg" alt="facebook icon">
                         </a>
                     </p>
                 </div>
