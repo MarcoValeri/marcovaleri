@@ -93,6 +93,7 @@ class ArticleController extends AbstractController {
             ORDER BY date DESC
             LIMIT {$fromArticleNumber}, 10
         ";
+        
         $conn = $doctrine->getConnection();
         $stmt = $conn->prepare($sqlQuery);
         $result = $stmt->executeQuery();
