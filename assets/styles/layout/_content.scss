@@ -243,11 +243,15 @@
 
     &__item-content--icons {
         padding: 2rem;
-        text-align: left;
+        text-align: center;
     }
 
     &__item-icon {
         padding: 1rem;
+    }
+
+    &__social-icon-twitter {
+        width: 10rem;
     }
 }
 
