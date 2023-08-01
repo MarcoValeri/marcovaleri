@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
+use App\Repository\CategoryRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CategoryController extends AbstractController
 {
     #[Route('categoria/{slugCategory}/pagina_{pageNumber}', name: 'app_category')]
-    public function category(ArticleRepository $articleRepository, ManagerRegistry $doctrine, string $slugCategory, string $pageNumber)
+    public function category(ArticleRepository $articleRepository, CategoryRepository $categoryRepository, ManagerRegistry $doctrine, string $slugCategory, string $pageNumber)
     {
 
         $fromArticleNumber = $pageNumber * 10;
@@ -39,13 +40,13 @@ class CategoryController extends AbstractController
         $stmt = $conn->prepare($sqlQuery);
         $result = $stmt->executeQuery();
         $articles = $result->fetchAllAssociative();
-        // dd($articles);
+        $category = $categoryRepository->findOneBy(['url' => $slugCategory]);
 
         if (count($articles) > 0) {
             return $this->render("categories/category.html.twig", [
                 'articles'      => $articles,
-                'slugCategory'  => $slugCategory,
-                'pageNumber'    => $pageNumber
+                'pageNumber'    => $pageNumber,
+                'category'      => $category
             ]);
         } else {
             return $this->redirectToRoute('app_error404');

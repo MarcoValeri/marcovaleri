@@ -1,21 +1,21 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-    <title>Marco Valeri categoria {{ slugCategory }} articoli</title>
+    <title>Marco Valeri categoria {{ category.name|raw }} articoli</title>
 {% endblock %}
 
 {% block description %}
-    <meta name="Description" CONTENT="Archivio articoli della categoria {{ slugCategory }} del sito ufficiale di Marco Valeri, gli articoli del suo blog scritti, ordinati a partire dal post più nuovo al più vecchio">
+    <meta name="Description" CONTENT="Archivio articoli della categoria {{ category.name|raw }} del sito ufficiale di Marco Valeri, gli articoli del suo blog scritti, ordinati a partire dal post più nuovo al più vecchio">
 {% endblock %}
 
 {% block canonical %}
-    <link rel="canonical" href="https://www.marcovaleri.net/categoria/{{ slugCategory }}/pagina_{{ pageNumber }}">
+    <link rel="canonical" href="https://www.marcovaleri.net/categoria/{{ category.url }}/pagina_{{ pageNumber }}">
 {% endblock %}
 
 {% block body %}
     <section class="articles-list">
         <div class="articles-list__title">
-            <h1>Categoria {{ slugCategory }}</h1>
+            <h1>Categoria {{ category.name|raw }}</h1>
         </div>
         {% for article in articles %}
             <a class="articles-list__container no-link" href="{{ path('app_article', {slug: article.url}) }}">
