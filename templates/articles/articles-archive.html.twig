@@ -26,7 +26,7 @@
                     <div class="articles-list__content-container">
                         <h1 class="articles-list__article-title">{{ article.title }}</h1>
                         {% set article_preview = article.content|slice(0, 200) ~ '...' %}
-                        <div class="articles-list__article-paragraph">{{ article_preview|raw }}</div>
+                        <div class="articles-list__article-paragraph">{{ article_preview|striptags|raw }}</div>
                     </div>
                 </article>
             </a>
