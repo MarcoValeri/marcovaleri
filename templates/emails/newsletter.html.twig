@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="light dark">
+        <meta name="supported-color-schemes" content="light dark">
+        <title>HTML Email Template Title</title>
+        <style type="text/css">
+            @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+
+            p {
+                font-size: 16px !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                line-height: 1.6 !important;
+            }
+
+            a {
+                text-decoration: none !important;
+            }
+    
+            @media screen and (max-width: 599.98px) {}
+    
+            @media screen and (max-width: 399.98px) {}
+    
+            /* Custom Dark Mode Colors */
+            :root {}
+            @media (prefers-color-scheme: dark) {}
+        </style>
+        <!-- [if (gte mso 9)|(IE)]>
+            <style type="text/css">
+                table {
+                    border-collapse: collapse !important;
+                }
+            </style>
+        <![endif]-->
+    </head>
+    <body style="margin: 0; padding: 0; min-width: 100%; background-color: #f7f7f7;">
+        <!-- [if (gte mso 9)|(IE)]>
+            <style type="text/css">
+                body {
+                    background-color: #f7f7f7 !important;
+                }
+                body,
+                table,
+                td,
+                p,
+                a {
+                    font-family: sans-serif, Arial, Helvitica !important;
+                }
+            </style>
+        <![endif]-->
+        <center style="width: 100%; table-layout: fixed; background-color: #f7f7f7; padding-bottom: 40px;">
+            <div style="max-width: 600px; background-color: #fafdfe; box-shadow: 0 0 10px rgba(0, 0, 0, .2);">
+                <!-- [if (gte mso 9)|(IE)]>
+                    <table width="600" align="center" style="border-spacing: 0; color: #565656;" role="presentation">
+                        <tr>
+                            <td style="padding: 0">
+                <![endif]-->
+                <table align="center" style="border-spacing: 0; color: #000; font-family: 'Lato', sans-serif, Arial, Helvetica !important; margin: 0; padding: 0; width: 100%; max-width: 600px;" role="presentation">
+                    <tr>
+                        <td style="padding: 0">
+                            <table width="100%" style="border-spacing: 0; background-color: #000;" role="presentation">
+                                <tr>
+                                    <td height="5" style="background-color: #123456;"></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center; padding: 10px 0 8px 0;">
+                                        <a href="https://www.marcovaleri.net/" target="_blank">
+                                            <img src="https://www.marcovaleri.net/images/marco-valeri-net-logo-small.jpg" alt="Marco Valeri Logo" title="Marco Valeri" width="80" border="0">
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="2" style="background-color: #123456;"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0">
+                            <table width="100%" style="border-spacing: 0; background-color: #000; color: #fff;" role="presentation">
+                                <tr>
+                                    <td style="padding: 10px; text-align: left;">
+                                        <p>Ciao {{ userName }},</p>
+                                        {{ content|raw }}
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0;">
+                            <table width="100%" style="border-spacing: 0; background-color: #000;" role="presentation">
+                                <tr>
+                                    <td height="2" style="background-color: #123456;"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0;">
+                            <table width="100%" style="border-spacing: 0; background-color: #000; color: #fff;" role="presentation">
+                                <tr>
+                                    <td style="text-align: center; padding: 10px 0 8px 0;">
+                                        <p>Mi trovi anche su:</p>
+                                        <a href="https://twitter.com/MarcoValeriNet" target="_blank">
+                                            <img src="https://marcovaleri.net/images/twitter-x-logo-white-and-black.jpg" alt="Twitter Logo" title="Twitter" width="80" border="0" style="margin-top: 10px;">
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px; text-align: center;">
+                                        <p>Messaggio inviato a: {{ userEmail }}</p>
+                                        <p>Non vuoi più ricevere nessuna email da Marco Valeri? Clicca qui: <a href="#">cancellami</a></p>
+                                        <p>Per ulteriori informazioni consulta la <a href="https://www.marcovaleri.net/privacy/cookie-policy">Privacy Policy</a></p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0;">
+                            <table width="100%" style="border-spacing: 0; background-color: #000;" role="presentation">
+                                <tr>
+                                    <td height="5" style="background-color: #123456;"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!-- [if (gte mso 9)|(IE)]>
+                            </td>
+                        </tr>
+                    </table>
+                <![endif]-->
+            </div>
+        </center>
+    </body>
+</html>

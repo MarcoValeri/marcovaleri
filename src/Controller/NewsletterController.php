@@ -11,6 +11,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+
 use Doctrine\Persistence\ManagerRegistry as PersistenceManagerRegistry;
 
 class NewsletterController extends AbstractController {
@@ -100,7 +103,7 @@ class NewsletterController extends AbstractController {
     }
 
     #[Route('/admin/newsletter-sender', name: 'app_admin_newsletter_sender')]
-    public function admineNewsletterSender(Request $request, PersistenceManagerRegistry $doctrine) {
+    public function admineNewsletterSender(Request $request, PersistenceManagerRegistry $doctrine, MailerInterface $mailer) {
 
         $emailSenderConfirm = "Email not send";
 
@@ -122,9 +125,6 @@ class NewsletterController extends AbstractController {
             $sendTestOrReal = $formData['emails'];
             $formSubject = $formData['subject'];
             $formContent = $formData['content'];
-            $emailHeaders = "MIME-Version: 1.0\r\n";
-            $emailHeaders .= "Content-type: text/html; charset=utf-8\r\n";
-            $emailHeaders .= "From: Marco Valeri < info@marcovaleri.net >\n";
 
             // Create test data
             $testEmails = [
@@ -135,30 +135,39 @@ class NewsletterController extends AbstractController {
             if ($sendTestOrReal) {
                 // Send email to reale users
                 echo "Real users";
-                foreach ($emails as $email) {
-                    $userEmail = $email->getEmail();
-                    $userName = $email->getName();
-                    $newsletterContent = '<p style="font-size: 16px">Ciao ' . $userName . '</p>';
-                    $newsletterContent .= $formContent;
-                    $newsletterContent .= '<p>&nbsp;</p><p><hr></p>';
-                    $newsletterContent .= '<p>Messaggio inviato a: ' . $userEmail . '</p>';
-                    $newsletterContent .= '<p>Non vuoi più ricevere nessuna email da Marco Valeri? Clicca qui: ' . '<a href="https://www.marcovaleri.net/page/newsletter-unsubscribe/' . $userEmail . '/123456789">cancellami</a>' . '</p>';
-                    $newsletterContent .= '<p>Per ulteriori informazioni consulta la <a href="https://www.marcovaleri.net/privacy/cookie-policy">Privacy Policy</a></p>';
-                    mail($userEmail, $formSubject, $newsletterContent, $emailHeaders);
+                foreach ($emails as $newsletterEmail) {
+                    $userEmail = $newsletterEmail->getEmail();
+                    $userName = $newsletterEmail->getName();
+                    $email = (new TemplatedEmail())
+                        ->from('info@marcovaleri.net')
+                        ->to($userEmail)
+                        ->subject($formSubject)
+                        ->htmlTemplate('emails/newsletter.html.twig')
+                        ->context([
+                            'userName'  => $userName,
+                            'userEmail' => $userEmail,
+                            'content'   => $formContent,
+                        ]);
+                    $mailer->send($email);
                 }
                 $emailSenderConfirm = "Email sent to real users";
             } else {
                 // Send email to test users
                 echo "Test users";
-                foreach ($testEmails as $email) {
-                    $newsletterContent = '<p style="font-size: 16px">Ciao ' . $email . '</p>';
-                    $newsletterContent .= $formContent;
-                    $newsletterContent .= '<p>&nbsp;</p><p><hr></p>';
-                    $newsletterContent .= '<p>Messaggio inviato a: ' . $email . '</p>';
-                    $newsletterContent .= '<p>Non vuoi più ricevere nessuna email da Marco Valeri? Clicca qui: ' . '<a href="https://www.marcovaleri.net/page/newsletter-unsubscribe/' . $email . '/123456789">cancellami</a>' . '</p>';
-                    $newsletterContent .= '<p>Per ulteriori informazioni consulta la <a href="https://www.marcovaleri.net/privacy/cookie-policy">Privacy Policy</a></p>';
-                    mail($email, $formSubject, $newsletterContent, $emailHeaders);
+                foreach ($testEmails as $userEmail) {
+                    $email = (new TemplatedEmail())
+                        ->from('info@marcovaleri.net')
+                        ->to($userEmail)
+                        ->subject($formSubject)
+                        ->htmlTemplate('emails/newsletter.html.twig')
+                        ->context([
+                            'userName'  => 'userName',
+                            'userEmail' => $userEmail,
+                            'content'   => $formContent,
+                        ]);
+                    $mailer->send($email);
                 }
+                
                 $emailSenderConfirm = "Email sent to test users";
             }
 
