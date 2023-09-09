@@ -124,6 +124,7 @@ class NewsletterController extends AbstractController {
             $formData = $form_newsletterSender->getData();
             $sendTestOrReal = $formData['emails'];
             $formSubject = $formData['subject'];
+            $formPreHeader = $formData['preheader'];
             $formContent = $formData['content'];
 
             // Create test data
@@ -146,6 +147,7 @@ class NewsletterController extends AbstractController {
                         ->context([
                             'userName'  => $userName,
                             'userEmail' => $userEmail,
+                            'preHeader' => $formPreHeader,
                             'content'   => $formContent,
                         ]);
                     $mailer->send($email);
@@ -163,6 +165,7 @@ class NewsletterController extends AbstractController {
                         ->context([
                             'userName'  => 'userName',
                             'userEmail' => $userEmail,
+                            'preHeader' => $formPreHeader,
                             'content'   => $formContent,
                         ]);
                     $mailer->send($email);

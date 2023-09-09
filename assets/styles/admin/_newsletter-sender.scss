@@ -7,6 +7,7 @@
         "newsletter-sender__grid-status"
         "newsletter-sender__grid-emails"
         "newsletter-sender__grid-subject"
+        "newsletter-sender__grid-preheader"
         "newsletter-sender__grid-content"
         "newsletter-sender__grid-btn";
     }
@@ -23,6 +24,23 @@
 
     &__grid-subject {
         grid-area: newsletter-sender__grid-subject;
+        margin-bottom: 2rem;
+
+        label {
+            font-size: 1.6rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        input {
+            width: 80%;
+            padding: 1rem;
+            font-size: 1.6rem;
+        }
+    }
+
+    &__grid-preheader {
+        grid-area: newsletter-sender__grid-preheader;
         margin-bottom: 2rem;
 
         label {
