@@ -6,6 +6,7 @@ use App\Entity\Newsletter;
 
 use App\Form\NewsletterForm;
 use App\Form\NewsletterSenderForm;
+use App\Form\NewsletterUnsubscribeForm;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -74,30 +75,34 @@ class NewsletterController extends AbstractController {
     }
 
     #[Route('/page/newsletter-confirm', name: 'app_newsletter_confirm')]
-    public function newsletterConfirm(Request $request) {
-
+    public function newsletterConfirm()
+    {
         return $this->render("pages/newsletter-confirm.html.twig");
-
     }
 
-    #[Route('/page/newsletter-unsubscribe/{email}/{checkId}', name: 'app_newsletter_unsubscribe')]
-    public function unsubscribeNewsletter(PersistenceManagerRegistry $doctrine, string $email, string $checkId) {
+    #[Route('/page/newsletter-unsubscribe', name: 'app_newsletter_unsubscribe')]
+    public function unsubscribeNewsletter(Request $request, PersistenceManagerRegistry $doctrine)
+    {
 
-        // Security check id
-        $securityCheckId = "123456789";
+        $formNewsletterUnsubscribe = $this->createForm(NewsletterUnsubscribeForm::class);
+        $formNewsletterUnsubscribe->handleRequest($request);
 
-        // EntityManager
-        $em = $doctrine->getManager();
-        $unsubscribeEmail = $em->getRepository(Newsletter::class)->findOneBy(['email' => $email]);
+        if ($formNewsletterUnsubscribe->isSubmitted() && $formNewsletterUnsubscribe->isValid()) {
+            $userEmailUnsubscribe = $formNewsletterUnsubscribe->get('email')->getData();
+            $emailObject = "MarcoValeriNew: unsubscribe email";
+            $emailMessage = "<p style='font-size: 16px'>Richiesta di cancellazione dalla newsletter di MarcoValeri.net:</p>";
+            $emailMessage .= "<p style='font-size: 16px'>Email: " . $userEmailUnsubscribe . "</p>";
+            $emailHeaders = "MIME-Version: 1.0\r\n";
+            $emailHeaders .= "Content-type: text/html; charset=utf-8\r\n";
+            $emailHeaders .= "From: Marco Valeri < info@marcovaleri.net >\n";
+            mail("info@marcovaleri.net", $emailObject, $emailMessage, $emailHeaders);
 
-        if ($unsubscribeEmail && $checkId === $securityCheckId) {
-            $em->remove($unsubscribeEmail);
-            $em->flush();
+            // Create successful message with addFlash that save it to sessione and it is able once
+            $this->addFlash('success-unsubscribe', "Richiesta inviata correttamente, la tua email verrà rimossa entro e non oltre le 48 ore");
         }
 
         return $this->render("pages/newsletter-unsubscribe.html.twig", [
-            'unsubscribeEmail'  => $unsubscribeEmail,
-            'email'             => $email,
+            'formNewsletterUnsubscribe' => $formNewsletterUnsubscribe
         ]);
 
     }

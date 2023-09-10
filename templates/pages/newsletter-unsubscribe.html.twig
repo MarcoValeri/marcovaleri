@@ -9,12 +9,25 @@
         <h2>Disiscrizione alla newsletter</h2>
     </div>
     <div class="content__main">
-        <p>
-            Mi mancherai...
-            <br>
-            Ma ti confermo che l'indirizzo email {{ email }} è stato correttamente rimosso.
-            <br>
-            Questo significa che non ricerai più alcuna email da parte mia.
-        </p>
+        <p>Perfavore, inserisci l'indirizzo email nel seguente form e invia la richiesta per la cancellazione alla newsletter di Marco Valeri.</p>
+        <p>Una volta inviata la richiesta, il tuo indirizzo email verrà rimosso entro e non oltre le 48 ore.</p>
+        <p>Mi mancherai...</p>
+        {{ form_start(formNewsletterUnsubscribe) }}
+            <div>
+                {{ form_widget(formNewsletterUnsubscribe.email, {'attr': {'class': 'class__name'}}) }}
+                <p>{{ form_errors(formNewsletterUnsubscribe.email) }}</p>
+            </div>
+            <div>
+                {{ form_widget(formNewsletterUnsubscribe.unsubscribe, {'attr': {'class': 'class_name'}}) }}
+            </div>
+            <div></div>
+        {{ form_end(formNewsletterUnsubscribe) }}
+
+        <!-- Success message if form has been submitted -->
+        {% for message in app.flashes('success-unsubscribe') %}
+            <div class="content__container-comments-success">
+                <p class="content__success-message body-2">{{ message }}</p>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}
