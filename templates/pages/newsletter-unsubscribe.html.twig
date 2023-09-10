@@ -13,14 +13,14 @@
         <p>Una volta inviata la richiesta, il tuo indirizzo email verrà rimosso entro e non oltre le 48 ore.</p>
         <p>Mi mancherai...</p>
         {{ form_start(formNewsletterUnsubscribe) }}
-            <div>
-                {{ form_widget(formNewsletterUnsubscribe.email, {'attr': {'class': 'class__name'}}) }}
-                <p>{{ form_errors(formNewsletterUnsubscribe.email) }}</p>
+            <div class="unsubscribe__form-container">
+                <div class="unsubscribe__form-container-single">
+                    {{ form_widget(formNewsletterUnsubscribe.email, {'attr': {'class': 'unsubscribe__input-text input-text'}}) }}
+                </div>
+                <div class="unsubscribe__form-container-single">
+                    {{ form_widget(formNewsletterUnsubscribe.unsubscribe, {'attr': {'class': 'button button__black'}}) }}
+                </div>
             </div>
-            <div>
-                {{ form_widget(formNewsletterUnsubscribe.unsubscribe, {'attr': {'class': 'class_name'}}) }}
-            </div>
-            <div></div>
         {{ form_end(formNewsletterUnsubscribe) }}
 
         <!-- Success message if form has been submitted -->

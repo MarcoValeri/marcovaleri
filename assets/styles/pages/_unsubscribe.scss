@@ -1,0 +1,16 @@
+.unsubscribe {
+    &__form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        margin: 2rem 0;
+    }
+
+    &__form-container-single {
+        margin-bottom: 2rem;
+    }
+
+    &__input-text {
+        width: 80%;
+    }
+}
