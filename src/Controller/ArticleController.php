@@ -28,7 +28,6 @@ class ArticleController extends AbstractController {
 
         if ($formComment->isSubmitted() && $formComment->isValid()) {
             // Get the form inputs
-            $formCommentArticleUrlInput = $formComment->get('articleUrl')->getData();
             $formCommentDateInput = $formComment->get('date')->getData();
             $formCommentNameInput = $formComment->get('name')->getData();
             $formCommentEmailInput = $formComment->get('email')->getData();
@@ -53,6 +52,16 @@ class ArticleController extends AbstractController {
             // Create successful message with addFlash that save it to sessione and it is able once
             $this->addFlash('success', 'Commento inviato correttamente ed in fase di approvazione');
 
+            // Send an email to info@marcovaleri.net with the content of the comment
+            $commentNotificationMessage = "Commento da MarcoValeri.net \n";
+            $commentNotificationMessage .= "\n";
+            $commentNotificationMessage .= "Name: " . $formCommentNameInput . "\n";
+            $commentNotificationMessage .= "Email: " . $formCommentEmailInput . "\n";
+            $commentNotificationMessage .= "Content: \n";
+            $commentNotificationMessage .= $formCommentContentInput;
+            $wrapCommentNotificationMessage = wordwrap($commentNotificationMessage, 100);
+            mail("info@marcovaleri.net", "Commento da MarcoValeri.net", $wrapCommentNotificationMessage);
+
             // Redirect for cleaning form data
             return $this->redirectToRoute('app_article', ['slug' => $slug]);
         }
@@ -74,7 +83,7 @@ class ArticleController extends AbstractController {
     }
 
     #[Route('/articoli-archivio/pagina_{pageNumber}', name: 'app_articles_archive')]
-    public function articoliArchivio(ArticleRepository $articleRepository, ManagerRegistry $doctrine, string $pageNumber)
+    public function articoliArchivio(ManagerRegistry $doctrine, string $pageNumber)
     {
         $fromArticleNumber = $pageNumber * 10;
         $sqlQuery = "

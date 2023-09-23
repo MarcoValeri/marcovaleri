@@ -18,7 +18,6 @@ class CommentForm extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-            ->add('articleUrl', HiddenType::class)
             ->add('date', HiddenType::class, [
                 'data' => date('d/m/Y')
             ])
