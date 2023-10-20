@@ -55,9 +55,7 @@ class CommentForm extends AbstractType {
                     [
                         new Length([
                             'min' => 10,
-                            'max' => 1000,
                             'minMessage' => 'Commento è troppo corto, dovrebbe essere di almeno 10 caratteri',
-                            'maxMessage' => 'Messaggio è troppo lungo, dovrebbe essere di massimo 1000 caratteri'
                         ])
                     ],
                 'attr' => ['placeholder' => 'Commento *']

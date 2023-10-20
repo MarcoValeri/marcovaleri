@@ -25,7 +25,7 @@
             <link rel="canonical" href="https://www.marcovaleri.net">
         {% endblock %}
 
-        <link rel="icon" href="https://marcovaleri.net/images/marco-valeri-logo.svg" size="32x32">
+        <link rel="icon" href="{{ asset('/images/marco-valeri-logo.svg') }}">
 
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -135,18 +135,5 @@
                 <p class="footer__content-main">Made with <span class="heart">&hearts;</span> in London by Marco Valeri - &copy; {{ "now"|date("Y") }} - All rights reserved</p>
             </div>
         </footer>
-
-        <!-- Cookie Banner -->
-        {# <section id="cookie_policy" class="cookie-banner">
-            <p class="cookie-banner__content">
-                Utilizziamo cookie, anche di terze parti, per fini tecnici, statistici e di profilazione.<br>
-                Cliccando su “Accetto”, acconsenti all’uso dei cookie.<br>
-                Per ulteriori informazioni sui cookie e su come gestirli, consulta la nostra Cookie Policy<br>
-            </p>
-            <div class="cookie-banner__container-buttons">
-                <input id="accept" class="cookie-banner__button button button__white" type="submit" value="Accetto" />
-                <a id="more" class="cookie-banner__button button button__white" href="{{ path('app_cookie_policy') }}">Scopri di più</a>
-            </div>
-        </section> #}
     </body>
 </html>

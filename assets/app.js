@@ -12,5 +12,4 @@ import './styles/app.scss';
 import './bootstrap';
 
 // Import js folder and related files
-import './js/cookie_banner';
 import './js/gender_option';
