@@ -10,6 +10,8 @@ runtime:
         - ctype
         - iconv
         
+relationships:
+    database: "db:mysql"
 
 #variables:
 #    php:
