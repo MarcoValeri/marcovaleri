@@ -17,5 +17,5 @@ npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 
-# db set up
+# db set up #
 .env
