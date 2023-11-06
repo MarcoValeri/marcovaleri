@@ -10,6 +10,9 @@ runtime:
         - ctype
         - iconv
         
+dependencies:
+      php:
+          composer/composer: "^2"
 
 #variables:
 #    php:
