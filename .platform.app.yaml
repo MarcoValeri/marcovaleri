@@ -35,6 +35,9 @@ web:
 
 mounts:
     "/var": { source: local, source_path: var }
+    .env:
+        type: private
+        target: ./
     
 
 hooks:
