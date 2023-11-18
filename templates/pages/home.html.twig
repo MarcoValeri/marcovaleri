@@ -22,26 +22,26 @@
     <div class="home__container-categories">
         <div class="home__container-single-category">
             <twig:BannerPreview
-                bannerPreviewImage="{{ asset('/images/atami-in-giappone.webp') }}"
-                bannerPreviewImageAlt=""
-                bannerPreviewTitle="Hello Symfony!!!!"
-                bannerPreviewDescription=""
-                bannerPreviewLink=""
-                bannerPreviewButton=""
+                bannerPreviewImage="{{ asset('/images/orologio-nella-cattedrale-di-colonia-in-germania.webp') }}"
+                bannerPreviewImageAlt="Orologio nella Cattedrale di Colonia in Germania"
+                bannerPreviewTitle="Esperienze"
+                bannerPreviewDescription="L'età non è mai un limite per essere quello che vuoi essere"
+                bannerPreviewLink="{{ path('app_category', {slugCategory: 'esperienze', pageNumber: '0'}) }}"
+                bannerPreviewButton="Scopri tutti gli articoli"
             />
         </div>
         <div class="home__container-single-category">
             <twig:BannerPreview
-                bannerPreviewImage="{{ asset('/images/atami-in-giappone.webp') }}"
-                bannerPreviewImageAlt=""
-                bannerPreviewTitle="Hello Symfony!!!!"
-                bannerPreviewDescription=""
-                bannerPreviewLink=""
-                bannerPreviewButton=""
+                bannerPreviewImage="{{ asset('/images/big-ben-di-londra-di-notte.webp') }}"
+                bannerPreviewImageAlt="Big Ben di Londra di notte"
+                bannerPreviewTitle="Vivre all'estero"
+                bannerPreviewDescription="C'è un posto per tutti nel mondo, anche per te"
+                bannerPreviewLink="{{ path('app_category', {slugCategory: 'vivere-all-estero', pageNumber: '0'}) }}"
+                bannerPreviewButton="Scopri tutti gli articoli"
             />
         </div>
     </div>
-    <section class="articles-list home__articles">
+    <section class="articles-list">
         <div class="articles-list__title">
             <h1>Ultimi articoli</h1>
         </div>
@@ -63,5 +63,10 @@
                 {% set key = key + 1 %}
             {% endif %}
         {% endfor %}
+    </section>
+    <section class="home__container-button">
+        <a href="{{ path('app_articles_archive', {pageNumber: '0'}) }}">
+            <button class="button button__black">Scopri tutti gli articoli</button>
+        </a>
     </section>
 {% endblock %}
