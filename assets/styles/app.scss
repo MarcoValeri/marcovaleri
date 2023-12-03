@@ -13,8 +13,9 @@
 @import './base/typography';
 
 // Import components files
+@import './components/banner-author';
 @import './components/banner-preview';
-@import './components/_comment-card';
+@import './components/comment-card';
 @import './components/cookie_banner';
 @import './components/navbar';
 

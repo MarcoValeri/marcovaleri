@@ -80,6 +80,14 @@
     <div class="content__image">
         <img class="content__image-picture" src="../images/{{ articleImage }}" alt="{{ articleImageAlt }}">
     </div>
+    <section>
+        <twig:bannerAuthor
+            bannerAuthorImage="{{ asset('/images/big-ben-di-londra-di-notte.webp') }}"
+            bannerAuthorImageAlt="Immagine dell'autore Marco Valeri"
+            bannerAuthorTitle="Marco Valeri"
+            bannerAuthorDescription="Mi chiamo Marco Valeri, sono nato a Roma e attualmente vivo a Londra, città che mi ha cambiato la vita.<br /><br />Laureato in Computer Science alla Birkbeck University of London, divoro libri, amo scrivere e non mi stanco mai di conoscere cose nuove, soprattutto legate al mondo dell'informatica.<br /><br />Ogni giorno provo a mettere in atto il concetto secondo cui 'La disciplina è libertà'."
+        />
+    </section>
     <section id="article-container-comments" class="content__section-form">
         <!-- Success message if form has been submitted -->
         {% for message in app.flashes('success') %}
