@@ -61,6 +61,7 @@
             <li class="content__data-item">Autore: Marco Valeri</li>
             <li class="content__data-item">Pubblicato il: {{ articleDate|date('d-m-Y') }}</li>
             <li class="content__data-item">Ultima modifica: {{ articleUpdate|date('d-m-Y') }}</li>
+            <li class="content__data-item">Commenti: {{ commentApprovedNumber }}</li>
         </ul>
     </div>
     {% if genderOption %}
@@ -128,7 +129,7 @@
     </section>
     <section class="content__container-comments">
         <div class="content__comments-header">
-            <h3 class="h2">{{ articleComments|length }} {{ articleComments|length == 1 ? 'commento' : 'commenti' }}</h3>
+            <h3 class="h2">{{ commentApprovedNumber }} {{ commentApprovedNumber == 1 ? 'commento' : 'commenti' }}</h3>
         </div>
         {% for comment in articleComments %}
             {% if comment.approved %}
@@ -142,7 +143,7 @@
                         </div>
                         <div class="comment-card__container-comment">
                             <p class="p">
-                                {{ comment.getContent }}
+                                {{ comment.getContent|raw }}
                             </p>
                         </div>
                     </div>

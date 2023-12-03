@@ -69,12 +69,14 @@ class ArticleController extends AbstractController {
         $article = $articleRepository->findOneBy(['url' => $slug]);
         $articleDate = $article->getDate()->format('Y-m-d h:i:s');
         $dateNow = date('Y-m-d h:i:s');
+        $commentApprovedNumber = $article->getNumberApprovedComment();
 
         if ($article && $articleDate < $dateNow) {
             return $this->render("articles/article.html.twig", [
-                'article'       => $article,
-                'slug'          => $slug,
-                'formComment'   => $formComment->createView()
+                'article'               => $article,
+                'slug'                  => $slug,
+                'formComment'           => $formComment->createView(),
+                'commentApprovedNumber' => $commentApprovedNumber
             ]);
         } else {
             return $this->redirectToRoute('app_error404');

@@ -187,6 +187,18 @@ class Article
         return $this;
     }
 
+    public function getNumberApprovedComment(): int
+    {
+        $counter = 0;
+        $comments = $this->getComments();
+        foreach ($comments as $comment) {
+            if ($comment->getApproved()) {
+                $counter++;
+            }
+        }
+        return $counter;
+    }
+
     /**
      * @return Collection|Tag[]
      */
