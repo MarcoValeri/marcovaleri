@@ -40,6 +40,9 @@
         <meta property="og:url" content="https://marcovaleri.net/" />
         <meta property="og:image" content="https://marcovaleri.net/images/marco-valeri-net-logo-small.jpg" />
 
+        {# Cookie Bot #}
+        <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4b120a0a-4508-4f16-ac83-f0ecefe1e60b" data-blockingmode="auto" type="text/javascript"></script>
+
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5V630M9K0"></script>
         <script>
@@ -49,9 +52,6 @@
 
         gtag('config', 'G-Y5V630M9K0');
         </script>
-
-        {# Cookie Bot #}
-        <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4b120a0a-4508-4f16-ac83-f0ecefe1e60b" data-blockingmode="auto" type="text/javascript"></script>
     </head>
     <body>
         <header class="header">
@@ -133,6 +133,7 @@
         <footer class="footer">
             <div class="footer__content">
                 <p class="footer__content-main">Made with <span class="heart">&hearts;</span> in London by Marco Valeri - &copy; {{ "now"|date("Y") }} - All rights reserved</p>
+                <p class="footer__content-main"><a class="no-link--white" href="{{ path('app_cookie_policy') }}">Cookie Policy</a></p>
             </div>
         </footer>
     </body>
