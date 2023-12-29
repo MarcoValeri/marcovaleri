@@ -1,0 +1,30 @@
+.ebook {
+
+    &__container-title {
+        margin-bottom: 4rem;
+    }
+
+    &__title {
+        margin-bottom: 2rem;
+    }
+
+    &__container-content {
+        margin-bottom: 2rem;
+    }
+
+    &__p {
+        margin-bottom: .3rem;
+    }
+
+    &__menu-list {
+        margin: 2rem 3rem;
+    }
+
+    &__menu-item {
+        font-size: 2rem;
+    }
+
+    &__container-sell {
+        text-align: center;
+    }
+}

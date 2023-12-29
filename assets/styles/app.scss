@@ -19,6 +19,9 @@
 @import './components/cookie_banner';
 @import './components/navbar';
 
+// Import ebooks files
+@import './ebooks/ebook';
+
 // Import layout files
 @import './layout/articles_list';
 @import './layout/error404';
