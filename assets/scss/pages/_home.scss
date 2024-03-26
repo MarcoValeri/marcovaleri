@@ -1,0 +1,27 @@
+.home {
+    &__container-categories {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+
+        @include respond("l") {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__container-single-category {
+        width: 45%;
+        height: 40rem;
+
+        @include respond("l") {
+            width: 100%;
+            height: auto;
+            margin-bottom: 5rem;
+        }
+    }
+
+    &__container-button {
+        text-align: center;
+    }
+
+}

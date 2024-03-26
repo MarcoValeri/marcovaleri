@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<main>
-    <h2>Marco Valeri Net</h2>
-</main>
+<div class="content">
+    <h2>This is the index.php</h2>
+</div>
 <?php get_footer(); ?>

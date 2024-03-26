@@ -1,3 +1,21 @@
-body {
-    color: #00d;
-}
+// Import abstract files
+@import "./abstract/mixins";
+@import "./abstract/variables";
+
+// Import base files
+@import "./base/base";
+@import "./base/font";
+@import "./base/typography";
+
+// Import components files
+@import "./components/banner-preview";
+
+// Import layout files
+@import "./layout/article-list";
+@import "./layout/footer";
+@import "./layout/header";
+@import "./layout/navbar";
+@import "./layout/content";
+
+// Import page files
+@import "./pages/home";
