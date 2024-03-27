@@ -169,6 +169,48 @@ html {
   color: #f00;
 }
 
+.banner-author {
+  overflow: hidden;
+  margin: 5rem auto;
+  border: 1px solid #000;
+  border-radius: 8px;
+}
+.banner-author__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+}
+@media only screen and (max-width: 991px) {
+  .banner-author__wrapper {
+    flex-direction: column;
+  }
+}
+.banner-author__container-image {
+  height: 100%;
+  margin-right: 2rem;
+}
+@media only screen and (max-width: 991px) {
+  .banner-author__container-image {
+    width: 80%;
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+}
+.banner-author__image {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 8px;
+}
+@media only screen and (max-width: 991px) {
+  .banner-author__image {
+    width: 100%;
+  }
+}
+.banner-author__title {
+  margin-bottom: 1rem;
+}
+
 .banner-preview {
   width: 100%;
   height: 100%;
@@ -200,6 +242,26 @@ html {
 }
 .banner-preview__container-button {
   padding: 1rem;
+}
+
+.comment-card {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border: 1px solid hsl(0, 5%, 62%);
+  border-radius: 4px;
+}
+.comment-card__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.comment-card__container-name {
+  margin-bottom: 1rem;
+}
+.comment-card__container-date {
+  margin-bottom: 1rem;
+}
+.comment-card__container-comment {
+  margin-bottom: 1rem;
 }
 
 .articles-list {

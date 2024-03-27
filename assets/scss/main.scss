@@ -8,7 +8,9 @@
 @import "./base/typography";
 
 // Import components files
+@import "./components/banner-author";
 @import "./components/banner-preview";
+@import "./components/comment-card";
 
 // Import layout files
 @import "./layout/article-list";
