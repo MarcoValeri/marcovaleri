@@ -970,6 +970,24 @@ doesn't render well the error message, need to improve it */
     font-size: 1.2rem;
   }
 }
+.error404__content-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.error404__content {
+  margin-bottom: 1rem;
+}
+.error404__container-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+}
+.error404__btn {
+  margin-bottom: 2rem;
+}
+
 .home__container-categories {
   display: flex;
   align-items: flex-start;
