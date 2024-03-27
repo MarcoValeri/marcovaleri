@@ -1,11 +1,19 @@
 .home {
+    
+    &__container-title {
+        text-align: center;
+        margin-bottom: 5rem;
+    }
+
     &__container-categories {
         display: flex;
         align-items: flex-start;
         justify-content: space-around;
+        margin-bottom: 5rem;
 
         @include respond("l") {
             flex-wrap: wrap;
+            margin-bottom: 0;
         }
     }
 

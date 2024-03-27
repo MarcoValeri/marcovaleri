@@ -20,25 +20,25 @@
                         <a class="brand-name no-link" href="/">Marco Valeri</a>
                     </li>
                     <li class="navbar__element navbar__element--mark">
-                        <a class="navbar__link" href="/">Home</a>
+                        <a class="navbar__link" href="<?= get_site_url(); ?>">Home</a>
                     </li>
                     <li class="navbar__element" >
                         <a class="navbar__link" href="<?= get_site_url(); ?>/chi-sono">Chi sono</a>
                     </li>
                     <li class="navbar__element">
-                        <a class="navbar__link" href="/">Articoli</a>
+                        <a class="navbar__link" href="<?= get_site_url(); ?>/category/esperienze">Esperienze</a>
                     </li>
                     <li class="navbar__element">
-                        <a class="navbar__link" href="/">Esperienze</a>
+                        <a class="navbar__link" href="<?= get_site_url(); ?>/category/opportunita">Opportunità</a>
                     </li>
                     <li class="navbar__element">
-                        <a class="navbar__link" href="/">Vivere All'Estero</a>
+                        <a class="navbar__link" href="<?= get_site_url(); ?>/category/vivere-estero">Vivere All'Estero</a>
                     </li>
                     <li class="navbar__element">
-                        <a class="navbar__link" href="/">Contatti</a>
+                        <a class="navbar__link" href="<?= get_site_url(); ?>/contatti">Contatti</a>
                     </li>
                     <li class="navbar__element">
-                        <a class="navbar__link" href="/">Newsletter</a>
+                        <a class="navbar__link" href="<?= get_site_url(); ?>/category/newsletter">Newsletter</a>
                     </li>
                 </ul>
             </div>

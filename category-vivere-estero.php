@@ -1,13 +1,13 @@
 <?php get_header(); ?>
 <section class="articles-list">
     <div class="articles-list__title">
-        <h1>Esperienze</h1>
+        <h1>Vivere all'estero</h1>
         <h2>Ultimi articoli</h2>
     </div>
     <?php
     $categoryEsperienzeArgs = [
         "posts_per_page"    => 10,
-        "category_name"     => "esperienze",
+        "category_name"     => "vivere-estero",
     ];
 
     $categoryEsperienzeQuery = new WP_Query($categoryEsperienzeArgs);

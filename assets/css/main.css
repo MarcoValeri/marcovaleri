@@ -988,14 +988,20 @@ doesn't render well the error message, need to improve it */
   margin-bottom: 2rem;
 }
 
+.home__container-title {
+  text-align: center;
+  margin-bottom: 5rem;
+}
 .home__container-categories {
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
+  margin-bottom: 5rem;
 }
 @media only screen and (max-width: 991px) {
   .home__container-categories {
     flex-wrap: wrap;
+    margin-bottom: 0;
   }
 }
 .home__container-single-category {
