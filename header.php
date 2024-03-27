@@ -23,7 +23,7 @@
                         <a class="navbar__link" href="/">Home</a>
                     </li>
                     <li class="navbar__element" >
-                        <a class="navbar__link" href="/">Chi sono</a>
+                        <a class="navbar__link" href="<?= get_site_url(); ?>/chi-sono">Chi sono</a>
                     </li>
                     <li class="navbar__element">
                         <a class="navbar__link" href="/">Articoli</a>
