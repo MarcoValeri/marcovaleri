@@ -1,24 +1,24 @@
 <?php get_header(); ?>
 <div class="content">
     <div class="home__container-title">
-        <h2 class="h1">Dove si va?</h2>
+        <h2 class="home__title">Dove si va?</h2>
     </div>
     <div class="home__container-categories">
         <div class="home__container-single-category">
             <div class="banner-preview">
                 <div class="banner-preview__wrapper">
                     <div class="banner-preview__container-image">
-                        <img class="banner-preview__image" src="#" alt="#" />
+                        <img class="banner-preview__image" src="<?= get_site_url(); ?>/wp-content/uploads/alberi-sotto-le-nuvole-durante-l-alba.webp" alt="Alberi coperti dalle nuvole durante l'alba" />
                     </div>
                     <div class="banner-preview__container-title">
-                        <h2 class="h2">BANNER PREVIEW TITLE</h2>
+                        <h2 class="h2">Esperienze</h2>
                     </div>
                     <div class="banner-preview__container-description">
-                        <p class="body-2">Banner preview description</p>
+                        <p class="body-2">Vivere un'esperienza è l'unico modo per capire se questa è giusta per te</p>
                     </div>
                     <div class="banner-preview__container-button">
-                        <a href="{{ bannerPreviewLink }}">
-                            <button class="button button__black">Buttons</button>
+                        <a href="<?= get_site_url(); ?>/category/esperienze">
+                            <button class="button button__black">Scopri di più</button>
                         </a>
                     </div>
                 </div>
@@ -28,17 +28,17 @@
             <div class="banner-preview">
                 <div class="banner-preview__wrapper">
                     <div class="banner-preview__container-image">
-                        <img class="banner-preview__image" src="#" alt="#" />
+                        <img class="banner-preview__image" src="<?= get_site_url(); ?>/wp-content/uploads/muro-di-mattoni-con-la-scritta-live-work-create.webp" alt="Muro di mattoni con la scritta in inglese 'Live, Work, Create', i mattoni hanno un coloro marrone e la scritta è bianca, tutta in maiuscolo, una parola sotto l'altra" />
                     </div>
                     <div class="banner-preview__container-title">
-                        <h2 class="h2">Banner preview title</h2>
+                        <h2 class="h2">Opportunità</h2>
                     </div>
                     <div class="banner-preview__container-description">
-                        <p class="body-2">Banner preview description</p>
+                        <p class="body-2">Realizzi qualcosa solo quando lo conosci</p>
                     </div>
                     <div class="banner-preview__container-button">
-                        <a href="{{ bannerPreviewLink }}">
-                            <button class="button button__black">Banner preview btn</button>
+                        <a href="<?= get_site_url(); ?>/category/opportunita">
+                            <button class="button button__black">Nuove opportunità</button>
                         </a>
                     </div>
                 </div>
@@ -50,17 +50,17 @@
             <div class="banner-preview">
                 <div class="banner-preview__wrapper">
                     <div class="banner-preview__container-image">
-                        <img class="banner-preview__image" src="#" alt="#" />
+                        <img class="banner-preview__image" src="<?= get_site_url(); ?>/wp-content/uploads/shard-di-londra.webp" alt="Shard di Londra, l'imponente grattacielo a vetri in risalo su uno scatto della città fatto dall'alto" />
                     </div>
                     <div class="banner-preview__container-title">
-                        <h2 class="h2">BANNER PREVIEW TITLE</h2>
+                        <h2 class="h2">Vivere all'estero</h2>
                     </div>
                     <div class="banner-preview__container-description">
-                        <p class="body-2">Banner preview description</p>
+                        <p class="body-2">C'è un posto per tutti nel mondo</p>
                     </div>
                     <div class="banner-preview__container-button">
-                        <a href="{{ bannerPreviewLink }}">
-                            <button class="button button__black">Buttons</button>
+                        <a href="<?= get_site_url(); ?>/category/vivere-estero">
+                            <button class="button button__black">Scopri di più</button>
                         </a>
                     </div>
                 </div>
@@ -70,60 +70,61 @@
             <div class="banner-preview">
                 <div class="banner-preview__wrapper">
                     <div class="banner-preview__container-image">
-                        <img class="banner-preview__image" src="#" alt="#" />
+                        <img class="banner-preview__image" src="<?= get_site_url(); ?>/wp-content/uploads/murales-a-londra.webp" alt="Murales di Londra, un uomo con l'ombrello che cammina con una valigia in mano sotto l'icon della metropolitana" />
                     </div>
                     <div class="banner-preview__container-title">
-                        <h2 class="h2">Banner preview title</h2>
+                        <h2 class="h2">Chi sono</h2>
                     </div>
                     <div class="banner-preview__container-description">
-                        <p class="body-2">Banner preview description</p>
+                        <p class="body-2">Lascia che mi presenti</p>
                     </div>
                     <div class="banner-preview__container-button">
-                        <a href="{{ bannerPreviewLink }}">
-                            <button class="button button__black">Banner preview btn</button>
+                        <a href="<?= get_site_url(); ?>/chi-sono">
+                            <button class="button button__black">Scopri di più</button>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="content__title">
-        <h2>Lascia che mi presenti</h2>
-    </div>
-    <div class="content__main">
-        <p>
-            Mi chiamo Marco Valeri e voglio darti il benvenuto nel mio sito, che raccoglie tutti i miei pensieri e le mie idee, quelle che mi hanno fatto arrivare a raggiungere alcuni dei miei sogni pur essendo partito dal basso.
-            <br><br>
-            Sono nato a Roma nel 1984, una città che ho amato e odiato allo stesso tempo, un luogo che racchiude tante emozioni e persone che hanno fatto e che fanno ancora parte della mia vita.
-            <br><br>
-            A trent’anni mi sono trasferito a vivere a Londra, città che mi ha cambiato letteralmente la vita.
-            <br><br>
-            I nostri nonni partivano con la valigia di cartone verso il Nord Italia, il Nord Europa o verso gli Stati Uniti d’America. Io, invece, sono partito con un volo low cost, pochi soldi e con una valigia piena di voglia di riscatto.
-            <br><br>
-            Andare via dall’Italia mi ha fatto mettere un punto sul passato per ripartire completamente da zero, Londra è stato il luogo giusto in cui farlo, nonostante avessi più di trent’anni, un’età per cui per molti ero ormai troppo vecchio per avere una vita diversa, quella che realmente volevo.
-            <br><br>
-            Ripartire da zero fa paura, soprattutto quando...<a href="/">[Continua a leggere...]</a>
-        </p>
     </div>
     <section class="articles-list">
         <div class="articles-list__title">
             <h1>Ultimi articoli</h1>
         </div>
-        <a class="articles-list__container no-link" href="#">
+        <?php
+        $argsPost = [
+            "post_type"         => "post",
+            "posts_per_page"    => 10,
+            "order"             => "DESC",
+            "post_status"       => "publish"
+        ];
+
+        $lastPostQuery = new WP_Query($argsPost);
+        
+        if ($lastPostQuery->have_posts()) {
+            while ($lastPostQuery->have_posts()) {
+                $lastPostQuery->the_post();
+
+                $lastPostLink = get_permalink();
+                $lastPostImageUrl = get_the_post_thumbnail_url();
+                $lastPostImageAlt = get_post_meta(get_post_thumbnail_id( $post->ID ), '_wp_attachment_image_alt', true);
+                $lastPostTitle = get_the_title();
+                $lastPostContent = get_the_content();
+                $lastPostExcerp = substr($lastPostContent, 0, 200);
+                $lastPostExcerpNoHTML = strip_tags($lastPostExcerp);
+            }
+        }
+        ?>
+        <a class="articles-list__container no-link" href="<?= $lastPostLink; ?>">
             <article class="articles-list__article">
                 <div class="articles-list__container-image">
-                    <img class="articles-list__article-image" src="#" alt="#">
+                    <img class="articles-list__article-image" src="<?= $lastPostImageUrl; ?>" alt="<?= $lastPostImageAlt; ?>">
                 </div>
                 <div class="articles-list__content-container">
-                    <h1 class="articles-list__article-title">ARTICLE TITLE</h1>
-                    <div class="articles-list__article-paragraph">ARTICLE INTRO</div>
+                    <h1 class="articles-list__article-title"><?= $lastPostTitle; ?></h1>
+                    <div class="articles-list__article-paragraph"><?= $lastPostExcerpNoHTML; ?></div>
                 </div>
             </article>
-        </a>
-    </section>
-    <section class="home__container-button">
-        <a href="#">
-            <button class="button button__black">Scopri tutti gli articoli</button>
         </a>
     </section>
 </div>

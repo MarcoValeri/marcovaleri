@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marco Valeri</title>
+    <link rel="icon" type="image/x-icon" href="<?= get_site_url(); ?>/wp-content/uploads/marco-valeri-net-logo-small.jpg">
+
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4b120a0a-4508-4f16-ac83-f0ecefe1e60b" data-blockingmode="auto" type="text/javascript"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5V630M9K0"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Y5V630M9K0');
+    </script>
+    
     <?php wp_head(); ?>
 </head>
 <body>
@@ -36,9 +49,6 @@
                     </li>
                     <li class="navbar__element <?= isThisUrlPath("/contatti") ? 'navbar__element--mark' : '' ?>">
                         <a class="navbar__link" href="<?= get_site_url(); ?>/contatti">Contatti</a>
-                    </li>
-                    <li class="navbar__element <?= isThisUrlPath("/category/newsletter") ? 'navbar__element--mark' : '' ?>">
-                        <a class="navbar__link" href="<?= get_site_url(); ?>/category/newsletter">Newsletter</a>
                     </li>
                 </ul>
             </div>

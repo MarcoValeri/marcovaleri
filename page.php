@@ -11,7 +11,7 @@ if (have_posts()) {
                 <h1><?= $pageTitle; ?></h1>
             </div>
             <div class="content__main">
-                    <?= $pageContent; ?>
+                <?= $pageContent; ?>
             </div>
         </section>
         <?php

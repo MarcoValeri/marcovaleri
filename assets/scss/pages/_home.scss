@@ -5,6 +5,10 @@
         margin-bottom: 5rem;
     }
 
+    &__title {
+        font-size: 5rem;
+    }
+
     &__container-categories {
         display: flex;
         align-items: flex-start;
@@ -26,10 +30,6 @@
             height: auto;
             margin-bottom: 5rem;
         }
-    }
-
-    &__container-button {
-        text-align: center;
     }
 
 }

@@ -2,7 +2,7 @@
 <section class="articles-list">
     <div class="articles-list__title">
         <h1>Vivere all'estero</h1>
-        <h2>Ultimi articoli</h2>
+        <h2 class="h4">C'è un posto per tutti nel mondo, anche per te</h2>
     </div>
     <?php
     $categoryEsperienzeArgs = [

@@ -2,7 +2,7 @@
 <section class="articles-list">
     <div class="articles-list__title">
         <h1>Opportunità</h1>
-        <h2>Ultimi articoli</h2>
+        <h2 class="h4">Vivere è l'unico modo per capire se era la cosa giusta per te. Avventurati in qualcosa di nuovo e scopri se è quello che vuoi veramente</h2>
     </div>
     <?php
     $categoryEsperienzeArgs = [

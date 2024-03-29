@@ -1,15 +1,13 @@
 <div class="sidebar">
     <div class="sidebar__item">
-        <h2 class="sidebar__item-title">
-            Seguimi su
-        </h2>
-        <p class="sidebar__item-content--icons">
+        <h2 class="sidebar__item-title">Seguimi su</h2>
+        <p class="sidebar__item-content--icons sidebar__item-content-black">
             <a class="sidebar__item-icon no-link" href="https://twitter.com/MarcoValeriNet" target="_blank">
-                <img class="sidebar__social-icon-twitter" src="/" alt="Twitter X Logo" width="150">
+                <img class="sidebar__social-icon-twitter" src="<?= get_site_url(); ?>/wp-content/uploads/twitter-logo-white.png" alt="Twitter X logo bianco su sfondo trasparente" width="150">
             </a>
         </p>
     </div>
-    <div class="sidebar__item">
+    <!-- <div class="sidebar__item">
         <h2 class="sidebar__item-title">
             Newsletter
         </h2>
@@ -19,5 +17,5 @@
         <a href="/">
             <button class="button button__black">Newsletter</button>
         </a>
-    </div>
+    </div> -->
 </div>

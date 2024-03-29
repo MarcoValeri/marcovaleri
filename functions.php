@@ -1,5 +1,8 @@
 <?php
 
+// Add theme support
+add_theme_support('post-thumbnails', ['post', 'page']);
+
 // Load JS and CSS files
 function mv_enqueue_script() {
     wp_enqueue_style("style-css", get_template_directory_uri() . "/style.css", false, "1.1", "all");
