@@ -25,3 +25,29 @@ function isThisUrlPath($path) {
     }
     return false;
 }
+
+/**
+ * Create a function that gets
+ * @param string $getCategoryName
+ * as the name of the category
+ * and
+ * @return string as right
+ * class for box-shadow
+ */
+function getCategoryBoxShadow($getCategoryName) {
+    $setBoxShadow = "box-shadow-yellow";
+    switch ($getCategoryName) {
+        case "Esperienze":
+            $setBoxShadow = "box-shadow-green";
+            break;
+        case "Opportunità":
+            $setBoxShadow = "box-shadow-blue";
+            break;
+        case "Vivere all'estero":
+            $setBoxShadow = "box-shadow-red";
+            break;
+        default:
+            $setBoxShadow = "box-shadow-yellow";
+    }
+    return $setBoxShadow;
+}

@@ -169,6 +169,26 @@ html {
   color: #f00;
 }
 
+.box-shadow-black {
+  box-shadow: 0 0 50px 0 #000;
+}
+
+.box-shadow-green {
+  box-shadow: 0 0 50px 0 #2A918B;
+}
+
+.box-shadow-blue {
+  box-shadow: 0 0 50px 0 #009AE4;
+}
+
+.box-shadow-red {
+  box-shadow: 0 0 50px 0 #E6553F;
+}
+
+.box-shadow-yellow {
+  box-shadow: 0 0 50px 0 #EAAB00;
+}
+
 .banner-author {
   overflow: hidden;
   margin: 5rem auto;
@@ -793,10 +813,6 @@ html {
   padding: 2rem;
   text-align: center;
 }
-.sidebar__item-content-black {
-  background-color: #000;
-  border-top: 1px solid #fff;
-}
 .sidebar__item-icon {
   padding: 1rem;
 }
@@ -1002,7 +1018,7 @@ doesn't render well the error message, need to improve it */
 .home__container-categories {
   display: flex;
   align-items: flex-start;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-bottom: 5rem;
 }
 @media only screen and (max-width: 991px) {

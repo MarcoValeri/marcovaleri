@@ -4,7 +4,7 @@
         <h2 class="home__title">Dove si va?</h2>
     </div>
     <div class="home__container-categories">
-        <div class="home__container-single-category">
+        <div class="home__container-single-category box-shadow-green">
             <div class="banner-preview">
                 <div class="banner-preview__wrapper">
                     <div class="banner-preview__container-image">
@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div class="home__container-single-category">
+        <div class="home__container-single-category box-shadow-blue">
             <div class="banner-preview">
                 <div class="banner-preview__wrapper">
                     <div class="banner-preview__container-image">
@@ -34,7 +34,7 @@
                         <h2 class="h2">Opportunità</h2>
                     </div>
                     <div class="banner-preview__container-description">
-                        <p class="body-2">Realizzi qualcosa solo quando lo conosci</p>
+                        <p class="body-2">Realizzi un obiettivo solo quando sai come fare</p>
                     </div>
                     <div class="banner-preview__container-button">
                         <a href="<?= get_site_url(); ?>/category/opportunita">
@@ -46,7 +46,7 @@
         </div>
     </div>
     <div class="home__container-categories">
-        <div class="home__container-single-category">
+        <div class="home__container-single-category box-shadow-red">
             <div class="banner-preview">
                 <div class="banner-preview__wrapper">
                     <div class="banner-preview__container-image">
@@ -66,7 +66,7 @@
                 </div>
             </div>
         </div>
-        <div class="home__container-single-category">
+        <div class="home__container-single-category box-shadow-yellow">
             <div class="banner-preview">
                 <div class="banner-preview__wrapper">
                     <div class="banner-preview__container-image">
@@ -106,26 +106,30 @@
                 $lastPostQuery->the_post();
 
                 $lastPostLink = get_permalink();
+                $lastPostCategory = get_the_category();
                 $lastPostImageUrl = get_the_post_thumbnail_url();
                 $lastPostImageAlt = get_post_meta(get_post_thumbnail_id( $post->ID ), '_wp_attachment_image_alt', true);
                 $lastPostTitle = get_the_title();
                 $lastPostContent = get_the_content();
                 $lastPostExcerp = substr($lastPostContent, 0, 200);
                 $lastPostExcerpNoHTML = strip_tags($lastPostExcerp);
+                ?>
+                <a class="articles-list__container no-link" href="<?= $lastPostLink; ?>">
+                    <article class="articles-list__article <?= getCategoryBoxShadow($lastPostCategory[0]->name); ?>">
+                        <div class="articles-list__container-image">
+                            <img class="articles-list__article-image" src="<?= $lastPostImageUrl; ?>" alt="<?= $lastPostImageAlt; ?>">
+                        </div>
+                        <div class="articles-list__content-container">
+                            <h1 class="articles-list__article-title"><?= $lastPostTitle; ?></h1>
+                            <div class="articles-list__article-paragraph"><?= $lastPostExcerpNoHTML; ?></div>
+                        </div>
+                    </article>
+                </a>
+                <?php
             }
+            wp_reset_postdata();
         }
         ?>
-        <a class="articles-list__container no-link" href="<?= $lastPostLink; ?>">
-            <article class="articles-list__article">
-                <div class="articles-list__container-image">
-                    <img class="articles-list__article-image" src="<?= $lastPostImageUrl; ?>" alt="<?= $lastPostImageAlt; ?>">
-                </div>
-                <div class="articles-list__content-container">
-                    <h1 class="articles-list__article-title"><?= $lastPostTitle; ?></h1>
-                    <div class="articles-list__article-paragraph"><?= $lastPostExcerpNoHTML; ?></div>
-                </div>
-            </article>
-        </a>
     </section>
 </div>
 <?php get_footer(); ?>
