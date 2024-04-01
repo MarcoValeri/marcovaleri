@@ -2,11 +2,15 @@
 
 // Add theme support
 add_theme_support('post-thumbnails', ['post', 'page']);
+add_theme_support('editor-styles');
+add_theme_support('wp-block-styles');
+add_theme_support('align-wide');
 
 // Load JS and CSS files
 function mv_enqueue_script() {
     wp_enqueue_style("style-css", get_template_directory_uri() . "/style.css", false, "1.1", "all");
     wp_enqueue_style("main-css", get_template_directory_uri() . "/assets/css/main.css", false, "1.1", "all");
+    wp_enqueue_script("jquery");
 }
 add_action("wp_enqueue_scripts", "mv_enqueue_script");
 

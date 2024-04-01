@@ -10,6 +10,6 @@
     <div class="sidebar__item">
         <h2 class="sidebar__item-title">Newsletter</h2>
         <p class="sidebar__item-content">Restiamo in contatto, iscriviti ora alla mia newsletter per leggere gli ultimi articoli ed i contenuti esclusivi</p>
-        <?= do_shortcode("[sgforms id=182]"); ?>
+        <?php echo do_shortcode('[sgforms id="182"]'); ?>
     </div>
 </div>
