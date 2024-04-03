@@ -7,8 +7,11 @@
             </a>
         </p>
     </div>
-    <!-- <div class="sidebar__item">
+    <div class="sidebar__item">
         <h2 class="sidebar__item-title">Newsletter</h2>
         <p class="sidebar__item-content">Restiamo in contatto, iscriviti ora alla mia newsletter per leggere gli ultimi articoli ed i contenuti esclusivi</p>
-    </div> -->
+        <a href="<?= get_site_url(); ?>/newsletter/">
+            <button class="button button__black">Newsletter</button>
+        </a>
+    </div>
 </div>

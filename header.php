@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marco Valeri</title>
+    <title><?= wp_title(); ?></title>
+    <?php if (isThisUrlPath("/")) {
+        echo '<meta name="Description" CONTENT="Marco Valeri, autore, blogger, web developer, sito ufficiale con gli articoli di crescita personale, professionale, i racconti, le idee e la biografia">';
+    } ?>
     <link rel="icon" type="image/x-icon" href="<?= get_site_url(); ?>/wp-content/uploads/marco-valeri-net-logo-small.jpg">
 
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4b120a0a-4508-4f16-ac83-f0ecefe1e60b" data-blockingmode="auto" type="text/javascript"></script>
@@ -49,6 +52,9 @@
                     </li>
                     <li class="navbar__element <?= isThisUrlPath("/contatti/") ? 'navbar__element--mark' : '' ?>">
                         <a class="navbar__link" href="<?= get_site_url(); ?>/contatti/">Contatti</a>
+                    </li>
+                    <li class="navbar__element <?= isThisUrlPath("/newsletter/") ? 'navbar__element--mark' : '' ?>">
+                        <a class="navbar__link" href="<?= get_site_url(); ?>/newsletter/">Newsletter</a>
                     </li>
                 </ul>
             </div>

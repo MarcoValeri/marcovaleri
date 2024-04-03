@@ -32,7 +32,7 @@
             <div class="banner-author">
                 <div class="banner-author__wrapper">
                     <div class="banner-author__container-image">
-                        <img class="banner-author__image" src="#" alt="#" />
+                        <img class="banner-author__image" src="<?= get_site_url(); ?>/wp-content/uploads/marco-valeri-conferenza-di-bristol-uk.webp" alt="Immagine dell'autore Marco Valeri ad una conferenza a Bristol" />
                     </div>
                     <div class="banner-author__container-content">
                         <h4 class="banner-author__title h3">Marco Valeri</h4>
