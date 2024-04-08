@@ -11,15 +11,16 @@
 @import "./components/banner-author";
 @import "./components/banner-preview";
 @import "./components/comment-card";
+@import "./components/search-input";
 
 // Import layout files
 @import "./layout/article-list";
+@import "./layout/content";
 @import "./layout/footer";
 @import "./layout/header";
 @import "./layout/navbar";
-@import "./layout/content";
 
 // Import page files
 @import "./pages/contact";
-@import "./pages//error404";
+@import "./pages/error404";
 @import "./pages/home";

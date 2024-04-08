@@ -35,7 +35,7 @@
                         <img class="banner-author__image" src="<?= get_site_url(); ?>/wp-content/uploads/marco-valeri-conferenza-di-bristol-uk.webp" alt="Immagine dell'autore Marco Valeri ad una conferenza a Bristol" />
                     </div>
                     <div class="banner-author__container-content">
-                        <h4 class="banner-author__title h3">Marco Valeri</h4>
+                        <h3 class="banner-author__title h3">Marco Valeri</h3>
                         <p class="banner-author__description p">Mi chiamo Marco Valeri, sono nato a Roma e attualmente vivo a Londra, città che mi ha cambiato la vita.<br /><br />Laureato in Computer Science alla Birkbeck University of London, divoro libri, amo scrivere e non mi stanco mai di conoscere cose nuove, soprattutto legate al mondo dell'informatica.<br /><br />Ogni giorno provo a mettere in atto il concetto secondo cui 'La disciplina è libertà'.</p>
                     </div>
                 </div>

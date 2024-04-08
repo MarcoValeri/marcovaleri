@@ -87,6 +87,12 @@
             </div>
         </div>
     </div>
+    <div class="home__container-serach">
+        <div class="search-input">
+            <h2 class="search-input__title h2">Cerca su MarcoValeri.net</h2>
+            <?php get_search_form(); ?>
+        </div>
+    </div>
     <section class="articles-list">
         <div class="articles-list__title">
             <h1>Ultimi articoli</h1>

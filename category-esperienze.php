@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 <section class="articles-list">
-    <div class="articles-list__title">
-        <h1>Esperienze</h1>
-        <h2 class="h4">Conoscere le esperienze altrui è il modo per farle tue, per vivere più vite conteporaneamente, per non fare gli errori che hanno già fatto gli altri e per fare meglio la prossima volta</h2>
+    <div class="articles-list__container-description articles-list__container-description--esperienze">
+        <h1 class="articles-list__title">Esperienze</h1>
+        <h2 class="articles-list__description h4">Conoscere le esperienze altrui è il modo per farle tue, per vivere più vite conteporaneamente, per non fare gli errori che hanno già fatto gli altri e per fare meglio la prossima volta</h2>
     </div>
     <?php
     $categoryEsperienzeArgs = [

@@ -1,6 +1,7 @@
 <?php
 $commentsNum = get_comments_number();
 $postID = get_post()->ID;
+$postURL = get_post_permalink($postID);
 ?>
 <section id="article-container-comments" class="content__section-form">
     <?php
@@ -19,14 +20,14 @@ $postID = get_post()->ID;
     $userEmailLogged = wp_get_current_user()->user_email;
     $argsComment = [
         'fields' => [
-            'author'    => '<div class="content__container-form-name"><input class="content__input-text input-text" type="text" id="author" name="author" placeholder="Nome *" /><div class="body-3 content__form-error">Set name error</div></div>',
-            'email'     => '<div class="content__container-form-email"><input class="content__input-text content__input-email input-text" type="email" id="email" name="email" placeholder="Email *" /><p class="body-3">La tua email non verrà pubblicata</p><div class="body-3 content__form-error">Set email error</div></div>',
+            'author'    => '<div class="content__container-form-name"><input class="content__input-text input-text" type="text" id="author" name="author" placeholder="Nome *" required /><div class="body-3 content__form-error"></div></div>',
+            'email'     => '<div class="content__container-form-email"><input class="content__input-text content__input-email input-text" type="email" id="email" name="email" placeholder="Email *" required /><p class="body-3">La tua email non verrà pubblicata</p><div class="body-3 content__form-error"></div></div>',
             'cookies'   => '<div class="content__container-form-privacy"><input class="input-checkbox" type="checkbox" id="Privacy" name="Privacy" required="required" value="1"><label class="content__label-privacy body-2" for="Privacy">Accetto la privacy policy</label></div><div class="article__form-comments-submit article__input"></div>'
         ],
         'submit_button'             => '<div class="content__container-form-submit"><input class="content__form-btn button button__black" type="submit" name="submit" value="Invia" /><p class="body-3">Per maggiori informazioni consulta la <a class="link" href="#">Privacy Policy</a></p></div>',
-        'title_reply'               => __('*** La tua email non verrà pubblicata ***'),
+        'title_reply'               => __(''),
         'title_reply_to'            => __('Rispondi'),
-        'comment_field'             => '<div class="content__container-form-content"><textarea id="comment" class="content__input-textarea input-textarea" name="comment" placeholder="Commento *"></textarea><div class="body-3 content__form-error">Set comment error</div></div>',
+        'comment_field'             => '<div class="content__container-form-content"><textarea id="comment" class="content__input-textarea input-textarea" name="comment" placeholder="Commento *" required></textarea><div class="body-3 content__form-error"></div></div>',
         'logged_in_as'              => '<div><p>Sei registrato come ' . $userEmailLogged . '</p></div>',
         'comment_notes_before'      => __(''),
         'comment_notes_after'       => '',

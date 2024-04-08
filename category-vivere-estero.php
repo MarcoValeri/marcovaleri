@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 <section class="articles-list">
-    <div class="articles-list__title">
-        <h1>Vivere all'estero</h1>
-        <h2 class="h4">C'è un posto per tutti nel mondo, anche per te</h2>
+    <div class="articles-list__container-description articles-list__container-description--vivere-all-estero">
+        <h1 class="articles-list__title">Vivere all'estero</h1>
+        <h2 class="articles-list__description h4">C'è un posto per tutti nel mondo, anche per te</h2>
     </div>
     <?php
     $categoryEsperienzeArgs = [

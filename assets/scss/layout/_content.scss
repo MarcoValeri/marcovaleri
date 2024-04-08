@@ -15,6 +15,7 @@
         width: 100%;
         margin-bottom: 1.5rem;
     }
+
     &__image-picture {
         width: 80%;
         display: block;
@@ -31,9 +32,10 @@
     }
     
     &__data-item {
+        color: $black;
         font-size: 1.6rem;
+        font-weight: 900;
         margin-bottom: .5rem;
-        color: $grey-font;
     }
     
     &__index {

@@ -53,3 +53,19 @@ function getCategoryBoxShadow($getCategoryName) {
     }
     return $setBoxShadow;
 }
+
+/**
+ * Create a function that redirect a user
+ * after the submittion of the comment
+ * form
+ */
+function add_parameter_after_comment_submission($location) {
+    $addParamterToTheURL = 'article-container-comments';
+
+    if (false === strpos($location, $addParamterToTheURL)) {
+        $location = add_query_arg('article-container-comments', 'value', $location);
+    }
+
+    return $location;
+}
+add_filter('comment_post_redirect', 'add_parameter_after_comment_submission');

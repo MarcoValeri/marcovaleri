@@ -5,15 +5,42 @@
     align-items: center;
     flex-wrap: wrap;
 
-    &__title {
+    &__container-description {
         width: 100%;
+        padding: 2rem;
+        margin: 4rem auto;
+        border: 1px solid $black;
+        border-radius: 15px;
+    }
+
+    &__container-description--esperienze {
+        border: 1px solid $green-esperienze;
+    }
+
+    &__container-description--opportunita {
+        border: 1px solid $blue-opportunita;
+    }
+
+    &__container-description--vivere-all-estero {
+        border: 1px solid $red-vivere-all-estero;
+    }
+
+    &__container-description--page {
+        border: 1px solid $yellow-page;
+    }
+
+    &__title {
         font-size: 4rem;
         text-align: center;
-        margin: 4rem auto;
+        margin-bottom: 2rem;
 
         @include respond('xs') {
             font-size: 2.5rem;
         }
+    }
+
+    &__description {
+        margin-bottom: 1rem;
     }
 
     &__container {

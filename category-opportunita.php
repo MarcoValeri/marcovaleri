@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 <section class="articles-list">
-    <div class="articles-list__title">
-        <h1>Opportunità</h1>
-        <h2 class="h4">Vivere è l'unico modo per capire se era la cosa giusta per te. Avventurati in qualcosa di nuovo e scopri se è quello che vuoi veramente</h2>
+    <div class="articles-list__container-description articles-list__container-description--opportunita">
+        <h1 class="articles-list__title">Opportunità</h1>
+        <h2 class="articles-list__description h4">Vivere è l'unico modo per capire se era la cosa giusta per te. Avventurati in qualcosa di nuovo e scopri se è quello che vuoi veramente</h2>
         <p class="p">A volte non sappiamo dove e come cambiare le cose.</p>
         <p class="p">Ho voluto così creare questa sezione nella quale puoi trovare diverse guide su come muoverti nella società.</p>
         <p class="p">Se c'è qualcosa di cui vorresti leggere, una guida in particolare che non c'è, scrivimi, proverò ad aggiungerla quanto prima.</p>
