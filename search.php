@@ -45,8 +45,8 @@
         }
     } else {
         ?>
-        <div class="search__container-title">
-            <h2 class="search__title">Nessun risultato trovato con il termine <?= get_search_query(); ?></h2>
+        <div class="articles-list__title">
+            <h1>Nessun risultato trovato con il termine <?= get_search_query(); ?></h1>
         </div>
         <?php
     }
