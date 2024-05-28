@@ -244,6 +244,7 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #fff;
 }
 .banner-preview__container-image {
   width: 100%;
@@ -282,6 +283,22 @@ html {
 }
 .comment-card__container-comment {
   margin-bottom: 1rem;
+}
+
+.newsletter-banner {
+  margin: 3rem auto;
+  border: 1px solid #000;
+  border-radius: 15px;
+}
+.newsletter-banner__wrapper {
+  text-align: center;
+  padding: 2rem;
+}
+.newsletter-banner__last-p {
+  margin-bottom: 2rem;
+}
+.newsletter-banner__container-form {
+  display: none;
 }
 
 .search-input {
@@ -1085,6 +1102,7 @@ doesn't render well the error message, need to improve it */
 .home__container-single-category {
   width: 45%;
   height: 40rem;
+  border-radius: 15px;
 }
 @media only screen and (max-width: 991px) {
   .home__container-single-category {

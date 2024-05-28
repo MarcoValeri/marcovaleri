@@ -9,6 +9,11 @@ add_theme_support('wp-block-styles');
 function mv_enqueue_script() {
     wp_enqueue_style("style-css", get_template_directory_uri() . "/style.css", false, "1.1", "all");
     wp_enqueue_style("main-css", get_template_directory_uri() . "/assets/css/main.css", false, "1.1", "all");
+
+    if (is_single()) {
+        wp_enqueue_script("newsletter-banner-js", get_template_directory_uri() . "/assets/js/newsletter-banner.js", [], 1, true);
+    }
+
 }
 add_action("wp_enqueue_scripts", "mv_enqueue_script");
 

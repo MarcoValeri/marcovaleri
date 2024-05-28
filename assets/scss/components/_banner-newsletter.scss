@@ -1,0 +1,20 @@
+.newsletter-banner {
+    margin: 3rem auto;
+    border: 1px solid $black;
+    border-radius: 15px;
+
+    &__wrapper {
+        text-align: center;
+        padding: 2rem;
+    }
+
+    &__container-content {}
+
+    &__last-p {
+        margin-bottom: 2rem;
+    }
+
+    &__container-form {
+        display: none;
+    }
+}

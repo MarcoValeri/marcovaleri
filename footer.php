@@ -6,5 +6,6 @@
         <p class="footer__content-main"><a class="no-link--white" href="<?= get_site_url(); ?>/privacy-policy">Privacy Policy</a></p>
     </div>
 </footer>
+<?php wp_footer(); ?>
 </body>
 </html>
