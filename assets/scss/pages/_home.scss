@@ -24,6 +24,7 @@
     &__container-single-category {
         width: 45%;
         height: 40rem;
+        border-radius: 15px;
 
         @include respond("l") {
             width: 100%;

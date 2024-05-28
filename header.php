@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= wp_title(); ?></title>
+
     <?php if (isThisUrlPath("/")) {
         echo '<meta name="Description" CONTENT="Marco Valeri, autore, blogger, web developer, sito ufficiale con gli articoli di crescita personale, professionale, i racconti, le idee e la biografia">';
     } ?>
@@ -19,7 +20,6 @@
 
     gtag('config', 'G-Y5V630M9K0');
     </script>
-    
     <?php wp_head(); ?>
 </head>
 <body>
