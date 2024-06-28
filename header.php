@@ -9,9 +9,10 @@
         echo '<meta name="Description" CONTENT="Marco Valeri, autore, blogger, web developer, sito ufficiale con gli articoli di crescita personale, professionale, i racconti, le idee e la biografia">';
     } ?>
     <link rel="icon" type="image/x-icon" href="<?= get_site_url(); ?>/wp-content/uploads/marco-valeri-net-logo-small.jpg">
-
+    
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4b120a0a-4508-4f16-ac83-f0ecefe1e60b" data-blockingmode="auto" type="text/javascript"></script>
 
+    <?php // Google Analytics ?>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5V630M9K0"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -20,6 +21,11 @@
 
     gtag('config', 'G-Y5V630M9K0');
     </script>
+
+    <?php // Google Ads ?>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9306947071363993"
+    crossorigin="anonymous"></script>
+
     <?php wp_head(); ?>
 </head>
 <body>
