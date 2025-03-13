@@ -2,7 +2,7 @@
     <div class="sidebar__item">
         <h2 class="sidebar__item-title">Seguimi su</h2>
         <div class="sidebar__container-social">
-            <a class="sidebar__social-link no-link" href="https://instagram.com/marcovaleriofficial" target="_blank">
+            <a class="sidebar__social-link no-link" href="https://www.instagram.com/marcovalerinet/" target="_blank">
                 <img class="sidebar__social-icon" src="<?= get_site_url(); ?>/wp-content/uploads/instagram-icon-official.png" alt="Instagram logo ufficiale" width="50">
             </a>
             <a class="sidebar__social-link no-link" href="https://www.facebook.com/marcovaleriofficial/" target="_blank">
