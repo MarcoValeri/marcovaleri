@@ -224,6 +224,8 @@
     padding: 1.5rem;
     text-align: center;
 
+    &__item {}
+
     &__item-title {
         padding: 2rem 0;
         font-size: 2rem;
@@ -239,18 +241,22 @@
         margin-bottom: 1rem;
     }
 
-    &__item-content--icons {
-        padding: 2rem;
-        text-align: center;
+    &__container-social {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        padding: 3rem 0;
     }
 
-    &__item-icon {
-        padding: 1rem;
+    &__social-link {}
+
+    &__social-icon {
+        width: 50px;
+        height: 50px;
     }
 
-    &__social-icon-twitter {
-        width: 10rem;
-    }
 }
 
 /*
