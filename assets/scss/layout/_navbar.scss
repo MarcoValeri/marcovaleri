@@ -3,7 +3,7 @@
     padding: 3rem;
     border-bottom: 1px solid #fff;
     
-    @include respond('l') {
+    @include respond('xl') {
         border-bottom: none;
     }
 }
@@ -55,9 +55,9 @@
 
 /*
 * Media Queries
-* max-width: 1199px
+* max-width: 1250px
 */
-@media (max-width: 1199px) {
+@media (max-width: 1250px) {
 
     .navbar__toggle {
         display: block;

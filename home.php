@@ -79,7 +79,7 @@
                         <p class="body-2">Scrivere, un percorso in solitaria, difficile ma che rende la nostra...</p>
                     </div>
                     <div class="banner-preview__container-button">
-                        <a href="<?= get_site_url(); ?>/category/vivere-estero">
+                        <a href="<?= get_site_url(); ?>/category/scrivere/">
                             <button class="button button__black">Scopri di più</button>
                         </a>
                     </div>

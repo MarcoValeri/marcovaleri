@@ -53,6 +53,8 @@ function getCategoryBoxShadow($getCategoryName) {
         case "Vivere all'estero":
             $setBoxShadow = "box-shadow-red";
             break;
+        case "Scrivere":
+            $setBoxShadow = "box-shadow-yellow";
         default:
             $setBoxShadow = "box-shadow-yellow";
     }
