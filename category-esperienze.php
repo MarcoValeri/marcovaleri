@@ -2,7 +2,7 @@
 <section class="articles-list">
     <div class="articles-list__container-description articles-list__container-description--esperienze">
         <h1 class="articles-list__title">Esperienze</h1>
-        <h2 class="articles-list__description h4">Conoscere le esperienze altrui è il modo per farle tue, per vivere più vite conteporaneamente, per non fare gli errori che hanno già fatto gli altri e per fare meglio la prossima volta</h2>
+        <h2 class="articles-list__description h4">Le mie esperienze. Sono semplicemente i passi che ho mosso e le strade che ho percorso finora. Le racconto qui, nella loro semplicità. Se, leggendole, troverai qualcosa che ti risuona dentro o ti fa pensare, mi farà un immenso piacere</h2>
     </div>
     <?php
     $categoryEsperienzeArgs = [

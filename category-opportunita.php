@@ -2,10 +2,7 @@
 <section class="articles-list">
     <div class="articles-list__container-description articles-list__container-description--opportunita">
         <h1 class="articles-list__title">Opportunità</h1>
-        <h2 class="articles-list__description h4">Vivere è l'unico modo per capire se era la cosa giusta per te. Avventurati in qualcosa di nuovo e scopri se è quello che vuoi veramente</h2>
-        <p class="p">A volte non sappiamo dove e come cambiare le cose.</p>
-        <p class="p">Ho voluto così creare questa sezione nella quale puoi trovare diverse guide su come muoverti nella società.</p>
-        <p class="p">Se c'è qualcosa di cui vorresti leggere, una guida in particolare che non c'è, scrivimi, proverò ad aggiungerla quanto prima.</p>
+        <h2 class="articles-list__description h4">A volte, cambiare vita richiede solo di scoprire che esistono strade che non avevamo considerato. In questa categoria esploriamo proprio questo: possibilità concrete, guide e idee per reinventarsi, imparare nuove professioni, accedere a percorsi di formazione o sfruttare le risorse digitali per costruire un futuro diverso. Qui, l'ispirazione si trasforma in azione</h2>
     </div>
     <?php
     $categoryEsperienzeArgs = [

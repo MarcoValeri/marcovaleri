@@ -14,7 +14,7 @@
                         <h2 class="h2">Esperienze</h2>
                     </div>
                     <div class="banner-preview__container-description">
-                        <p class="body-2">Vivere un'esperienza è l'unico modo per capire se questa è giusta per te</p>
+                        <p class="body-2">Le mie esperienze. Sono semplicemente i passi che ho mosso e le strade...</p>
                     </div>
                     <div class="banner-preview__container-button">
                         <a href="<?= get_site_url(); ?>/category/esperienze">
@@ -34,7 +34,7 @@
                         <h2 class="h2">Opportunità</h2>
                     </div>
                     <div class="banner-preview__container-description">
-                        <p class="body-2">Realizzi un obiettivo solo quando sai come fare</p>
+                        <p class="body-2">A volte, cambiare vita richiede solo di scoprire che esistono strade che...</p>
                     </div>
                     <div class="banner-preview__container-button">
                         <a href="<?= get_site_url(); ?>/category/opportunita">
@@ -56,7 +56,7 @@
                         <h2 class="h2">Vivere all'estero</h2>
                     </div>
                     <div class="banner-preview__container-description">
-                        <p class="body-2">C'è un posto per tutti nel mondo</p>
+                        <p class="body-2">Cambiare vita e andare a vivere all'estero è un viaggio che mette alla...</p>
                     </div>
                     <div class="banner-preview__container-button">
                         <a href="<?= get_site_url(); ?>/category/vivere-estero">
@@ -73,13 +73,13 @@
                         <img class="banner-preview__image" src="<?= get_site_url(); ?>/wp-content/uploads/murales-a-londra.webp" alt="Murales di Londra, un uomo con l'ombrello che cammina con una valigia in mano sotto l'icon della metropolitana" />
                     </div>
                     <div class="banner-preview__container-title">
-                        <h2 class="h2">Chi sono</h2>
+                        <h2 class="h2">Scrivere</h2>
                     </div>
                     <div class="banner-preview__container-description">
-                        <p class="body-2">Lascia che mi presenti</p>
+                        <p class="body-2">Scrivere, un percorso in solitaria, difficile ma che rende la nostra...</p>
                     </div>
                     <div class="banner-preview__container-button">
-                        <a href="<?= get_site_url(); ?>/chi-sono">
+                        <a href="<?= get_site_url(); ?>/category/vivere-estero">
                             <button class="button button__black">Scopri di più</button>
                         </a>
                     </div>

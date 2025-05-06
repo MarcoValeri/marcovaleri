@@ -51,7 +51,10 @@
                         <a class="navbar__link" href="<?= get_site_url(); ?>/category/opportunita/">Opportunità</a>
                     </li>
                     <li class="navbar__element <?= isThisUrlPath("/category/vivere-estero/") ? 'navbar__element--mark' : '' ?>">
-                        <a class="navbar__link" href="<?= get_site_url(); ?>/category/vivere-estero/">Vivere All'Estero</a>
+                        <a class="navbar__link" href="<?= get_site_url(); ?>/category/vivere-estero/">Vivere all'estero</a>
+                    </li>
+                    <li class="navbar__element <?= isThisUrlPath("/category/scrittura/") ? 'navbar__element--mark' : '' ?>">
+                        <a class="navbar__link" href="<?= get_site_url(); ?>/category/scrittura/">Scrittura</a>
                     </li>
                     <li class="navbar__element <?= isThisUrlPath("/contatti/") ? 'navbar__element--mark' : '' ?>">
                         <a class="navbar__link" href="<?= get_site_url(); ?>/contatti/">Contatti</a>

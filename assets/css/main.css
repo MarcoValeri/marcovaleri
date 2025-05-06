@@ -357,6 +357,9 @@ html {
 .articles-list__container-description--vivere-all-estero {
   border: 1px solid #E6553F;
 }
+.articles-list__container-description--scrivere {
+  border: 1px solid #EAAB00;
+}
 .articles-list__container-description--page {
   border: 1px solid #EAAB00;
 }
