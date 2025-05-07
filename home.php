@@ -70,7 +70,7 @@
             <div class="banner-preview">
                 <div class="banner-preview__wrapper">
                     <div class="banner-preview__container-image">
-                        <img class="banner-preview__image" src="<?= get_site_url(); ?>/wp-content/uploads/murales-a-londra.webp" alt="Murales di Londra, un uomo con l'ombrello che cammina con una valigia in mano sotto l'icon della metropolitana" />
+                        <img class="banner-preview__image" src="<?= get_site_url(); ?>/wp-content/uploads/quaderno-scritto-con-penna.webp" alt="Murales di Londra, un uomo con l'ombrello che cammina con una valigia in mano sotto l'icon della metropolitana" />
                     </div>
                     <div class="banner-preview__container-title">
                         <h2 class="h2">Scrivere</h2>

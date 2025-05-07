@@ -265,6 +265,22 @@ html {
   padding: 1rem;
 }
 
+.newsletter-banner {
+  margin: 3rem auto;
+  border: 1px solid #000;
+  border-radius: 15px;
+}
+.newsletter-banner__wrapper {
+  text-align: center;
+  padding: 2rem;
+}
+.newsletter-banner__last-p {
+  margin-bottom: 2rem;
+}
+.newsletter-banner__container-form {
+  display: none;
+}
+
 .comment-card {
   padding: 1rem;
   margin-bottom: 2rem;
@@ -285,20 +301,17 @@ html {
   margin-bottom: 1rem;
 }
 
-.newsletter-banner {
+.ebook-banner {
   margin: 3rem auto;
   border: 1px solid #000;
   border-radius: 15px;
 }
-.newsletter-banner__wrapper {
+.ebook-banner__wrapper {
   text-align: center;
   padding: 2rem;
 }
-.newsletter-banner__last-p {
+.ebook-banner__last-p {
   margin-bottom: 2rem;
-}
-.newsletter-banner__container-form {
-  display: none;
 }
 
 .search-input {
@@ -629,6 +642,9 @@ html {
   grid-area: sidebar;
   padding: 1.5rem;
   text-align: center;
+}
+.sidebar__item {
+  margin-bottom: 2rem;
 }
 .sidebar__item-title {
   padding: 2rem 0;

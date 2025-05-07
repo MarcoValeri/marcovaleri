@@ -224,7 +224,9 @@
     padding: 1.5rem;
     text-align: center;
 
-    &__item {}
+    &__item {
+        margin-bottom: 2rem;
+    }
 
     &__item-title {
         padding: 2rem 0;

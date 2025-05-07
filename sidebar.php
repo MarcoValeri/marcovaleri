@@ -20,4 +20,12 @@
             <button class="button button__black">Newsletter</button>
         </a>
     </div>
+    <div class="sidebar__item">
+        <h2 class="sidebar__item-title">Vuoi trasferirti a vivere a Londra?</h2>
+        <p class="sidebar__item-content">Londra, metropoli dalle opportunità immense, ma non per tutti.<br/>
+        <p class="sidebar__item-content">La mia guida <strong>Vivere a Londra nel 2025</strong> affronta gli aspetti pratici (visti, lavoro, costi) ma soprattutto risponde alla domanda chiave: <em>Londra fa davvero al caso tuo?</em></p>
+        <a rel="noreferrer noopener" href="https://www.amazon.it/dp/B0F6758NBC" target="_blank">
+            <button class="button button__black">Trova la tua risposta</button>
+        </a>
+    </div>
 </div>
