@@ -27,7 +27,6 @@ $postURL = get_post_permalink($postID);
         'submit_button'             => '<div class="content__container-form-submit"><input class="content__form-btn button button__black" type="submit" name="submit" value="Invia" /><p class="body-3">Per maggiori informazioni consulta la <a class="link" href="#">Privacy Policy</a></p></div>',
         'title_reply'               => __(''),
         'title_reply_to'            => __('Rispondi'),
-        'comment_field'             => '<div class="content__container-form-content"><textarea id="comment" class="content__input-textarea input-textarea" name="comment" placeholder="Commento *" required></textarea><div class="body-3 content__form-error"></div></div>',
         'logged_in_as'              => '<div><p>Sei registrato come ' . $userEmailLogged . '</p></div>',
         'comment_notes_before'      => __(''),
         'comment_notes_after'       => '',
@@ -64,7 +63,7 @@ $postURL = get_post_permalink($postID);
                         <h5 class="body-4">Pubblicato il <?= get_comment_date('d-m-Y G:i:s'); ?> da <?= $comment->comment_author; ?></h5>
                     </div>
                     <div class="comment-card__container-comment">
-                        <p class="p"><?= $comment->comment_content; ?></p>
+                        <?= $comment->comment_content; ?>
                     </div>
                 </div>
             </div>

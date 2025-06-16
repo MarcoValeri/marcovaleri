@@ -300,6 +300,32 @@ html {
 .comment-card__container-comment {
   margin-bottom: 1rem;
 }
+.comment-card h1,
+.comment-card h2,
+.comment-card h3,
+.comment-card h4 {
+  font-size: 2.5rem;
+}
+.comment-card p {
+  font-size: 2.2rem;
+}
+.comment-card a {
+  font-size: 2.2rem;
+  color: #296eb4;
+  text-decoration: none;
+}
+.comment-card a:hover {
+  text-decoration: underline;
+}
+.comment-card ul,
+.comment-card ol {
+  font-size: 2.2rem;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+.comment-card strong {
+  font-weight: 900;
+}
 
 .ebook-banner {
   margin: 3rem auto;
