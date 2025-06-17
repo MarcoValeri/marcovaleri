@@ -7,6 +7,9 @@ $postURL = get_post_permalink($postID);
     <div id="comment-success-message" class="content__container-comments-success" style="display:none;">
         <p class="content__success-message body-2">Grazie per aver lasciato la tua opinione. Il tuo commento è in fase di approvazione.</p>
     </div>
+    <div id="reply-success-message" class="content__container-comments-success" style="display:none;">
+        <p class="content__success-message body-2">Grazie per la tua risposta. Il commento è in fase di approvazione.</p>
+    </div>
     <div class="content__form-header">
         <h3 class="h2">Lascia un commento</h3>
     </div>
@@ -36,33 +39,14 @@ $postURL = get_post_permalink($postID);
         <h3 class="h2"><?= $commentsNum; ?><?= $commentsNum === 1 ? " commento" : " commenti"; ?></h3>
     </div>
     <?php
-    // Show approved comments
-    $argsSingleComment = [
-        "status"    => "approve",
-        "post_id"   => $postID,
-    ];
+    wp_list_comments( [
+        'style'       => 'div', // Use <div>s for comments instead of <ul>
+        'short_ping'  => true,
+        'avatar_size' => 0, // Set to 0 to hide avatars, or a size like 64
+        'callback'    => 'my_custom_comment_format', // This is our custom function from functions.php
+    ] );
 
-    $commentsQuery = new WP_Comment_Query();
-    $getAllComments = $commentsQuery->query($argsSingleComment);
-
-    if ($getAllComments) {
-        foreach ($getAllComments as $comment) {
-            ?>
-            <div class="comment-card">
-                <div class="comment-card__wrapper">
-                    <div class="comment-card__container-name">
-                        <h4 class="h3"><?= $comment->comment_author; ?></h4>
-                    </div>
-                    <div class="comment-card__container-date">
-                        <h5 class="body-4">Pubblicato il <?= get_comment_date('d-m-Y G:i:s'); ?> da <?= $comment->comment_author; ?></h5>
-                    </div>
-                    <div class="comment-card__container-comment">
-                        <?= $comment->comment_content; ?>
-                    </div>
-                </div>
-            </div>
-            <?php
-        }
-    }
+    // This shows comment pagination if you have many comments
+    paginate_comments_links();
     ?>
 </section>

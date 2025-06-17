@@ -7,7 +7,8 @@ add_theme_support('editor-styles');
 add_theme_support('wp-block-styles');
 
 // Load JS and CSS files
-function mv_enqueue_script() {
+function mv_enqueue_script()
+{
     wp_enqueue_style("style-css", get_template_directory_uri() . "/style.css", false, "1.1", "all");
     wp_enqueue_style("main-css", get_template_directory_uri() . "/assets/css/main.css", false, "1.1", "all");
 
@@ -27,24 +28,33 @@ function mv_enqueue_script() {
             'ajax_url'  => admin_url('admin-ajax.php'),
             'nonce'     => wp_create_nonce('comment_nonce')
         ]);
-    }
 
+        if (is_singular() && comments_open() && get_option('thread_comments')) {
+            wp_enqueue_script('comment-reply');
+        }
+    }
 }
 add_action("wp_enqueue_scripts", "mv_enqueue_script");
 
 /**
  * Create a function that able rich text editor for comments
  */
-function enable_rich_text_in_comments($comment_field) {
+function enable_rich_text_in_comments($comment_field)
+{
     ob_start();
 
     $editor_settings = [
         'media_buttons' => false,
-        'teeny' => true,
+        'teeny'         => true,
+        'quicktags'     => false,
         'textarea_rows' => 8,
-        'quicktags' => false,
         'textarea_name' => 'comment',
-        'editor_class' => 'content__input-textarea'
+        'editor_class'  => 'content__input-textarea',
+        'tinymce'       => [
+            'toolbar1' => 'bold, italic, strikethrough, bullist, numlist, link, unlink',
+            'plugins'  => 'lists, wplink, paste',
+            'paste_as_text' => true,
+        ],
     ];
 
     wp_editor('', 'comment', $editor_settings);
@@ -65,7 +75,8 @@ add_filter('comment_form_field_comment', 'enable_rich_text_in_comments');
 * has this path
 * false otherwise
 */
-function isThisUrlPath($path) {
+function isThisUrlPath($path)
+{
     if ($_SERVER['REQUEST_URI'] === $path) {
         return true;
     }
@@ -80,7 +91,8 @@ function isThisUrlPath($path) {
  * @return string as right
  * class for box-shadow
  */
-function getCategoryBoxShadow($getCategoryName) {
+function getCategoryBoxShadow($getCategoryName)
+{
     $setBoxShadow = "box-shadow-yellow";
     switch ($getCategoryName) {
         case "Esperienze":
@@ -105,7 +117,8 @@ function getCategoryBoxShadow($getCategoryName) {
  * after the submittion of the comment
  * form
  */
-function add_parameter_after_comment_submission($location) {
+function add_parameter_after_comment_submission($location)
+{
     $addParamterToTheURL = 'article-container-comments';
 
     if (false === strpos($location, $addParamterToTheURL)) {
@@ -115,3 +128,50 @@ function add_parameter_after_comment_submission($location) {
     return $location;
 }
 add_filter('comment_post_redirect', 'add_parameter_after_comment_submission');
+
+/**
+ * Custom callback function to format the HTML for each comment.
+ * This is used by wp_list_comments() in comments.php.
+ */
+function my_custom_comment_format($comment, $args, $depth) {
+    ?>
+        <div <?php comment_class('comment-card'); ?> id="comment-<?php comment_ID(); ?>">
+            <div class="comment-card__wrapper">
+                <div class="comment-card__container-name">
+                    <h4 class="h3"><?php echo get_comment_author_link(); ?></h4>
+                </div>
+
+                <div class="comment-card__container-date">
+                    <h5 class="body-4">
+                        Pubblicato il <?php printf('%1$s', get_comment_date('d-m-Y')); ?>
+                    </h5>
+                </div>
+
+                <?php if ('0' == $comment->comment_approved) : ?>
+                    <p class="comment-awaiting-moderation">Your comment is awaiting moderation.</p>
+                <?php endif; ?>
+
+                <div class="comment-card__container-comment">
+                    <?php comment_text(); ?>
+                </div>
+
+                <div class="comment-card__reply">
+                    <?php
+                    comment_reply_link(
+                        array_merge(
+                            $args,
+                            [
+                                'add_below'  => 'comment',
+                                'depth'      => $depth,
+                                'max_depth'  => $args['max_depth'],
+                                'reply_text' => 'Rispondi', // "Reply" text
+                                'login_text' => 'Log in to Reply'
+                            ]
+                        )
+                    );
+                    ?>
+                </div>
+            </div>
+        </div>
+    <?php
+}
