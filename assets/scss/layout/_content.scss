@@ -200,8 +200,11 @@
         margin-bottom: 2rem;
     }
 
+    // This class is used for comments form, do not change is login
     &__form-error {
+        display: none;
         margin-top: 2rem;
+        color: #d00;
 
         ul {
             list-style: none;

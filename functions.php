@@ -1,4 +1,5 @@
 <?php
+require get_template_directory() . '/inc/ajax-comment-handler.php';
 
 // Add theme support
 add_theme_support('post-thumbnails', ['post', 'page']);
@@ -12,6 +13,20 @@ function mv_enqueue_script() {
 
     if (is_single()) {
         wp_enqueue_script("newsletter-banner-js", get_template_directory_uri() . "/assets/js/newsletter-banner.js", [], 1, true);
+
+        // Enqueue AJAX comments scripts
+        wp_enqueue_script(
+            'ajax-comments',
+            get_template_directory_uri() . '/assets/js/ajax-comments.js',
+            [],
+            '1.1',
+            true
+        );
+
+        wp_localize_script('ajax-comments', 'comments_ajax_obj', [
+            'ajax_url'  => admin_url('admin-ajax.php'),
+            'nonce'     => wp_create_nonce('comment_nonce')
+        ]);
     }
 
 }
