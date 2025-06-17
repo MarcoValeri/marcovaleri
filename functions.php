@@ -134,8 +134,15 @@ add_filter('comment_post_redirect', 'add_parameter_after_comment_submission');
  * This is used by wp_list_comments() in comments.php.
  */
 function my_custom_comment_format($comment, $args, $depth) {
+    // Create an array to hold our classes.
+    $custom_classes = ['comment-card'];
+
+    // If the depth is greater than 1, it's a reply.
+    if ($depth > 1) {
+        $custom_classes[] = 'card-comment--reply';
+    }
     ?>
-        <div <?php comment_class('comment-card'); ?> id="comment-<?php comment_ID(); ?>">
+        <div <?php comment_class($custom_classes); ?> id="comment-<?php comment_ID(); ?>">
             <div class="comment-card__wrapper">
                 <div class="comment-card__container-name">
                     <h4 class="h3"><?php echo get_comment_author_link(); ?></h4>

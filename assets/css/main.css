@@ -729,6 +729,14 @@ html {
     margin-left: 3.5rem;
   }
 }
+/* ==========================================================================
+   Final Polished Comment Threading Styles
+   ========================================================================== */
+/* This is the main container for a group of replies */
+.card-comment--reply {
+  background-color: #f9f9f9;
+}
+
 .footer {
   position: relative;
   height: 30vh;

@@ -1,20 +1,14 @@
 /**
- * Final AJAX Comments Script for WordPress (Corrected)
+ * Final Corrected AJAX Comments Script
  *
- * This script handles the entire comment submission process without a page reload.
- * Features include:
- * - AJAX form submission using vanilla JavaScript (Fetch API).
- * - Inline error messages for failed validation (no alerts).
- * - Fixes the rich text editor (TinyMCE) when replying to comments.
- * - Shows a different success message for replies vs. new comments.
- * - Moves the reply success message to appear directly under the parent comment.
+ * This version fixes the root cause: the parent comment ID was not being
+ * sent correctly during reply submissions. This script now manually reads
+ * the parent ID to guarantee it is included in the AJAX request.
  */
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- 1. Element Selectors ---
     const commentForm = document.getElementById('commentform');
-    const mainSuccessMessage = document.getElementById('comment-success-message');
-    const replySuccessMessage = document.getElementById('reply-success-message');
     const submitButton = document.getElementById('comment-submit');
     const commentsContainer = document.querySelector('.content__container-comments');
 
@@ -62,8 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // A. Reset UI State
         errorContainers.forEach(container => { container.style.display = 'none'; });
-        mainSuccessMessage.style.display = 'none';
-        replySuccessMessage.style.display = 'none';
         if (submitButton) {
             submitButton.value = 'Invio in corso...';
             submitButton.disabled = true;
@@ -72,9 +64,18 @@ document.addEventListener('DOMContentLoaded', () => {
             tinymce.get('comment').save();
         }
 
-        // B. Prepare and Send Data
+        // --- B. Prepare and Send Data (THE CRITICAL FIX IS HERE) ---
         const formData = new FormData(commentForm);
+
+        // **THE FIX**: Manually read the parent ID from the hidden input.
+        // This is more reliable than letting FormData do it after the DOM has been changed.
+        const parentIdInput = document.getElementById('comment_parent');
+        if (parentIdInput) {
+            formData.set('comment_parent', parentIdInput.value);
+        }
+
         const commentDataString = new URLSearchParams(formData).toString();
+        
         const bodyParams = new URLSearchParams();
         bodyParams.append('action', 'submit_ajax_comment');
         bodyParams.append('nonce', comments_ajax_obj.nonce);
@@ -93,37 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitButton.disabled = false;
             }
 
-            // --- D. Handle Server Response ---
             if (data.success) {
-                // SUCCESS
-                const commentParentInput = document.getElementById('comment_parent');
-                // ** THE FIX IS HERE: Capture the ID *before* the form resets **
-                const parentId = commentParentInput ? parseInt(commentParentInput.value) : 0;
-                const isReply = parentId > 0;
-
-                // On success, always hide the form
-                commentForm.style.display = 'none';
-
-                // Move the form back to the bottom. This must happen *after* we get the parentId.
-                const cancelLink = document.getElementById('cancel-comment-reply-link');
-                if (cancelLink) {
-                    cancelLink.click();
-                }
-                
-                if (isReply) {
-                    // This was a reply, so move and show the reply success message
-                    const parentCommentNode = document.getElementById('comment-' + parentId); // Use the captured parentId
-                    if (parentCommentNode) {
-                        parentCommentNode.appendChild(replySuccessMessage);
-                    }
-                    replySuccessMessage.style.display = 'block';
-                } else {
-                    // This was a top-level comment, show the main success message
-                    mainSuccessMessage.style.display = 'block';
-                }
+                // SUCCESS: Reload the page to show the new comment structure correctly.
+                // This is the simplest and most reliable way to update the view.
+                window.location.reload();
 
             } else {
-                // VALIDATION ERROR (no changes here)
+                // VALIDATION ERROR
                 if (data.data.errors) {
                     for (const field in data.data.errors) {
                         const message = data.data.errors[field];

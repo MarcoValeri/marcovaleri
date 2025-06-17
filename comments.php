@@ -43,6 +43,7 @@ $postURL = get_post_permalink($postID);
         'style'       => 'div', // Use <div>s for comments instead of <ul>
         'short_ping'  => true,
         'avatar_size' => 0, // Set to 0 to hide avatars, or a size like 64
+        'max_depth' => 2,
         'callback'    => 'my_custom_comment_format', // This is our custom function from functions.php
     ] );
 
