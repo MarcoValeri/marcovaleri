@@ -24,7 +24,7 @@ function my_custom_comment_format($comment, $args, $depth) {
         $custom_classes[] = 'comment-card--reply';
     }
     ?>
-    <li <?php comment_class($custom_classes); ?> id="comment-<?php comment_ID(); ?>">
+    <div <?php comment_class($custom_classes); ?> id="comment-<?php comment_ID(); ?>">
         <div class="comment-card__wrapper">
             <div class="comment-card__container-name">
                 <h4 class="h3"><?php echo get_comment_author_link(); ?></h4>
@@ -61,6 +61,6 @@ function my_custom_comment_format($comment, $args, $depth) {
                 ?>
             </div>
         </div>
-    </li>
+    </div>
     <?php
 }
