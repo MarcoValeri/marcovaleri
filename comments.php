@@ -25,7 +25,7 @@ $postURL = get_post_permalink($postID);
         'submit_button'             => '<div class="content__container-form-submit"><input class="content__form-btn button button__black" type="submit" name="submit" value="Invia" id="comment-submit" /><p class="body-3">Per maggiori informazioni consulta la <a class="link" href="#">Privacy Policy</a></p></div>',
         'title_reply'               => __(''),
         'title_reply_to'            => __('Rispondi'),
-        'logged_in_as'              => '<div><p>Sei registrato come ' . $userEmailLogged . '</p></div>',
+        'logged_in_as'              => '<div><p class="p">Sei registrato come <strong>' . $userEmailLogged . '</strong></p></div>',
         'comment_notes_before'      => comment_id_fields(),
         'comment_notes_after'       => '',
         'class_form'                => 'content__form-grid',
