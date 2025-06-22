@@ -139,7 +139,7 @@ function my_custom_comment_format($comment, $args, $depth) {
 
     // If the depth is greater than 1, it's a reply.
     if ($depth > 1) {
-        $custom_classes[] = 'card-comment--reply';
+        $custom_classes[] = 'comment-card--reply';
     }
     ?>
         <div <?php comment_class($custom_classes); ?> id="comment-<?php comment_ID(); ?>">

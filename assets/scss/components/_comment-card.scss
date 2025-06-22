@@ -1,8 +1,14 @@
 .comment-card {
     padding: 1rem;
-    margin-bottom: 2rem;
+    margin-top: 2rem;
     border: 1px solid $grey-font;
     border-radius: 4px;
+
+    &--reply {
+        background-color: #f9f9f9;
+        margin-left: 2rem;
+        margin-top: 0;
+    }
 
     &__wrapper {
         display: flex;
@@ -51,5 +57,19 @@
 
     strong {
         font-weight: 900;
+    }
+}
+
+// This class is created from WP by the reply
+.comment-respond {
+    margin-top: 2rem;
+}
+
+.comment-reply-title {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+
+    a {
+        margin-left: 1rem;
     }
 }

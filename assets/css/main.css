@@ -283,9 +283,14 @@ html {
 
 .comment-card {
   padding: 1rem;
-  margin-bottom: 2rem;
+  margin-top: 2rem;
   border: 1px solid hsl(0, 5%, 62%);
   border-radius: 4px;
+}
+.comment-card--reply {
+  background-color: #f9f9f9;
+  margin-left: 2rem;
+  margin-top: 0;
 }
 .comment-card__wrapper {
   display: flex;
@@ -325,6 +330,18 @@ html {
 }
 .comment-card strong {
   font-weight: 900;
+}
+
+.comment-respond {
+  margin-top: 2rem;
+}
+
+.comment-reply-title {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+.comment-reply-title a {
+  margin-left: 1rem;
 }
 
 .ebook-banner {
@@ -729,14 +746,6 @@ html {
     margin-left: 3.5rem;
   }
 }
-/* ==========================================================================
-   Final Polished Comment Threading Styles
-   ========================================================================== */
-/* This is the main container for a group of replies */
-.card-comment--reply {
-  background-color: #f9f9f9;
-}
-
 .footer {
   position: relative;
   height: 30vh;
