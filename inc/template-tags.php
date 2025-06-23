@@ -1,19 +1,8 @@
 <?php
 /**
- * Custom template tags and functions for this theme.
- *
- * This file is for functions that are used in the theme's template files to generate HTML.
- *
- * @package marcovaleri
- */
-
-if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly.
-}
-
-/**
  * Custom callback function to format the HTML for each comment.
- * This is used by wp_list_comments() in comments.php.
+ * This version checks if the commenter is an admin and displays their
+ * name as plain text instead of a link.
  */
 function my_custom_comment_format($comment, $args, $depth) {
     // Create an array to hold our classes.
@@ -27,7 +16,20 @@ function my_custom_comment_format($comment, $args, $depth) {
     <div <?php comment_class($custom_classes); ?> id="comment-<?php comment_ID(); ?>">
         <div class="comment-card__wrapper">
             <div class="comment-card__container-name">
-                <h4 class="h3"><?php echo get_comment_author_link(); ?></h4>
+                <h4 class="h3">
+                    <?php
+                    // --- START: NEW LOGIC FOR AUTHOR NAME ---
+                    // Check if the comment was written by a logged-in user with the 'administrator' role.
+                    if ($comment->user_id && user_can($comment->user_id, 'administrator')) {
+                        // If they are an admin, just print their name without a link.
+                        echo get_comment_author($comment);
+                    } else {
+                        // For all other users and guests, use the default link behavior.
+                        echo get_comment_author_link($comment);
+                    }
+                    // --- END: NEW LOGIC ---
+                    ?>
+                </h4>
             </div>
 
             <div class="comment-card__container-date">
@@ -53,7 +55,7 @@ function my_custom_comment_format($comment, $args, $depth) {
                             'add_below'  => 'comment',
                             'depth'      => $depth,
                             'max_depth'  => $args['max_depth'],
-                            'reply_text' => 'Rispondi', // "Reply" text
+                            'reply_text' => 'Rispondi',
                             'login_text' => 'Log in to Reply'
                         ]
                     )
