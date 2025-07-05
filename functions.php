@@ -1,6 +1,7 @@
 <?php
 require get_template_directory() . '/inc/ajax-comment-handler.php';
 require get_template_directory() . '/inc/template-tags.php';
+require get_template_directory() . '/inc/comment-notifications.php';
 
 // Add theme support
 add_theme_support('post-thumbnails', ['post', 'page']);
