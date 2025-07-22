@@ -70,16 +70,16 @@
             <div class="banner-preview">
                 <div class="banner-preview__wrapper">
                     <div class="banner-preview__container-image">
-                        <img class="banner-preview__image" src="<?= get_site_url(); ?>/wp-content/uploads/quaderno-scritto-con-penna.webp" alt="Murales di Londra, un uomo con l'ombrello che cammina con una valigia in mano sotto l'icon della metropolitana" />
+                        <img class="banner-preview__image" src="<?= get_site_url(); ?>/wp-content/uploads/quaderno-scritto-con-penna.webp" alt="Quaderno scritto con penna, sopra appoggiata una penna e una piccola agenda, aperta su una pagina bianca dove si posa una matita" />
                     </div>
                     <div class="banner-preview__container-title">
-                        <h2 class="h2">Scrivere</h2>
+                        <h2 class="h2">Chi sono</h2>
                     </div>
                     <div class="banner-preview__container-description">
-                        <p class="body-2">Scrivere, un percorso in solitaria, difficile ma che rende la nostra...</p>
+                        <p class="body-2">Mi chiamo Marco Valeri, Software Engineer, blogger, aspirante autore...</p>
                     </div>
                     <div class="banner-preview__container-button">
-                        <a href="<?= get_site_url(); ?>/category/scrivere/">
+                        <a href="<?= get_site_url(); ?>/chi-sono/">
                             <button class="button button__black">Scopri di più</button>
                         </a>
                     </div>
