@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    <title>Marco Valeri Contatti</title>
+{% endblock %}
+
+{% block description %}
+    <meta name"Description" CONTENT="Contatti del sito di Marco Valeri, form con email e messaggio per mettersi in contatto e scrivere all'autore tramite il seguente form dedicato ai contatti" >
+{% endblock %}
+
+{% block canonical %}
+    <link rel="canonical" href="https://www.marcovaleri.net/page/contatti">
+{% endblock %}
+
+{% block body %}
+    {{ form_start(contactForm) }}
+        <div class="contact-grid">
+            <div class="contact-grid__title">
+                <h2 class="contact-grid__title-main">Marco Valeri contatti</h2>
+                <p class="contact-grid__title-sub">
+                    Sentiti libero di scrivermi tramite il seguente form per qualsiasi questione o esigenza
+                </p>
+            </div>
+            <div class="contact-grid__name contact-grid__input">
+                {{ form_row(contactForm.name) }}
+            </div>
+            <div class="contact-grid__surname contact-grid__input">
+                {{ form_row(contactForm.surname) }}
+            </div>
+            <div class="contact-grid__email contact-grid__input">
+                {{ form_row(contactForm.email) }}
+            </div>
+            <div class="contact-grid__message contact-grid__input">
+                {{ form_row(contactForm.message) }}
+            </div>
+            <div class="contact-grid__submit contact-grid__input">
+                {{ form_row(contactForm.submit) }}
+            </div>
+        </div>
+    {{ form_end(contactForm) }}
+{% endblock %}

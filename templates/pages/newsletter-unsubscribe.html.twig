@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block index %}
+    <meta name="robots" content="noindex" />
+{% endblock %}
+
+{% block body %}
+    <div class="content__title">
+        <h2>Disiscrizione alla newsletter</h2>
+    </div>
+    <div class="content__main">
+        <p>
+            Mi mancherai...
+            <br>
+            Ma ti confermo che l'indirizzo email {{ email }} è stato correttamente rimosso.
+            <br>
+            Questo significa che non ricerai più alcuna email da parte mia.
+        </p>
+    </div>
+{% endblock %}

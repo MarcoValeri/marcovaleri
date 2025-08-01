@@ -1,0 +1,167 @@
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "contact-grid__title contact-grid__title"
+    "contact-grid__name contact-grid__surname"
+    "contact-grid__email contact-grid__email"
+    "contact-grid__message contact-grid__message"
+    "contact-grid__submit contact-grid__submit";
+    border: 1px solid #000;
+}
+
+.contact-grid__title {
+    grid-area: contact-grid__title;
+    margin: 1.5rem;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* This doesn't respect BEM Methodology and
+doesn't render well the error message, need to improve it */
+.contact-grid__input ul li {
+    list-style: none;
+    color: #ff0000;
+    margin-bottom: .8rem;
+}
+
+.contact-grid__title-main {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-grid__title-sub {
+    font-size: 2rem;
+}
+
+.contact-grid__name {
+    grid-area: contact-grid__name;
+}
+
+.contact-grid__surname {
+    grid-area: contact-grid__surname;
+}
+
+.contact-grid__email {
+    grid-area: contact-grid__email;
+}
+
+.contact-grid__message {
+    grid-area: contact-grid__message;
+}
+
+.contact-grid__submit {
+    grid-area: contact-grid__submit;
+}
+
+.contact-grid__input {
+    margin: 1.2rem;
+    padding: 1.2rem;
+}
+
+.contact-grid label,
+.contact-grid input {
+    display: block;
+}
+
+.contact-grid label {
+    margin-bottom: .8rem;
+    font-size: 1.8rem
+}
+
+.contact-grid input {
+    font-size: 1.8rem;
+    padding: .8rem;
+}
+
+.contact-grid textarea {
+    width: 100%;
+    height: auto;
+    min-height: 15rem;
+    font-size: 1.8rem;
+    padding: .8rem;
+}
+
+.contact-grid button {
+    font-size: 1.8rem;
+    padding: .8rem;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.contact-grid button:hover {
+    background-color: #000;
+    color: #fff;
+    box-shadow: 5px 5px 3px rgb(112, 112, 112);
+}
+
+/*
+* Media Queries
+* max-width: 767px
+*/
+@media (max-width: 767px) {
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "contact-grid__title"
+        "contact-grid__name"
+        "contact-grid__surname"
+        "contact-grid__email"
+        "contact-grid__message"
+        "contact-grid__submit";
+    }
+
+    .contact-grid__submit {
+        text-align: center;
+    }
+
+    .contact-grid textarea {
+        width: 90%;
+
+    }
+
+}
+
+/*
+* Media Queries
+* max-width: 480px
+*/
+@media (max-width: 480px) {
+
+    .contact-grid__title {
+        margin: .8rem;
+        padding: .8rem;
+        text-align: center;
+    }
+    
+    .contact-grid__title-main {
+        font-size: 1.8rem;
+    }
+    
+    .contact-grid__title-sub {
+        font-size: 1.8rem;
+    }
+
+    .contact-grid__input {
+        margin: .8rem;
+        padding: .8rem;
+    }
+
+    .contact-grid label {
+        font-size: 1.2rem;
+    }
+
+    .contact-grid input {
+        font-size: 1.2rem;
+    }
+
+    .contact-grid textarea {
+        font-size: 1.2rem;
+    }
+
+    .contact-grid button {
+        font-size: 1.2rem;
+    }
+
+}

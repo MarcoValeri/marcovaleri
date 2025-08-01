@@ -1,0 +1,14 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block page_title %}
+    Marco Valeri Dashboard
+{% endblock %}
+
+{% block main %}
+    <h4>Articles live</h4>
+    <ol>
+    {% for article in articles %}
+        <li>{{ article.title }}</li>
+    {% endfor %}
+    </ol>
+{% endblock %}

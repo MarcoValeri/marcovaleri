@@ -1,0 +1,100 @@
+.articles-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &__title {
+        width: 100%;
+        font-size: 4rem;
+        text-align: center;
+        margin: 4rem auto;
+
+        @include respond('xs') {
+            font-size: 2.5rem;
+        }
+    }
+
+    &__container {
+        margin-bottom: 5rem;
+    }
+
+    &__article {
+        width: 90%;
+        display: flex;
+        margin: auto;
+        padding: .5rem;
+        transition: all .5s;
+        border: 1px solid $grey-light;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        @include respond('m') {
+            flex-direction: column;
+        }
+    }
+
+    &__container-image {
+        min-width: 15rem;
+        min-height: 15rem;
+    }
+
+    &__article-image {
+        width: 15rem;
+        height: 15rem;
+
+        @include respond('m') {
+            width: 100%;
+            height: auto;
+            max-height: 40rem;
+        }
+    }
+
+    &__content-container {
+        width: 60rem;
+        padding: 0 1rem 1rem 1rem;
+
+        @include respond('xxl') {
+            width: 40rem;
+        }
+
+        @include respond('xl') {
+            width: 30rem;
+        }
+
+        @include respond('m') {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 1rem .5rem 0 .5rem;
+        }
+    }
+
+    &__article-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    &__article-paragraph {
+        font-size: 1.8rem;
+        line-height: 1.6;
+    }
+
+    &__container-btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        @include respond(sm) {
+            flex-direction: column;
+        }
+    }
+
+    &__container-btn-prev {
+        margin-bottom: 2rem;
+    }
+
+}

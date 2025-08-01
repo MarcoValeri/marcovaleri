@@ -1,0 +1,129 @@
+// Button
+.button {
+    font-size: 1.6rem;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &__black {
+        color: $white;
+        background-color: $black;
+
+        &:hover {
+            color: $black;
+            background-color: $white;
+            transform: translate(0, -2px);
+            box-shadow: 5px 5px 3px rgb(112, 112, 112);
+        }
+    }
+
+    &__white {
+        color: $black;
+        background-color: $white;
+
+        &:hover {
+            color: $white;
+            background-color: $black;
+            transform: translate(0, -2px);
+            border: 1px solid $white;
+        }
+    }
+}
+
+// H tags
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2.8rem;
+}
+
+h4 {
+    font-size: 2.5rem;
+}
+
+// Paragraph
+.body-1 {
+    font-size: 2.2rem;
+}
+
+.body-2 {
+    font-size: 2rem;
+}
+
+.body-3 {
+    font-size: 1.8rem;
+}
+
+.body-4 {
+    font-size: 1.6rem;
+}
+
+.p {
+    font-size: 2.2rem;
+}
+
+.p--bold {
+    font-weight: 900;
+}
+
+.rainbow {
+    background-image: linear-gradient(to left, violet, indigo, blue, green, #cccc2c, orange, red);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+// Links
+.no-link {
+    text-decoration: none;
+    color: #000;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.no-link--white {
+    text-decoration: none;
+    color: #fff;
+
+    &:hover {
+        text-decoration: none;
+        border: 1px solid #000;
+    }
+}
+
+.link {
+    color: #296eb4;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// Fonts
+.font-tangerine {
+    font-family: 'Tangerine', cursive;
+}
+
+// List no stye for ul and ol
+.list-no-style {
+    list-style-type: none;
+}
+
+// Errors
+.error {
+    font-size: 1.8rem;
+    color: #f00;
+}

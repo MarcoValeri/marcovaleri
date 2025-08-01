@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    <title>Error 404: page not found</title>
+{% endblock %}
+
+{% block description %}
+    <meta name="Description" CONTENT="Marco Valeri, Error 404, page not found">
+{% endblock %}
+
+{% block index %}
+    <meta name="robots" content="noindex" />
+{% endblock %}
+
+{% block body %}
+    <main class="error404">
+        <section class="error404__content-container">
+            <h1 class="error404__content h1">Pagina non trovata</h1>
+            <h2 class="error404__content h2">Errore 404</h2>
+            <h3 class="error404__content h3">www.marcovaleri.net</h3>
+            <p class="error404__content p">Sembra che la pagina che stai cercando non esiste, cosa vuoi fare?</p>
+            <div class="error404__container-btn">
+                <a href="{{ path('app_home') }}"><button class="error404__btn button button__black">Home</button></a>
+                <a href="{{ path('app_articles_archive', {pageNumber: '0'}) }}"><button class="error404__btn button button__black">Articoli</button></a>
+                <a href="{{ path('app_contact') }}"><button class="error404__btn button button__black">Contatti</button></a>
+            </div>
+        </section>
+    </main>
+{% endblock %}
