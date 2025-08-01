@@ -13,14 +13,14 @@
     <script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js"></script>
     <script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="7jwhs5ORxXEqI0" async></script>
 
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5V630M9K0"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5V630M9K0"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'G-Y5V630M9K0');
-    </script> -->
+    </script>
 
     <?php wp_head(); ?>
 </head>
