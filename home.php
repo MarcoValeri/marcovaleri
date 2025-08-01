@@ -70,6 +70,25 @@
             <div class="banner-preview">
                 <div class="banner-preview__wrapper">
                     <div class="banner-preview__container-image">
+                        <img class="banner-preview__image" src="<?= get_site_url(); ?>/wp-content/uploads/cabine-del-telefono-di-londra-vicino-al-london-eye.webp" alt="Cabine del telefono di Londra vicino al London Eye" />
+                    </div>
+                    <div class="banner-preview__container-title">
+                        <h2 class="h2">Viaggi</h2>
+                    </div>
+                    <div class="banner-preview__container-description">
+                        <p class="body-2">Viaggiare significa aprire la propria mente verso nuovi orizzonti, culture...</p>
+                    </div>
+                    <div class="banner-preview__container-button">
+                        <a href="<?= get_site_url(); ?>/category/viaggi">
+                            <button class="button button__black">Scopri di più</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        <!-- <div class="home__container-single-category box-shadow-yellow">
+            <div class="banner-preview">
+                <div class="banner-preview__wrapper">
+                    <div class="banner-preview__container-image">
                         <img class="banner-preview__image" src="<?= get_site_url(); ?>/wp-content/uploads/quaderno-scritto-con-penna.webp" alt="Quaderno scritto con penna, sopra appoggiata una penna e una piccola agenda, aperta su una pagina bianca dove si posa una matita" />
                     </div>
                     <div class="banner-preview__container-title">
@@ -84,7 +103,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="home__container-serach">

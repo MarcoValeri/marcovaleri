@@ -13,17 +13,15 @@
     <script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js"></script>
     <script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="7jwhs5ORxXEqI0" async></script>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5V630M9K0"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5V630M9K0"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'G-Y5V630M9K0');
-    </script>
+    </script> -->
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9306947071363993"
-     crossorigin="anonymous"></script>
     <?php wp_head(); ?>
 </head>
 <body>
@@ -53,6 +51,9 @@
                     </li>
                     <li class="navbar__element <?= isThisUrlPath("/category/vivere-estero/") ? 'navbar__element--mark' : '' ?>">
                         <a class="navbar__link" href="<?= get_site_url(); ?>/category/vivere-estero/">Vivere all'estero</a>
+                    </li>
+                    <li class="navbar__element <?= isThisUrlPath("/category/viaggi/") ? 'navbar__element--mark' : '' ?>">
+                        <a class="navbar__link" href="<?= get_site_url(); ?>/category/viaggi/">Viaggi</a>
                     </li>
                     <li class="navbar__element <?= isThisUrlPath("/contatti/") ? 'navbar__element--mark' : '' ?>">
                         <a class="navbar__link" href="<?= get_site_url(); ?>/contatti/">Contatti</a>

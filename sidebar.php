@@ -5,12 +5,12 @@
             <a class="sidebar__social-link no-link" href="https://www.instagram.com/marcovalerinet/" target="_blank">
                 <img class="sidebar__social-icon" src="<?= get_site_url(); ?>/wp-content/uploads/instagram-icon-official.png" alt="Instagram logo ufficiale" width="50">
             </a>
-            <a class="sidebar__social-link no-link" href="https://www.facebook.com/marcovaleriofficial/" target="_blank">
-                <img class="sidebar__social-icon" src="<?= get_site_url(); ?>/wp-content/uploads/facebook-icon-official.png" alt="Facebook logo ufficiale" width="50">
+            <a class="sidebar__social-link no-link" href="https://www.youtube.com/@marcovalerinet" target="_blank">
+                <img class="sidebar__social-icon" src="<?= get_site_url(); ?>/wp-content/uploads/youtube-icona-ufficiale.png" alt="YouTube logo ufficiale" width="50">
             </a>
-            <a class="sidebar__social-link no-link" href="https://twitter.com/MarcoValeriNet" target="_blank">
+            <!-- <a class="sidebar__social-link no-link" href="https://twitter.com/MarcoValeriNet" target="_blank">
                 <img class="sidebar__social-icon" src="<?= get_site_url(); ?>/wp-content/uploads/twitter-logo-black.png" alt="Twitter X logo bianco su sfondo trasparente" width="50">
-            </a>
+            </a> -->
         </div>
     </div>
     <div class="sidebar__item">
