@@ -1,7 +1,5 @@
 <?php
 $commentsNum = get_comments_number();
-$postID = get_post()->ID;
-$postURL = get_post_permalink($postID);
 ?>
 <section id="article-container-comments" class="content__section-form">
     <div id="comment-success-message" class="content__container-comments-success" style="display:none;">
@@ -26,7 +24,7 @@ $postURL = get_post_permalink($postID);
         'title_reply'               => __(''),
         'title_reply_to'            => __('Rispondi'),
         'logged_in_as'              => '<div><p class="p">Sei registrato come <strong>' . $userEmailLogged . '</strong></p></div>',
-        'comment_notes_before'      => comment_id_fields(),
+        'comment_notes_before'      => '',
         'comment_notes_after'       => '',
         'class_form'                => 'content__form-grid',
     ];
